@@ -204,7 +204,13 @@ public class Labyrinthe {
     }
 
     public boolean getEntite(int x, int y){
-        return entites.etrePresent(x,y);
+        boolean res = false;
+        for(int i = 0; i < entites.size(); i++) {
+            res = entites.get(i).etrePresent(x, y);
+            if (res)
+                break;
+        }
+        return res;
     }
 
     public Perso getPj() {
