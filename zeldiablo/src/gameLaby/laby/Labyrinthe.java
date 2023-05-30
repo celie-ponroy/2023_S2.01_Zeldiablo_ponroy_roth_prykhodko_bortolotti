@@ -36,6 +36,7 @@ public class Labyrinthe {
      */
     public boolean[][] murs;
 
+
     /**
      * retourne la case suivante selon une actions
      *

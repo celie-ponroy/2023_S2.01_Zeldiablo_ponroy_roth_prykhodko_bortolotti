@@ -1,0 +1,17 @@
+@startuml
+title Donner une position initiale au monstre
+
+participant "main" as m
+participant "laby : Labyrinthe" as laby
+participant "Bob : Monstre" as bob
+
+create laby
+m -->laby : Labyrinthe("laby0.txt")
+
+create bob
+laby --> bob : Monstre(int x, int y)
+
+
+
+
+@enduml
