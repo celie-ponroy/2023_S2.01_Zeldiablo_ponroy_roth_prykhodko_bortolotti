@@ -213,4 +213,8 @@ public class Labyrinthe {
     public Perso getPj() {
         return pj;
     }
+
+    public ArrayList<Entite> getEntites() {
+        return entites;
+    }
 }
