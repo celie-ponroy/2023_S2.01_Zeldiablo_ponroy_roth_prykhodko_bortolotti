@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+
+participant "main" as m
+participant "labydessin : LabyDessin" as labyd
+participant "labyJeu : LabyJeu" as labyj
+participant "laby : Labyrinthe" as labyrinthe
+participant "entités : Arraylist<Entité>" as entités
+participant "monstre : Monstre" as mstr
+m--> labyd:DessinerJeu((Jeu jeu, Canvas canvas));
+labyd --> labyj : getLabyrinthe()
+labyd <-- labyj : labyrinthe
+labyd--> labyrinthe: getEntités()
+labyd<-- labyrinthe: entités
+loop
+labyd --> entités : get(i)
+labyd <-- entités : Monstre
+labyd --> Monstre : getX()
+labyd <-- Monstre
+labyd --> Monstre : getY()
+labyd <-- Monstre
+m<-- labyd
+end loop
+
+
+@enduml
