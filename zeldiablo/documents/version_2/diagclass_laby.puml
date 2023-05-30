@@ -1,0 +1,46 @@
+@startuml
+package gameLaby.laby{
+class Labyrinthe{
++ <static final> MUR: char
++ <static final> PJ: char
++ <static final> VIDE: char
++ <static final> HAUT: String
++ <static final> BAS: String
++ <static final> GAUCHE: String
++ <static final> DROITE: String
++ <static final> MONSTRE : char
++ murs : boolean[][]
++ Labyrinthe(String nom)
++ getSuivant(int x, int y, String action) : int[]
++ deplacerPerso(String action)
++ deplacerEntitee()
++ etreFini(): boolean
++ getLengthY(): int
++ getLength(): int
++ getMur(int x, int y): boolean
+
+}
+class Perso{
++ x : int
++ y : int
++Perso(int dx, int dy)
++etrePresent(int dx, int dy): boolean
++get): int
++getY(): int
+}
+Abstract class Entitée{
+- x : int
+- y : int
++ etrePresent(int dx, int dy): boolean
++set)
++setY()
++{abstract}deplacer()
+}
+class Monstre{
++deplacer()
+}
+}
+Labyrinthe "1" --> "*" Entitée : monstres
+Labyrinthe "1" --> "1" Perso : + pj
+Entitée <|-- Monstre
+@enduml

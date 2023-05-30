@@ -3,6 +3,7 @@ package gameLaby.laby;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * classe labyrinthe. represente un labyrinthe avec
@@ -26,7 +27,7 @@ public class Labyrinthe {
     public static final String GAUCHE = "Gauche";
     public static final String DROITE = "Droite";
 
-    private Entite entites;
+    public ArrayList<Entite> entites;
 
     /**
      * attribut du personnage
