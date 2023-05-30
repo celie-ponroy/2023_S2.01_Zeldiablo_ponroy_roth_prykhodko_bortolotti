@@ -159,9 +159,12 @@ public class Labyrinthe {
 
         // si c'est pas un mur, on effectue le deplacement
         if (!this.murs[suivante[0]][suivante[1]]) {
-            // on met a jour personnage
-            this.pj.x = suivante[0];
-            this.pj.y = suivante[1];
+            // si c'est pas une entite, on effectue le deplacement
+            if(!this.getEntitePos(suivante[0],suivante[1])) {
+                // on met a jour personnage
+                this.pj.x = suivante[0];
+                this.pj.y = suivante[1];
+            }
         }
     }
 
@@ -206,6 +209,16 @@ public class Labyrinthe {
     public boolean getMur(int x, int y) {
         // utilise le tableau de boolean
         return this.murs[x][y];
+    }
+
+    public boolean getEntitePos(int x, int y){
+        boolean res = false;
+        for(int i = 0; i < entites.size(); i++) {
+            res = entites.get(i).etrePresent(x, y);
+            if (res)
+                break;
+        }
+        return res;
     }
 
     public Perso getPj() {

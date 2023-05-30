@@ -1,7 +1,5 @@
 import gameLaby.laby.Entite;
 import gameLaby.laby.Labyrinthe;
-import gameLaby.laby.Monstre;
-
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
