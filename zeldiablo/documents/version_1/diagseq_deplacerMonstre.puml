@@ -1,0 +1,32 @@
+@startuml
+
+autonumber
+
+participant "main" as m
+participant "monstre : Monstre" as p
+participant "laby : Labyrinthe" as l
+
+activate m
+
+m -> p : getX()
+activate p
+m <-- p : x
+
+m -> p : getY()
+m <-- p : y
+deactivate p
+
+m -> l : getSuivant(x, y, "GAUCHE")
+activate l
+m <-- l : [x,y]
+m -> l : deplacementValide(x, y)
+m <-- l : boolean
+
+alt si deplacementValide renvoie true
+m -> l : deplacer("GAUCHE")
+m <-- l : void
+end
+
+
+
+@enduml
