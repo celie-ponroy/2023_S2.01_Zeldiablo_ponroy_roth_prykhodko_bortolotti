@@ -1,4 +1,5 @@
 import gameLaby.laby.Labyrinthe;
+import org.junit.Test;
 
 import java.io.IOException;
 
