@@ -164,8 +164,6 @@ public class Labyrinthe {
         }
     }
 
-    public
-
 
     /**
      * jamais fini
