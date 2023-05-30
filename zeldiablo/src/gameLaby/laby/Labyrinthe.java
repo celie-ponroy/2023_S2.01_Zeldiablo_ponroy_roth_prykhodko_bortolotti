@@ -18,6 +18,7 @@ public class Labyrinthe {
     public static final char MUR = 'X';
     public static final char PJ = 'P';
     public static final char VIDE = '.';
+    public static final char MONSTRE = 'M';
 
     /**
      * constantes actions possibles
@@ -120,6 +121,12 @@ public class Labyrinthe {
                         // ajoute PJ
                         this.pj = new Perso(colonne, numeroLigne);
                         break;
+                    case MONSTRE:
+                        //pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        //ajoute MONSTRE
+                        this.entites.add(new Monstre(colonne, numeroLigne));
+                        break;
 
                     default:
                         throw new Error("caractere inconnu " + c);
@@ -156,6 +163,8 @@ public class Labyrinthe {
             this.pj.y = suivante[1];
         }
     }
+
+    public
 
 
     /**
