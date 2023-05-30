@@ -157,10 +157,9 @@ public class Labyrinthe {
         }
     }
 
-    public void deplacerEntite(Entite e){
-        e.deplacer();
+    public void deplacerEntite(Entite e, String action){
+        e.deplacer(action);
     }
-
 
     /**
      * jamais fini
