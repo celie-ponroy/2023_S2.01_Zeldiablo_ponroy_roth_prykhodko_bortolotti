@@ -28,12 +28,13 @@ public class Labyrinthe {
     public static final String GAUCHE = "Gauche";
     public static final String DROITE = "Droite";
 
-    public ArrayList<Entite> entites;
+
 
     /**
      * attribut du personnage
      */
     public Perso pj;
+    public ArrayList<Entite> entites;
 
     /**
      * les murs du labyrinthe
@@ -173,13 +174,11 @@ public class Labyrinthe {
         // calcule case suivante
         int[] suivante = getSuivant(courante[0], courante[1], act);
 
-        //un phantom
-        if(!e.getCollision()){
-            e.setX(suivante[0]);
-            e.setY(suivante[1]);
-        }
         // si c'est pas un mur, on effectue le deplacement
-        if (!this.murs[suivante[0]][suivante[1]]) {
+        if (/*un phantom qui se deplace*/!e.getCollision() ||
+                /*case vide(ou avec entite) */!this.murs[suivante[0]][suivante[1]] &&
+                                /*entite de type phantom */((etreEntite(suivante[0],suivante[1]) && getEnite(suivante[0],suivante[1]).getCollision())
+                                || /*case vide*/!etreEntite(suivante[0],suivante[1])) )  {
             // on met a jour personnage
             e.setX(suivante[0]);
             e.setY(suivante[1]);
@@ -226,6 +225,27 @@ public class Labyrinthe {
     public boolean getMur(int x, int y) {
         // utilise le tableau de boolean
         return this.murs[x][y];
+    }
+
+    public Entite getEnite(int x, int y){
+        Entite res = null;
+        for(int i = 0; i < entites.size(); i++) {
+            if(entites.get(i).etrePresent(x, y)){
+                res = entites.get(i);
+                break;
+            }
+        }
+        return res;
+    }
+
+    public boolean etreEntite(int x, int y){
+        boolean res = false;
+        for(int i = 0; i < entites.size(); i++) {
+            res = entites.get(i).etrePresent(x, y);
+            if (res)
+                break;
+        }
+        return res;
     }
 
     public Perso getPj() {

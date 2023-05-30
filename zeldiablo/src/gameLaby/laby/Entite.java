@@ -3,6 +3,7 @@ package gameLaby.laby;
 public abstract class Entite {
     private int x;
     private int y;
+    private boolean collision;
 
     public Entite(int x, int y){
         this.x = x;
@@ -27,6 +28,10 @@ public abstract class Entite {
 
     public int getY() {
         return y;
+    }
+
+    public  boolean getCollision(){
+        return collision;
     }
 //    public abstract void deplacer();
 }
