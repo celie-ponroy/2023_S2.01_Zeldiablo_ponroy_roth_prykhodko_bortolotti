@@ -30,7 +30,6 @@ public class Perso {
      * @return true si le personnage est bien en (dx,dy)
      */
     public boolean etrePresent(int dx, int dy) {
-
         return (this.x == dx && this.y == dy);
     }
 
