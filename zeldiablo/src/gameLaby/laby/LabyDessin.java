@@ -34,5 +34,8 @@ public class LabyDessin implements DessinJeu {
                 if(labyrinthe.getMur(i,j))
                     gc.fillRect(i*50,j*50,50,50);
         }
+
+        //desssin monstre
+
     }
 }
