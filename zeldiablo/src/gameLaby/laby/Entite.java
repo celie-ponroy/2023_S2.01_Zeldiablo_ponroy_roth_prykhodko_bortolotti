@@ -4,6 +4,11 @@ public abstract class Entite {
     private int x;
     private int y;
 
+    public Entite(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
     public boolean etrePresent(int dx, int dy) {
         return (this.x == dx && this.y == dy);
     }
