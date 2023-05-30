@@ -34,19 +34,4 @@ public class Perso extends Entite{
     // GETTER
     // ############################################
 
-    /**
-     * @return position x du personnage
-     */
-    public int getX() {
-        // getter
-        return this.getX();
-    }
-
-    /**
-     * @return position y du personnage
-     */
-    public int getY() {
-        //getter
-        return this.getY();
-    }
 }
