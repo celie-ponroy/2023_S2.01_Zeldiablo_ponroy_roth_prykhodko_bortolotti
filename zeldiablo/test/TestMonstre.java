@@ -1,8 +1,13 @@
 import gameLaby.laby.Entite;
 import gameLaby.laby.Labyrinthe;
+import org.junit.Test;
+
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.Assert.assertEquals;
 
 public class TestMonstre {
     /**
@@ -11,9 +16,9 @@ public class TestMonstre {
      */
     @Test
     public void testPosMonstre() throws IOException {
-        Labyrinthe laby = new Labyrinthe("laby0.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
         ArrayList<Entite> listeEntite = laby.getEntites();
-        assertEquals(5, listeEntite.get(0).getX());
+        assertEquals(4, listeEntite.get(0).getX());
         assertEquals(2, listeEntite.get(0).getY());
     }
 
@@ -21,8 +26,9 @@ public class TestMonstre {
      * Test que la caractère d'un monstre est bien 'M'
      */
     @Test
-    public void testCaraMonstre(){
-        Labyrinthe laby = new Labyrinthe("laby0.txt");
+    public void testCaraMonstre() throws IOException{
+        Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
+
         assertEquals('M',laby.MONSTRE);
     }
 
@@ -32,9 +38,9 @@ public class TestMonstre {
      */
     @Test
     public void testMonstreObstacle() throws IOException {
-        Labyrinthe laby = new Labyrinthe("laby0.txt");
+        Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
         int xInit = laby.pj.getX();
-        laby.deplacerPerso("DROITE");
+        laby.deplacerEntite(laby.pj,"DROITE");
         int xFinal = laby.pj.getX();
         assertEquals(xInit, xFinal);
     }

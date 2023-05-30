@@ -3,18 +3,18 @@
 autonumber
 
 participant "main" as m
-participant "monstre : Monstre" as p
+participant "monstre : Monstre" as monstre
 participant "laby : Labyrinthe" as l
 
 activate m
 
-m -> p : getX()
-activate p
-m <-- p : x
+m -> monstre : getX()
+activate monstre
+m <-- monstre : x
 
-m -> p : getY()
-m <-- p : y
-deactivate p
+m -> monstre : getY()
+m <-- monstre : y
+deactivate monstre
 
 m -> l : getSuivant(x, y, "GAUCHE")
 activate l

@@ -1,12 +1,23 @@
 package gameLaby.laby;
 
 public abstract class Entite {
+    /**
+     * position du personnage
+     */
     private int x;
     private int y;
+    private boolean collision;
 
-    public Entite(int x, int y){
+
+    /**
+     * Constructeur Entite
+     * @param x abscisse
+     * @param y ordonnée
+     */
+    public Entite(int x, int y, boolean col){
         this.x = x;
         this.y = y;
+        collision = col;
     }
 
     public boolean etrePresent(int dx, int dy) {
@@ -21,6 +32,10 @@ public abstract class Entite {
         this.y = y;
     }
 
+    public void setCollision(boolean col){
+        this.collision = col;
+    }
+
     public int getX() {
         return x;
     }
@@ -28,5 +43,9 @@ public abstract class Entite {
     public int getY() {
         return y;
     }
-    public abstract void deplacer();
+
+    public  boolean getCollision(){
+        return collision;
+    }
+//    public abstract void deplacer();
 }
