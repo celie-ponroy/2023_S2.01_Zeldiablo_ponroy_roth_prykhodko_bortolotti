@@ -3,10 +3,10 @@ Célie : fonctionnalité 2;
 Florian : fonctionnalité 3;
 Yehor : fonctionnalité 4;
 
-Nous avons chacun fait les diagrammes de séquence de nos fonctionnalités respective.
+Nous avons chacun fait les diagrammes de séquence de nos fonctionnalités respectives.
 Le diagramme de Classe a été issu d'une discussion collective.
 
-Nous avons décidé d'implémenter perso à notre nouvelle classe Entité.
+Nous avons décidé d'implémenter Perso à notre nouvelle classe Entité.
 
 Fonctionnalités implémentés avec succès :
 -> fonctionnalité 1 : sans problème
@@ -16,10 +16,8 @@ Fonctionnalités implémentés avec succès :
 -> fonctionnalité 3 : sans problème
 -> fonctionnalité 4 : sans problème
 
-Bugs restant:
--...(a ecrire)
-
-
+Bugs restants :
+- aucun bug à signaler
 
 
 Célie Ponroy
