@@ -1,9 +1,17 @@
 package gameLaby.laby;
 
 public abstract class Entite {
+    /**
+     * position du personnage
+     */
     private int x;
     private int y;
 
+    /**
+     * Constructeur Entite
+     * @param x abscisse
+     * @param y ordonnée
+     */
     public Entite(int x, int y){
         this.x = x;
         this.y = y;
