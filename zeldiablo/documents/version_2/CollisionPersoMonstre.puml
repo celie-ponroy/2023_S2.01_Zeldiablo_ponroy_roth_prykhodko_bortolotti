@@ -1,0 +1,40 @@
+@startuml
+
+autonumber
+
+participant "laby : Labyrinthe" as l
+participant "perso : Perso" as p
+
+participant "main" as m
+participant "perso : Perso" as p
+participant "laby : Labyrinthe" as l
+
+activate m
+
+m -> p : getX()
+activate p
+m <-- p : x
+
+m -> p : getY()
+m <-- p : y
+deactivate p
+
+m -> l : getSuivant(x, y, action)
+activate l
+m <-- l : [x,y]
+m -> l : getMur(x, y)
+m <-- l : boolean
+
+alt si getMur renvoie false
+    m -> l : getMonstre(x, y)
+    m <-- l : boolean
+    alt si getMonstre renvoie false
+        m -> l : deplacerPerso(action)
+        m <-- l : void
+    end
+end
+
+deactivate l
+deactivate m
+
+@enduml
