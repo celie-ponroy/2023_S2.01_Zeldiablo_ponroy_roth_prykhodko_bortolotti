@@ -6,12 +6,16 @@ participant "laby : Labyrinthe" as laby
 participant "Bob : Monstre" as bob
 
 create laby
-m -->laby : Labyrinthe("laby0.txt")
+m ->laby : Labyrinthe("laby0.txt")
+activate laby
 
 create bob
-laby --> bob : Monstre(int x, int y)
+laby -> bob : Monstre(int x, int y)
+activate bob
+laby <-- bob
+deactivate bob
 
-
-
+m <-- laby
+deactivate laby
 
 @enduml
