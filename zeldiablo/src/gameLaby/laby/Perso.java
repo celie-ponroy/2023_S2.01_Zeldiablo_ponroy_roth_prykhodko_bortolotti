@@ -4,7 +4,7 @@ package gameLaby.laby;
 /**
  * gere un personnage situe en x,y
  */
-public class Perso {
+public class Perso extends Entite{
 
     /**
      * position du personnage
@@ -21,6 +21,8 @@ public class Perso {
         this.x = dx;
         this.y = dy;
     }
+
+
 
     /**
      * permet de savoir si le personnage est en x,y

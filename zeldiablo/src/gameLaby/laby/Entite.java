@@ -28,5 +28,5 @@ public abstract class Entite {
     public int getY() {
         return y;
     }
-    public abstract void deplacer();
+//    public abstract void deplacer();
 }
