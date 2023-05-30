@@ -1,0 +1,22 @@
+@startuml
+title Déplacer a gauche
+participant "main : Main" as main
+participant "laby : Labyrinthe" as laby
+
+activate main
+main -> laby : deplacerPerso("GAUCHE")
+activate laby
+
+
+laby -> laby : getSuivant(cou)
+activate laby
+laby <-- laby
+deactivate laby
+
+
+
+main <-- laby
+deactivate laby
+
+deactivate main
+@enduml
