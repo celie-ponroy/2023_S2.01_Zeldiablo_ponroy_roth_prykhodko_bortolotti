@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import static org.junit.Assert.assertEquals;
@@ -41,7 +40,7 @@ public class TestMonstre {
     public void testMonstreObstacle() throws IOException {
         Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
         int xInit = laby.pj.getX();
-        laby.deplacerPerso("Droite");
+        laby.deplacerEntite(laby.pj, "Droite");
         int xFinal = laby.pj.getX();
         assertEquals(xInit, xFinal);
     }
