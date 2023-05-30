@@ -26,6 +26,8 @@ public class Labyrinthe {
     public static final String GAUCHE = "Gauche";
     public static final String DROITE = "Droite";
 
+    private Entite entites;
+
     /**
      * attribut du personnage
      */

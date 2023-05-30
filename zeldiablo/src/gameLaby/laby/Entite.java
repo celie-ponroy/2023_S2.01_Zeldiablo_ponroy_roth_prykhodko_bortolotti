@@ -1,6 +1,6 @@
 package gameLaby.laby;
 
-public abstract class Entitee {
+public abstract class Entite {
     private int x;
     private int y;
 
