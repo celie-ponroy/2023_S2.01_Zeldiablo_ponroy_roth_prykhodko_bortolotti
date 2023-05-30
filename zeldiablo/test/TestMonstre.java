@@ -3,7 +3,10 @@ import gameLaby.laby.Labyrinthe;
 import org.junit.Test;
 import java.io.IOException;
 import java.util.ArrayList;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 36363c32c7447b8a403946cf649b1e182cf77a6d
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.assertEquals;
 
@@ -38,7 +41,8 @@ public class TestMonstre {
     public void testMonstreObstacle() throws IOException {
         Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
         int xInit = laby.pj.getX();
-        laby.deplacerEntite(laby.pj,"DROITE");
+        laby.deplacerEntite(laby.pj, "Droite");
+
         int xFinal = laby.pj.getX();
         assertEquals(xInit, xFinal);
     }
