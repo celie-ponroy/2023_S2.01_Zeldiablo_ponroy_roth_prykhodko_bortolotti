@@ -1,8 +1,9 @@
 import gameLaby.laby.Entite;
 import gameLaby.laby.Labyrinthe;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestMonstre {
     /**
@@ -21,7 +22,7 @@ public class TestMonstre {
      * Test que la caractère d'un monstre est bien 'M'
      */
     @Test
-    public void testCaraMonstre(){
+    public void testCaraMonstre() throws IOException{
         Labyrinthe laby = new Labyrinthe("laby0.txt");
         assertEquals('M',laby.MONSTRE);
     }
