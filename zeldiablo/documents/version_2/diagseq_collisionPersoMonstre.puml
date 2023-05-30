@@ -26,7 +26,7 @@ m -> l : getMur(x, y)
 m <-- l : boolean
 
 alt si getMur renvoie false
-    m -> l : getMonstre(x, y)
+    m -> l : getEntite(x, y)
     m <-- l : boolean
     alt si getMonstre renvoie false
         m -> l : deplacerPerso(action)
