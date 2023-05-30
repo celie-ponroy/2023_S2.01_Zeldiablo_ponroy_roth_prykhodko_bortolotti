@@ -121,13 +121,13 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
-                        this.pj = new Perso(colonne, numeroLigne);
+                        this.pj = new Perso(colonne, numeroLigne, true);
                         break;
                     case MONSTRE:
                         //pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         //ajoute MONSTRE
-                        this.entites.add(new Monstre(colonne, numeroLigne));
+                        this.entites.add(new Monstre(colonne, numeroLigne, true));
                         break;
 
                     default:
@@ -151,24 +151,40 @@ public class Labyrinthe {
      *
      * @param action une des actions possibles
      */
-    public void deplacerPerso(String action) {
-        // case courante
-        int[] courante = {this.pj.x, this.pj.y};
+//    public void deplacerPerso(String action) {
+//        // case courante
+//        int[] courante = {this.pj.x, this.pj.y};
+//
+//        // calcule case suivante
+//        int[] suivante = getSuivant(courante[0], courante[1], action);
+//
+//        // si c'est pas un mur, on effectue le deplacement
+//        if (!this.murs[suivante[0]][suivante[1]]) {
+//            // on met a jour personnage
+//            this.pj.x = suivante[0];
+//            this.pj.y = suivante[1];
+//        }
+//    }
 
+    public void deplacerEntite(Entite e, String act){
+        // case courante
+        int[] courante = {e.getX(), e.getY()};
+
+//        String[] actions = {HAUT, BAS, DROITE, GAUCHE};
+//        String act = actions[(int)(Math.random()*3)];
         // calcule case suivante
-        int[] suivante = getSuivant(courante[0], courante[1], action);
+        int[] suivante = getSuivant(courante[0], courante[1], act);
 
         // si c'est pas un mur, on effectue le deplacement
-        if (!this.murs[suivante[0]][suivante[1]]) {
-            // si c'est pas une entite, on effectue le deplacement
-            if(!this.getEntitePos(suivante[0],suivante[1])) {
-                // on met a jour personnage
-                this.pj.x = suivante[0];
-                this.pj.y = suivante[1];
-            }
+        if (/*un phantom qui se deplace*/!e.getCollision() ||
+                /*case vide(ou avec entite) */!this.murs[suivante[0]][suivante[1]] &&
+                                /*entite de type phantom */((etreEntite(suivante[0],suivante[1]) && getEnite(suivante[0],suivante[1]).getCollision())
+                                || /*case vide*/!etreEntite(suivante[0],suivante[1])) )  {
+            // on met a jour personnage
+            e.setX(suivante[0]);
+            e.setY(suivante[1]);
         }
     }
-
 
     /**
      * jamais fini
@@ -212,7 +228,18 @@ public class Labyrinthe {
         return this.murs[x][y];
     }
 
-    public boolean getEntitePos(int x, int y){
+    public Entite getEnite(int x, int y){
+        Entite res = null;
+        for(int i = 0; i < entites.size(); i++) {
+            if(entites.get(i).etrePresent(x, y)){
+                res = entites.get(i);
+                break;
+            }
+        }
+        return res;
+    }
+
+    public boolean etreEntite(int x, int y){
         boolean res = false;
         for(int i = 0; i < entites.size(); i++) {
             res = entites.get(i).etrePresent(x, y);

@@ -4,12 +4,8 @@ package gameLaby.laby;
 /**
  * gere un personnage situe en x,y
  */
-public class Perso {
+public class Perso extends Entite{
 
-    /**
-     * position du personnage
-     */
-    int x, y;
 
     /**
      * constructeur
@@ -17,10 +13,11 @@ public class Perso {
      * @param dx position selon x
      * @param dy position selon y
      */
-    public Perso(int dx, int dy) {
-        this.x = dx;
-        this.y = dy;
+    public Perso(int dx, int dy, boolean col) {
+        super(dx, dy, col);
     }
+
+
 
     /**
      * permet de savoir si le personnage est en x,y
@@ -30,8 +27,7 @@ public class Perso {
      * @return true si le personnage est bien en (dx,dy)
      */
     public boolean etrePresent(int dx, int dy) {
-
-        return (this.x == dx && this.y == dy);
+        return (this.getX() == dx && this.getY() == dy);
     }
 
     // ############################################
@@ -43,7 +39,7 @@ public class Perso {
      */
     public int getX() {
         // getter
-        return this.x;
+        return this.getX();
     }
 
     /**
@@ -51,6 +47,6 @@ public class Perso {
      */
     public int getY() {
         //getter
-        return this.y;
+        return this.getY();
     }
 }
