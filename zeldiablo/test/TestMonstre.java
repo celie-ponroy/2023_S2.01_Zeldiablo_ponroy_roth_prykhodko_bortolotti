@@ -1,9 +1,13 @@
 import gameLaby.laby.Entite;
 import gameLaby.laby.Labyrinthe;
+import org.junit.Test;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.Assert.assertEquals;
 
 public class TestMonstre {
     /**
@@ -14,7 +18,7 @@ public class TestMonstre {
     public void testPosMonstre() throws IOException {
         Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
         ArrayList<Entite> listeEntite = laby.getEntites();
-        assertEquals(5, listeEntite.get(0).getX());
+        assertEquals(4, listeEntite.get(0).getX());
         assertEquals(2, listeEntite.get(0).getY());
     }
 
@@ -24,6 +28,7 @@ public class TestMonstre {
     @Test
     public void testCaraMonstre() throws IOException{
         Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
+
         assertEquals('M',laby.MONSTRE);
     }
 

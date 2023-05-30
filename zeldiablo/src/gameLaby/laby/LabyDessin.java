@@ -38,9 +38,8 @@ public class LabyDessin implements DessinJeu {
         //desssin monstre
 
         for(int i = 0; i<labyrinthe.entites.size(); i++) {
-            for(int j = 0; j< labyrinthe.getLengthY(); j++)
-                if(labyrinthe.getMur(i,j))
-                    gc.fillRect(i*50,j*50,50,50);
+            gc.setFill(Color.PURPLE);
+            gc.fillOval(labyrinthe.entites.get(i).getX() * 50, labyrinthe.entites.get(i).getY() * 50, 50, 50);
         }
     }
 }
