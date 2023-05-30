@@ -5,6 +5,8 @@ Yehor : fonctionnalité 4;
 
 Nous avons chacun fait les diagramme de séquence de nos fonctionnalité respective. Et le diagramme de Classe a été issu d'une discution collective.
 
+Nous avons décidé d'implémenter perso à notre nouvelle classe Entitéew
+
 Fonctionalité implémenté avec succès:
 -> fonctionnalité: sans problème
 -> fonctionalité 2 : sans problème(nous n'avons pas trouver une solution efficace pour faire un test sur l'affichage du monstre avec la classe LabyDessin, mais nous avons lancer le programme et constater la véracité de l'affichage)
