@@ -39,8 +39,8 @@ public class TestLabyrinthe {
         laby.deplacerEntite(laby.pj,Labyrinthe.BAS);
 
         // verification
-        assertEquals(posPersoX,laby.pj.getX(),"le perso ne doit pas bouger горизонтально");
-        assertEquals(posPersoY + 1,laby.pj.getY(),"le perso doit bouger вниз");
+        assertEquals(posPersoX,laby.pj.getX(),"le perso ne doit pas bouger");
+        assertEquals(posPersoY + 1,laby.pj.getY(),"le perso doit bouger");
     }
 
 
@@ -59,7 +59,7 @@ public class TestLabyrinthe {
         laby.deplacerEntite(m,Labyrinthe.GAUCHE);
 
         // verification
-        assertEquals(posMonstreX ,m.getX(),"le monstre-fantôme doit bouger влево");
-        assertEquals(posMonstreY,m.getY(),"le monstre-fantôme ne doit pas bouger вертикально");
+        assertEquals(posMonstreX ,m.getX(),"le monstre-fantôme doit bouger");
+        assertEquals(posMonstreY,m.getY(),"le monstre-fantôme ne doit pas bouger");
     }
 }

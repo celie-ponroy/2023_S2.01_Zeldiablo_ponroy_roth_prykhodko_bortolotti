@@ -1,7 +1,6 @@
 import gameLaby.laby.Entite;
 import gameLaby.laby.Labyrinthe;
-import org.testng.annotations.Test;
-
+import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.ArrayList;
 

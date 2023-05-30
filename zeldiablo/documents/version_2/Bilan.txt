@@ -1,15 +1,19 @@
-Tristan : fonstionnalité 1;
+Tristan : fonctionnalité 1;
 Célie : fonctionnalité 2;
 Florian : fonctionnalité 3;
 Yehor : fonctionnalité 4;
 
-Nous avons chacun fait les diagramme de séquence de nos fonctionnalité respective. Et le diagramme de Classe a été issu d'une discution collective.
+Nous avons chacun fait les diagrammes de séquence de nos fonctionnalités respective.
+Le diagramme de Classe a été issu d'une discussion collective.
 
-Nous avons décidé d'implémenter perso à notre nouvelle classe Entitéew
+Nous avons décidé d'implémenter perso à notre nouvelle classe Entité.
 
-Fonctionalité implémenté avec succès:
--> fonctionnalité: sans problème
--> fonctionnalité 2 : sans problème(nous n'avons pas trouver une solution efficace pour faire un test sur l'affichage du monstre avec la classe LabyDessin, mais nous avons lancer le programme et constater la véracité de l'affichage)
+Fonctionnalités implémentés avec succès :
+-> fonctionnalité 1 : sans problème
+-> fonctionnalité 2 : sans problème (nous n'avons pas trouvé une solution efficace pour faire un test
+                      sur l'affichage du monstre avec la classe LabyDessin, mais nous avons lancé le programme
+                      et constaté la véracité de l'affichage)
+-> fonctionnalité 3 : sans problème
 -> fonctionnalité 4 : sans problème
 
 Bugs restant:
