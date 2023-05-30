@@ -47,5 +47,5 @@ public abstract class Entite {
     public  boolean getCollision(){
         return collision;
     }
-//    public abstract void deplacer();
+    public abstract void deplacer(int[] suiv);
 }

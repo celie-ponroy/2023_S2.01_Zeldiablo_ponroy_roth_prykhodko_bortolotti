@@ -29,10 +29,10 @@ public class Perso extends Entite{
     public boolean etrePresent(int dx, int dy) {
         return (this.getX() == dx && this.getY() == dy);
     }
-
-    // ############################################
-    // GETTER
-    // ############################################
-
+    @Override
+    public void deplacer(int[] suiv){
+        setX(suiv[0]);
+        setY(suiv[1]);
+    }
 
 }

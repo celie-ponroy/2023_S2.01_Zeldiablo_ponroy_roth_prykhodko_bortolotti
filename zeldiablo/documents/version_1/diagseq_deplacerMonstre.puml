@@ -23,7 +23,15 @@ m -> l : deplacementValide(x, y)
 m <-- l : boolean
 
 alt si deplacementValide renvoie true
-m -> l : deplacer("GAUCHE")
+
+m -> l : deplacerEntite(e, "GAUCHE")
+
+l -> monstre : deplacer(suiv)
+activate monstre
+
+l <-- monstre : void
+deactivate monstre
+
 m <-- l : void
 end
 

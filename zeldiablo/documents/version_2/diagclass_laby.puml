@@ -44,4 +44,5 @@ class Monstre{
 Labyrinthe "1" --> "*" Entitée : monstres
 Labyrinthe "1" --> "1" Perso : + pj
 Entitée <|-- Monstre
+Entitée <|-- Perso
 @enduml
