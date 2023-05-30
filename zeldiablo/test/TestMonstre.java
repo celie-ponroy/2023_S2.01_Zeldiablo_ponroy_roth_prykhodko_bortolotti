@@ -25,8 +25,7 @@ public class TestMonstre {
      * Test que la caractère d'un monstre est bien 'M'
      */
     @Test
-
-    public void testCaraMonstre() throws IOException {
+    public void testCaraMonstre() throws IOException{
         Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
 
         assertEquals('M',laby.MONSTRE);
@@ -41,6 +40,7 @@ public class TestMonstre {
         Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
         int xInit = laby.pj.getX();
         laby.deplacerEntite(laby.pj, "Droite");
+
         int xFinal = laby.pj.getX();
         assertEquals(xInit, xFinal);
     }
