@@ -21,11 +21,11 @@ public class TestLabyrinthe {
         int posPersoY = 2;
 
         //methode testee
-        laby.deplacerEntite(laby.pj,"DROITE");
+        laby.deplacerEntite(laby.pj,Labyrinthe.DROITE);
 
         // verification
-        assertEquals(posPersoX,laby.pj.getX(),"le perso n'a normalement pas du bouger");
-        assertEquals(posPersoY,laby.pj.getY(),"le perso n'a normalement pas du bouger");
+        assertEquals(posPersoX,laby.pj.getX(),"le perso n'a normalement pas du bougé");
+        assertEquals(posPersoY,laby.pj.getY(),"le perso n'a normalement pas du bougé");
 
     }
 }

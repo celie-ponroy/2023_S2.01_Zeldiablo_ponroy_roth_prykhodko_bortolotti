@@ -178,7 +178,7 @@ public class Labyrinthe {
         // si c'est pas un mur, on effectue le deplacement
         if (/*un phantom qui se deplace*/!e.getCollision() ||
                 /*case vide(ou avec entite) */!this.murs[suivante[0]][suivante[1]] &&
-                                /*entite de type phantom */((etreEntite(suivante[0],suivante[1]) && getEnite(suivante[0],suivante[1]).getCollision())
+                                /*entite de type phantom */((etreEntite(suivante[0],suivante[1]) && getEntite(suivante[0],suivante[1]).getCollision())
                                 || /*case vide*/!etreEntite(suivante[0],suivante[1])) )  {
             // on met a jour personnage
             e.setX(suivante[0]);
@@ -228,7 +228,7 @@ public class Labyrinthe {
         return this.murs[x][y];
     }
 
-    public Entite getEnite(int x, int y){
+    public Entite getEntite(int x, int y){
         Entite res = null;
         for(int i = 0; i < entites.size(); i++) {
             if(entites.get(i).etrePresent(x, y)){
