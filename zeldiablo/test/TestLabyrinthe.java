@@ -1,4 +1,5 @@
 import gameLaby.laby.Labyrinthe;
+import gameLaby.laby.Monstre;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -11,15 +12,20 @@ public class TestLabyrinthe {
     void testDeplacementPersoMonstre_OK() throws IOException {
 
         // preparation des donnees
-        Labyrinthe laby = new Labyrinthe("laby0.txt");
+
+        Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
+        Monstre m = new Monstre(4, 3,true);
+        laby.entites.add(m);
+
         int posPersoX = 3;
         int posPersoY = 2;
 
         //methode testee
-        laby.deplacerPerso("DROITE");
+        laby.deplacerEntite(laby.pj,"DROITE");
 
         // verification
         assertEquals(posPersoX,laby.pj.getX(),"le perso n'a normalement pas du bougé");
         assertEquals(posPersoY,laby.pj.getY(),"le perso n'a normalement pas du bougé");
+
     }
 }
