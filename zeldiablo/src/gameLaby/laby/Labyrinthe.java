@@ -28,12 +28,13 @@ public class Labyrinthe {
     public static final String GAUCHE = "Gauche";
     public static final String DROITE = "Droite";
 
-    public ArrayList<Entite> entites;
+
 
     /**
      * attribut du personnage
      */
     public Perso pj;
+    public ArrayList<Entite> entites;
 
     /**
      * les murs du labyrinthe
@@ -159,7 +160,7 @@ public class Labyrinthe {
         // si c'est pas un mur, on effectue le deplacement
         if (!this.murs[suivante[0]][suivante[1]]) {
             // si c'est pas une entite, on effectue le deplacement
-            if(!this.getEntite(suivante[0],suivante[1])) {
+            if(!this.getEntitePos(suivante[0],suivante[1])) {
                 // on met a jour personnage
                 this.pj.x = suivante[0];
                 this.pj.y = suivante[1];
