@@ -38,4 +38,5 @@ public class TestMonstre {
         int xFinal = laby.pj.getX();
         assertEquals(xInit, xFinal);
     }
+
 }
