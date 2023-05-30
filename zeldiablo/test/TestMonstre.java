@@ -1,12 +1,10 @@
 import gameLaby.laby.Entite;
 import gameLaby.laby.Labyrinthe;
 import org.junit.Test;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import static org.junit.Assert.assertEquals;
 
 public class TestMonstre {
