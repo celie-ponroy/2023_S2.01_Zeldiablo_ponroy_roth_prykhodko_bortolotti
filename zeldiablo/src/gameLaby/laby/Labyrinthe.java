@@ -146,32 +146,16 @@ public class Labyrinthe {
 
 
     /**
-     * deplace le personnage en fonction de l'action.
+     * deplace l'entite en fonction de l'action.
      * gere la collision avec les murs
-     *
+     * et les monstres
      * @param action une des actions possibles
      */
-//    public void deplacerPerso(String action) {
-//        // case courante
-//        int[] courante = {this.pj.x, this.pj.y};
-//
-//        // calcule case suivante
-//        int[] suivante = getSuivant(courante[0], courante[1], action);
-//
-//        // si c'est pas un mur, on effectue le deplacement
-//        if (!this.murs[suivante[0]][suivante[1]]) {
-//            // on met a jour personnage
-//            this.pj.x = suivante[0];
-//            this.pj.y = suivante[1];
-//        }
-//    }
 
     public void deplacerEntite(Entite e, String act){
         // case courante
         int[] courante = {e.getX(), e.getY()};
 
-//        String[] actions = {HAUT, BAS, DROITE, GAUCHE};
-//        String act = actions[(int)(Math.random()*3)];
         // calcule case suivante
         int[] suivante = getSuivant(courante[0], courante[1], act);
 
