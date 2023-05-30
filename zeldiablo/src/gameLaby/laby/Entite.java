@@ -5,9 +5,10 @@ public abstract class Entite {
     private int y;
     private boolean collision;
 
-    public Entite(int x, int y){
+    public Entite(int x, int y, boolean col){
         this.x = x;
         this.y = y;
+        collision = col;
     }
 
     public boolean etrePresent(int dx, int dy) {
@@ -20,6 +21,10 @@ public abstract class Entite {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public void setCollision(boolean col){
+        this.collision = col;
     }
 
     public int getX() {

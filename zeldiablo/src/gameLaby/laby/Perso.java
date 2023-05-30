@@ -6,10 +6,6 @@ package gameLaby.laby;
  */
 public class Perso extends Entite{
 
-    /**
-     * position du personnage
-     */
-    int x, y;
 
     /**
      * constructeur
@@ -17,9 +13,8 @@ public class Perso extends Entite{
      * @param dx position selon x
      * @param dy position selon y
      */
-    public Perso(int dx, int dy) {
-        this.x = dx;
-        this.y = dy;
+    public Perso(int dx, int dy, boolean col) {
+        super(dx, dy, col);
     }
 
 
