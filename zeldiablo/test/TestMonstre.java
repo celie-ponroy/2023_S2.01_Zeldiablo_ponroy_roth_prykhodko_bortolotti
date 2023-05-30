@@ -3,12 +3,8 @@ import gameLaby.laby.Labyrinthe;
 import org.junit.Test;
 import java.io.IOException;
 import java.util.ArrayList;
-<<<<<<< HEAD
-=======
-
->>>>>>> 36363c32c7447b8a403946cf649b1e182cf77a6d
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.Assert.assertEquals;
+
 
 public class TestMonstre {
     /**
