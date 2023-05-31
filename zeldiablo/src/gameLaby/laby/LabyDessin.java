@@ -38,8 +38,15 @@ public class LabyDessin implements DessinJeu {
         //desssin monstre
 
         for(int i = 0; i<labyrinthe.entites.size(); i++) {
-            gc.setFill(Color.PURPLE);
-            gc.fillOval(labyrinthe.entites.get(i).getX() * 50, labyrinthe.entites.get(i).getY() * 50, 50, 50);
+            if (labyrinthe.entites.get(i) instanceof Monstre){
+                gc.setFill(Color.PURPLE);
+                gc.fillOval(labyrinthe.entites.get(i).getX() * 50, labyrinthe.entites.get(i).getY() * 50, 50, 50);
+            }
+            if(labyrinthe.entites.get(i) instanceof Escalier){
+                gc.setFill(Color.BROWN);
+                gc.fillRect(labyrinthe.entites.get(i).getX() * 50, labyrinthe.entites.get(i).getY() * 50, 50, 50);
+            }
+
         }
         //dessin escalier
 
