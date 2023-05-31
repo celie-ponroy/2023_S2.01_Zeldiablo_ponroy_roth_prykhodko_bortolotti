@@ -66,6 +66,12 @@ public class LabyJeu implements Jeu {
         }else{
             nbcourant-=1;
         }
+        int x = labyrinthe.pj.getX();
+        int y = labyrinthe.pj.getY();
+
         labyrinthe=labyrinthes.get(nbcourant);
+
+        labyrinthe.pj.setX(x);
+        labyrinthe.pj.setY(y);
     }
 }
