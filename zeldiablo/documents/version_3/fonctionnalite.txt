@@ -1,0 +1,10 @@
+Attaque du joueur
+
+Lorsque le joueur appuie sur une touche donnée (par défaut la touche espace), il
+eectue une attaque contre les monstres qui se trouvent à côté de lui.
+Critères de validation
+• L'attaque a eectivement lieu quand le joueur appuie sur la touche.
+• TOUS les monstres à côté du joueur prennent un point de dégât.
+• TOUS les monstres éloignés du joueur ne subissent pas de dégâts.
+• S'il n'y a aucun monstre autour du joueur, l'attaque à quand même lieu et empêche
+le déplacement du joueur, mais les monstres ne prennent pas de dégâts
