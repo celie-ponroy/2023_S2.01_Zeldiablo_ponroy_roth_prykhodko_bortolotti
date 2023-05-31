@@ -51,7 +51,7 @@ public class LabyJeu implements Jeu {
 
     }
     public void init() {
-
+        //rien
     }
     public boolean etreFini(){
         return labyrinthe.etreFini();

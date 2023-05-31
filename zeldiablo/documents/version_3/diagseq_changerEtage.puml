@@ -2,38 +2,36 @@
 title Changer d'étage
 
 
-participant "main" as m
-participant "labydessin : LabyDessin" as labyd
 participant "labyJeu : LabyJeu" as labyj
-participant "laby : Labyrinthe" as labyrinthe
-participant "entités : Arraylist<Entité>" as entités
-participant "monstre : Monstre" as mstr
-activate m
-m-> labyd:DessinerJeu((Jeu jeu, Canvas canvas));
-activate labyd
-labyd -> labyj : getLabyrinthe()
+participant "labyrinthe : Labyrinthe" as labyrinthe
+participant "pj : Perso" as pj
+participant "escalier : Escalier" as escalier
+
+
+-> labyj : update(...)
 activate labyj
-labyd <-- labyj : labyrinthe
-deactivate labyj
-labyd -> labyrinthe: getEntités()
+
+labyj -> labyrinthe : chercherEscalier()
 activate labyrinthe
-labyd<-- labyrinthe: entités
-deactivate labyrinthe
-loop
-labyd -> entités : get(i)*
-activate entités
-labyd <-- entités : Monstre
-deactivate entités
-labyd -> mstr : getX()
-activate mstr
-labyd <-- mstr
-labyd -> mstr : getY()
-labyd <-- mstr
-deactivate mstr
-m<-- labyd
-deactivate labyd
-deactivate m
-end loop
+
+labyrinthe -> pj : getX()
+activate pj
+labyrinthe <-- pj : x
+deactivate pj
+
+labyrinthe -> pj : getY()
+activate pj
+labyrinthe <-- pj : y
+deactivate pj
+
+
+create escalier
+labyrinthe -> escalier : chercherEscalier(x, y)
+
+labyj -> labyj : changerLabyCourant(suivant)
+
+
+
 
 
 @enduml
