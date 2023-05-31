@@ -76,6 +76,10 @@ public class Clavier {
                 this.droite = false;
                 break;
 
+            //si touche a
+            case A:
+                this.a = false;
+                break;
         }
     }
 }
