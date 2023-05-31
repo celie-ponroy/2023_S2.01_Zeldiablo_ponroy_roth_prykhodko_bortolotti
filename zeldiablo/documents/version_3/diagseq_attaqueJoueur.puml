@@ -11,7 +11,7 @@ activate m
 
 m -> l : monstreAutour()
 activate l
-m <-- l : Monstre[ ]
+m <-- l : Entite[ ]
 deactivate l
 
 loop

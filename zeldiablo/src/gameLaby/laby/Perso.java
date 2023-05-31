@@ -13,8 +13,8 @@ public class Perso extends Entite{
      * @param dx position selon x
      * @param dy position selon y
      */
-    public Perso(int dx, int dy, boolean col) {
-        super(dx, dy, col);
+    public Perso(int vie, int frc, int dx, int dy, boolean col) {
+        super(vie, frc, dx, dy, col);
     }
 
 
@@ -33,6 +33,13 @@ public class Perso extends Entite{
     public void deplacer(int[] suiv){
         setX(suiv[0]);
         setY(suiv[1]);
+    }
+
+    public void attaquer(Entite e){
+
+    }
+    public void etreAttaquer(int force){
+
     }
 
 }

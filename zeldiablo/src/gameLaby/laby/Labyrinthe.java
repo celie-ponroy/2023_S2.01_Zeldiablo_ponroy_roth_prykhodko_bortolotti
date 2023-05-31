@@ -21,6 +21,10 @@ public class Labyrinthe {
     public static final char MONSTRE = 'M';
     public static final char ESCALIER_DESC = 'L';
     public static final char ESCALIER_MONT = 'J';
+    public static final int VIE_PERSO = 10;
+    public static final int VIE_MONSTRE = 9;
+    public static final int ATTAQUE_PERSO = 3;
+    public static final int ATTAQUE_MONSTRE = 1;
 
     /**
      * constantes actions possibles
@@ -123,13 +127,13 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
-                        this.pj = new Perso(colonne, numeroLigne, true);
+                        this.pj = new Perso(VIE_PERSO,ATTAQUE_PERSO, colonne, numeroLigne, true);
                         break;
                     case MONSTRE:
                         //pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         //ajoute MONSTRE
-                        this.entites.add(new Monstre(colonne, numeroLigne, true));
+                        this.entites.add(new Monstre(VIE_MONSTRE, ATTAQUE_MONSTRE,colonne, numeroLigne, true));
                         break;
                     case ESCALIER_DESC:
                         //pas de mur
@@ -259,5 +263,36 @@ public class Labyrinthe {
 
     public ArrayList<Entite> getEntites() {
         return entites;
+    }
+
+    public Entite[] monstreAutour(){
+        Entite[] m = new Entite[4];
+
+        int coordX = pj.getX();
+        int coordY = pj.getY();
+
+        int[] suivantGauche = this.getSuivant(coordX, coordY, Labyrinthe.GAUCHE);
+        int[] suivantDroite = this.getSuivant(coordX, coordY, Labyrinthe.DROITE);
+        int[] suivantHaut = this.getSuivant(coordX, coordY, Labyrinthe.HAUT);
+        int[] suivantBas = this.getSuivant(coordX, coordY, Labyrinthe.BAS);
+
+        if(etreEntite(suivantGauche[0], suivantGauche[1])){
+            Entite e = this.getEntite(suivantGauche[0], suivantGauche[1]);
+            m[0] = e;
+        }
+        if(etreEntite(suivantDroite[0], suivantDroite[1])){
+            Entite e = this.getEntite(suivantDroite[0], suivantDroite[1]);
+            m[1] = e;
+        }
+        if(etreEntite(suivantHaut[0], suivantHaut[1])){
+            Entite e = this.getEntite(suivantHaut[0], suivantHaut[1]);
+            m[2] = e;
+        }
+        if(etreEntite(suivantBas[0], suivantBas[1])){
+            Entite e = this.getEntite(suivantBas[0], suivantBas[1]);
+            m[3] = e;
+        }
+
+        return m;
     }
 }

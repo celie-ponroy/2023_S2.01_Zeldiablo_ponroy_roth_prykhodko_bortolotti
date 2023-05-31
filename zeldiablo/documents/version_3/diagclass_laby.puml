@@ -20,13 +20,17 @@ class Labyrinthe{
 + getLengthY(): int
 + getLength(): int
 + getMur(int x, int y): boolean
-+ getEntites()
-
++ getPj() : Perso
++ getEntite(int x, int y) : Entite
++ getEntites() : ArrayList<Entite>
++ monstreAutour() : Entite[]
 }
+
 class Perso{
 +Perso(int dx, int dy)
 }
-Abstract class Entitée{
+
+Abstract class Entité{
 - x : int
 - y : int
 + etrePresent(int dx, int dy): boolean
@@ -36,16 +40,19 @@ Abstract class Entitée{
 +getY(): int
 +{abstract}deplacer()
 }
+
 class Monstre{
 +deplacer()
 }
+
 class Escalier{
 
 }
-}
-Labyrinthe "1" --> "*" Entitée : monstres
+
+Labyrinthe "1" --> "*" Entité : entites
 Labyrinthe "1" --> "1" Perso : + pj
-Entitée <|-- Monstre
-Entitée <|-- Perso
-Entitée <|-- Escalier
+Entité <|-- Monstre
+Entité <|-- Perso
+Entité <|-- Escalier
+
 @enduml
