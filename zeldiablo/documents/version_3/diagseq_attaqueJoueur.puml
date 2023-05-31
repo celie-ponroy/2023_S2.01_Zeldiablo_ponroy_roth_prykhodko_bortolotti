@@ -1,0 +1,32 @@
+@startuml
+
+autonumber
+
+participant "main" as m
+participant "perso : Perso" as p
+participant "monstre : Monstre" as mon
+participant "laby : Labyrinthe" as l
+
+activate m
+
+m -> l : monstreAutour()
+activate l
+m <-- l : Monstre[ ]
+deactivate l
+
+loop
+m -> p : attaquer(Entite e, force f)
+
+activate p
+p -> mon : etreAttaque(force f)
+activate mon
+p <-- mon : void
+deactivate mon
+
+m <-- p : void
+end
+deactivate p
+
+deactivate m
+
+@enduml
