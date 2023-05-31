@@ -41,7 +41,7 @@ public class Labyrinthe {
      */
     public Perso pj;
     public ArrayList<Combattant> comb;
-    public ArrayList<Entite> entites;
+    public ArrayList<EntiteInteractives> entiteInteractives;
 
     /**
      * les murs du labyrinthe
@@ -103,7 +103,7 @@ public class Labyrinthe {
         // creation labyrinthe vide
         this.murs = new boolean[nbColonnes][nbLignes];
         this.pj = null;
-        this.entites = new ArrayList<Entite>();
+        this.entiteInteractives = new ArrayList<EntiteInteractives>();
 
         // lecture des cases
         String ligne = bfRead.readLine();
@@ -134,19 +134,19 @@ public class Labyrinthe {
                         //pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         //ajoute MONSTRE
-                        this.entites.add(new Monstre(VIE_MONSTRE, ATTAQUE_MONSTRE,colonne, numeroLigne, true));
+                        this.comb.add(new Monstre(VIE_MONSTRE, ATTAQUE_MONSTRE,colonne, numeroLigne, true));
                         break;
                     case ESCALIER_DESC:
                         //pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         //ajoute MONSTRE
-                        this.entites.add(new Escalier(colonne, numeroLigne, false));
+                        this.entiteInteractives.add(new Escalier(colonne, numeroLigne, false));
                         break;
                     case ESCALIER_MONT:
                         //pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         //ajoute MONSTRE
-                        this.entites.add(new Escalier(colonne, numeroLigne, true));
+                        this.entiteInteractives.add(new Escalier(colonne, numeroLigne, true));
                         break;
 
                     default:
@@ -298,12 +298,12 @@ public class Labyrinthe {
     }
 
 
-    public Escalier chercherEscalier(int x, int y){
+    public Escalier chercherEntitéeInteractive(int x, int y){
         Escalier res =null;
-        for(int i = 0; i<this.entites.size();i++){
-            if(entites.get(i) instanceof Escalier){
-                if(entites.get(i).getX()==x&& entites.get(i).getY()==y){
-                    res=(Escalier) entites.get(i);
+        for(int i = 0; i<this.entiteInteractives.size();i++){
+            if(entiteInteractives.get(i) instanceof Escalier){
+                if(entiteInteractives.get(i).getX()==x&& entiteInteractives.get(i).getY()==y){
+                    res=(Escalier) entiteInteractives.get(i);
                 }
             }
 
