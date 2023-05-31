@@ -46,8 +46,9 @@ public class LabyJeu implements Jeu {
         if (clavier.bas) {
             labyrinthe.deplacerEntite(labyrinthe.pj, Labyrinthe.BAS);
         }
-        if (clavier.a && labyrinthe.) {
-            this.changerLabyCourant();
+        Escalier escalier =labyrinthe.chercherEscalier(labyrinthe.pj.getX(),labyrinthe.pj.getY());
+        if (clavier.a && escalier!=null) {
+            this.changerLabyCourant(escalier.montant);
         }
 
     }
