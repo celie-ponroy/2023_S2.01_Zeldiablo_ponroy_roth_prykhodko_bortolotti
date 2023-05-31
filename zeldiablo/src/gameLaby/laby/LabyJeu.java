@@ -5,28 +5,27 @@ import moteurJeu.Jeu;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class LabyJeu implements Jeu {
     private Labyrinthe labyrinthe;
-    private Labyrinthe[] labyrinthes;
+    private ArrayList<Labyrinthe> labyrinthes;
     private int nbcourant;
     public LabyJeu(String nomdossier) throws IOException {
         nbcourant=0;
+        labyrinthes= new ArrayList<Labyrinthe>();
         //initialiser labyrinthes
-        File f = null;
+        File f  = new File("./"+nomdossier);
         File[] paths;
-        f = new File("./"+nomdossier);
+
         int i=0;
         paths = f.listFiles();
         for (File path : paths) {
-            try {
-                this.labyrinthes[i] = new Labyrinthe(nomdossier);
-            } catch (IOException e) {
-                this.labyrinthes[i] = new Labyrinthe("labySimple/laby1.txt");
-            }
+            this.labyrinthes.add(new Labyrinthe(path.getPath()));
+
            i++;
         }
-        this.labyrinthe=labyrinthes[nbcourant];
+        this.labyrinthe=labyrinthes.get(nbcourant);
 
 
     }
@@ -45,6 +44,10 @@ public class LabyJeu implements Jeu {
         }
         if (clavier.bas) {
             labyrinthe.deplacerEntite(labyrinthe.pj, Labyrinthe.BAS);
+        }
+        Escalier escalier =labyrinthe.chercherEscalier(labyrinthe.pj.getX(),labyrinthe.pj.getY());
+        if (clavier.a && escalier!=null) {
+            this.changerLabyCourant(escalier.montant);
         }
 
     }

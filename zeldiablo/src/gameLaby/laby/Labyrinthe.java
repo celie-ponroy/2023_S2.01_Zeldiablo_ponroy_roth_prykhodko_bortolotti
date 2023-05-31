@@ -261,4 +261,17 @@ public class Labyrinthe {
     public ArrayList<Entite> getEntites() {
         return entites;
     }
+
+    public Escalier chercherEscalier(int x, int y){
+        Escalier res =null;
+        for(int i = 0; i<this.entites.size();i++){
+            if(entites.get(i) instanceof Escalier){
+                if(entites.get(i).getX()==x&& entites.get(i).getY()==y){
+                    res=(Escalier) entites.get(i);
+                }
+            }
+
+        }
+        return res;
+    }
 }
