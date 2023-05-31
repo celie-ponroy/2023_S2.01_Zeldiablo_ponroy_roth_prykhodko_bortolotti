@@ -15,7 +15,7 @@ m <-- l : Monstre[ ]
 deactivate l
 
 loop
-m -> p : attaquer(Entite e, force f)
+m -> p : attaquer(Entite e)
 
 activate p
 p -> mon : etreAttaque(force f)
