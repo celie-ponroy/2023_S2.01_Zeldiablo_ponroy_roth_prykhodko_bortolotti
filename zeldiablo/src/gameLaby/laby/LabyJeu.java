@@ -22,7 +22,7 @@ public class LabyJeu implements Jeu {
             try {
                 this.labyrinthes[i] = new Labyrinthe(nomdossier);
             } catch (IOException e) {
-                this.labyrinthes[i] = new Labyrinthe("labySimple/laby1.txt");
+                this.labyrinthes[i] = new Labyrinthe(path.getPath());
             }
            i++;
         }
