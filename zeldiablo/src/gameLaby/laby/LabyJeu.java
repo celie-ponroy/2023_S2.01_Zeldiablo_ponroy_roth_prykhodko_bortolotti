@@ -66,6 +66,6 @@ public class LabyJeu implements Jeu {
         }else{
             nbcourant-=1;
         }
-        labyrinthe=labyrinthes[nbcourant];
+        labyrinthe=labyrinthes.get(nbcourant);
     }
 }
