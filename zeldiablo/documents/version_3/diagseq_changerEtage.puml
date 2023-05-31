@@ -4,31 +4,39 @@ title Changer d'étage
 
 participant "labyJeu : LabyJeu" as labyj
 participant "labyrinthe : Labyrinthe" as labyrinthe
-participant "pj : Perso" as pj
-participant "escalier : Escalier" as escalier
+participant  "entiteInteractives : ArrayList<EntiteInteractives>" as ei
+
 
 
 -> labyj : update(...)
 activate labyj
 
-labyj -> labyrinthe : chercherEscalier()
+
+
+
+labyj -> labyrinthe : getX()
 activate labyrinthe
+labyj <-- labyrinthe : x
+labyj -> labyrinthe : getY()
+labyj <-- labyrinthe : y
 
-labyrinthe -> pj : getX()
-activate pj
-labyrinthe <-- pj : x
-deactivate pj
+labyj -> labyrinthe : chercherEntitéeInteractive(x, y)
+loop
 
-labyrinthe -> pj : getY()
-activate pj
-labyrinthe <-- pj : y
-deactivate pj
+labyrinthe -> ei : get()i
+activate ei
+labyrinthe <-- ei :
+deactivate ei
+end loop
+labyj <-- labyrinthe : res
+deactivate labyrinthe
 
 
-create escalier
-labyrinthe -> escalier : chercherEscalier(x, y)
 
-labyj -> labyj : changerLabyCourant(suivant)
+
+labyj -> labyj : changerLabyCourant(escalier.montant)
+labyj <-- labyj
+<-- labyj
 
 
 
