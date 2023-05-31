@@ -3,16 +3,32 @@ package gameLaby.laby;
 import moteurJeu.Clavier;
 import moteurJeu.Jeu;
 
+import java.io.File;
 import java.io.IOException;
 
 public class LabyJeu implements Jeu {
     private Labyrinthe labyrinthe;
-    public LabyJeu(String nomfichier) throws IOException {
-        try {
-            this.labyrinthe = new Labyrinthe(nomfichier);
-        } catch (IOException e) {
-            this.labyrinthe = new Labyrinthe("labySimple/laby1.txt");
+    private Labyrinthe[] labyrinthes;
+    private int nbcourant;
+    public LabyJeu(String nomdossier) throws IOException {
+        nbcourant=0;
+        //initialiser labyrinthes
+        File f = null;
+        File[] paths;
+        f = new File("./"+nomdossier);
+        int i=0;
+        paths = f.listFiles();
+        for (File path : paths) {
+            try {
+                this.labyrinthes[i] = new Labyrinthe(nomdossier);
+            } catch (IOException e) {
+                this.labyrinthes[i] = new Labyrinthe("labySimple/laby1.txt");
+            }
+           i++;
         }
+        this.labyrinthe=labyrinthes[nbcourant];
+
+
     }
     public void update(double secondes, Clavier clavier){
         if (clavier.droite) {
@@ -41,5 +57,13 @@ public class LabyJeu implements Jeu {
 
     public Labyrinthe getLabyrinthe() {
         return labyrinthe;
+    }
+    public void changerLabyCourant(boolean suivant){
+        if(suivant){
+            nbcourant+=1;
+        }else{
+            nbcourant-=1;
+        }
+        labyrinthe=labyrinthes[nbcourant];
     }
 }

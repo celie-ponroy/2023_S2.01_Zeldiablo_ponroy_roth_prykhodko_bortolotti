@@ -19,6 +19,8 @@ public class Labyrinthe {
     public static final char PJ = 'P';
     public static final char VIDE = '.';
     public static final char MONSTRE = 'M';
+    public static final char ESCALIER_DESC = 'L';
+    public static final char ESCALIER_MONT = 'J';
 
     /**
      * constantes actions possibles
@@ -128,6 +130,18 @@ public class Labyrinthe {
                         this.murs[colonne][numeroLigne] = false;
                         //ajoute MONSTRE
                         this.entites.add(new Monstre(colonne, numeroLigne, true));
+                        break;
+                    case ESCALIER_DESC:
+                        //pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        //ajoute MONSTRE
+                        this.entites.add(new Escalier(colonne, numeroLigne, false));
+                        break;
+                    case ESCALIER_MONT:
+                        //pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        //ajoute MONSTRE
+                        this.entites.add(new Escalier(colonne, numeroLigne, true));
                         break;
 
                     default:
