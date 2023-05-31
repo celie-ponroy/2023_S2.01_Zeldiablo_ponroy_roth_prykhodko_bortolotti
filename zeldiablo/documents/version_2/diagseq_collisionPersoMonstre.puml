@@ -26,10 +26,10 @@ m -> l : getMur(x, y)
 m <-- l : boolean
 
 alt si getMur renvoie false
-    m -> l : getEntitePos(x, y)
+    m -> l : getEntite(x, y)
     m <-- l : boolean
     alt si getMonstre renvoie false
-        m -> l : deplacerPerso(action)
+        m -> l : deplacerEntite(perso,action)
         m <-- l : void
     end
 end

@@ -149,7 +149,7 @@ public class Labyrinthe {
      * deplace l'entite en fonction de l'action.
      * gere la collision avec les murs
      * et les monstres
-     * @param action une des actions possibles
+     * @param act une des actions possibles
      */
 
     public void deplacerEntite(Entite e, String act){
