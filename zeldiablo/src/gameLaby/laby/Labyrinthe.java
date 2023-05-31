@@ -310,4 +310,5 @@ public class Labyrinthe {
         }
         return res;
     }
+
 }
