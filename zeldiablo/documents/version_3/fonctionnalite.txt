@@ -1,4 +1,4 @@
-1) Attaque des monstres
+1. Attaque des monstres
 - Descriptif :
     - Lorsqu'un monstre doit agir, si le monstre se trouve à côté du héros, alors il ne se
       déplace pas, mais il attaque celui-ci.
@@ -7,7 +7,7 @@
       le Héros perd 1 point de vie.
     - Lorsque le monstre est loin du joueur, il n'attaque pas, mais se déplace.
 
-2) Attaque du joueur
+2. Attaque du joueur
 - Descriptif :
     - Lorsque le joueur appuie sur une touche donnée (par défaut la touche espace), il
       effectue une attaque contre les monstres qui se trouvent à côté de lui.
