@@ -13,9 +13,9 @@ public class LabyJeu implements Jeu {
     public LabyJeu(String nomdossier) throws IOException {
         nbcourant=0;
         //initialiser labyrinthes
-        File f = null;
+        File f  = new File("./"+nomdossier);
         File[] paths;
-        f = new File("./"+nomdossier);
+
         int i=0;
         paths = f.listFiles();
         for (File path : paths) {

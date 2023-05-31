@@ -13,5 +13,6 @@ public class Escalier extends Entite{
     }
     public void changerEtage(){
         //appel de changerLabyCourant de LabyJeu
+
     }
 }
