@@ -266,11 +266,11 @@ public class Labyrinthe {
         return entites;
     }
 
-    public Entite[] monstreAutour() {
+    public Entite[] combattantAutour(Combattant c) {
         Entite[] m = new Entite[4];
 
-        int coordX = pj.getX();
-        int coordY = pj.getY();
+        int coordX = c.getX();
+        int coordY = c.getY();
 
         int[] suivantGauche = this.getSuivant(coordX, coordY, Labyrinthe.GAUCHE);
         int[] suivantDroite = this.getSuivant(coordX, coordY, Labyrinthe.DROITE);
