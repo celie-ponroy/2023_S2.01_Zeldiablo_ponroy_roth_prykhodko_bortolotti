@@ -68,11 +68,11 @@
 - Critères de validation
     - A chaque fois qu'un serpent se déplace, sa tête avance d'une case et sa queue se
       réduit d'une case.
-    - Toutes les cases occupées par le serpent sont non traversables et sont achées à
+    - Toutes les cases occupées par le serpent sont non traversables et sont affichées à
       l'écran.
     - Le corps d'un serpent peut avoir des virages (si le serpent avance en tournant).
     - Un serpent ne peut pas avancer sur une case occupée (y compris sa queue). Si le
       serpent n'a pas de case libre adjacente, il ne se déplace pas. Un serpent peut donc
       se retrouver bloqué par sa propre queue.
-    - Toutes les cases du serpent sont attaquables parle héros. Dés que le serpent n'a
+    - Toutes les cases du serpent sont attaquables parle héros. Dès que le serpent n'a
       plus de point de vie, il disparait entièrement.
