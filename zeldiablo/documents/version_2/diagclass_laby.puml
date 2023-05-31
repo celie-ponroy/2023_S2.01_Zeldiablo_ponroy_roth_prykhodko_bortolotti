@@ -14,19 +14,19 @@ class Labyrinthe{
 + murs : boolean[][]
 + Labyrinthe(String nom)
 + getSuivant(int x, int y, String action) : int[]
-+ deplacerPerso(String action)
-+ deplacerEntitee()
++ deplacerEntitee(Entite e, String action)
 + etreFini(): boolean
 + getLengthY(): int
 + getLength(): int
 + getMur(int x, int y): boolean
++ getEntite(int x, int y) : Entite
 + getEntites()
 
 }
 class Perso{
 +Perso(int dx, int dy)
 }
-Abstract class Entitée{
+Abstract class Entité{
 - x : int
 - y : int
 + etrePresent(int dx, int dy): boolean
@@ -40,8 +40,8 @@ class Monstre{
 +deplacer()
 }
 }
-Labyrinthe "1" --> "*" Entitée : monstres
+Labyrinthe "1" --> "*" Entité : monstres
 Labyrinthe "1" --> "1" Perso : + pj
-Entitée <|-- Monstre
-Entitée <|-- Perso
+Entité <|-- Monstre
+Entité <|-- Perso
 @enduml
