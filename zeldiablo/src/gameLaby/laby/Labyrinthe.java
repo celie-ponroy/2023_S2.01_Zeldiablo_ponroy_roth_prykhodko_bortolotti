@@ -104,6 +104,8 @@ public class Labyrinthe {
         this.murs = new boolean[nbColonnes][nbLignes];
         this.pj = null;
         this.entiteInteractives = new ArrayList<EntiteInteractives>();
+        this.comb = new ArrayList<Combattant>();
+
 
         // lecture des cases
         String ligne = bfRead.readLine();
@@ -247,9 +249,9 @@ public class Labyrinthe {
 
     public Entite getEntite(int x, int y){
         Entite res = null;
-        for(int i = 0; i < entites.size(); i++) {
-            if(entites.get(i).etrePresent(x, y)){
-                res = entites.get(i);
+        for(int i = 0; i < comb.size(); i++) {
+            if(comb.get(i).etrePresent(x, y)){
+                res = comb.get(i);
                 break;
             }
         }
@@ -262,8 +264,12 @@ public class Labyrinthe {
         return pj;
     }
 
-    public ArrayList<Entite> getEntites() {
-        return entites;
+    public ArrayList<Combattant> getComb() {
+        return comb;
+    }
+
+    public ArrayList<EntiteInteractives> getEntiteInteractives() {
+        return entiteInteractives;
     }
 
     public Entite[] monstreAutour() {
