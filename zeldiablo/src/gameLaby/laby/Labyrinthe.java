@@ -36,6 +36,7 @@ public class Labyrinthe {
      * attribut du personnage
      */
     public Perso pj;
+    public ArrayList<Combattant> comb;
     public ArrayList<Entite> entites;
 
     /**
