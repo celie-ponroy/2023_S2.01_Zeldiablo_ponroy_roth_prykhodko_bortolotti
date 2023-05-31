@@ -1,7 +1,7 @@
 package gameLaby.laby;
 import java.util.Random;
 
-public class Monstre extends Entite{
+public class Monstre extends Combattant{
 
     public Monstre(int vie, int frc, int x, int y, boolean col){
         super(vie, frc, x, y, col);
