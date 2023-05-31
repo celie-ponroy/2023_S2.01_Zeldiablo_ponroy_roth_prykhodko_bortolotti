@@ -35,11 +35,12 @@ public class Perso extends Combattant{
         setY(suiv[1]);
     }
 
-    public void attaquer(Entite e){
-
+    public void attaquer(Combattant c){
+        c.etreAttaque(Labyrinthe.ATTAQUE_PERSO);
     }
-    public void etreAttaquer(int force){
-
+    public void etreAttaque(int force){
+        int pvRestant = this.getPv() - force;
+        this.setPv(pvRestant);
     }
 
 }
