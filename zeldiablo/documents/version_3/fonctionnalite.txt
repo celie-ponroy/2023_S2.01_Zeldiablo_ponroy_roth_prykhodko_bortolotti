@@ -18,23 +18,61 @@
     - S'il n'y a aucun monstre autour du joueur, l'attaque à quand même lieu et empêche
       le déplacement du joueur, mais les monstres ne prennent pas de dégâts
 
-3.Gestion d'un labyrinthe multi-étages
+3. Gestion d'un labyrinthe multi-étages
 - Descriptif :
     -Le labyrinthe est constitué de plusieurs étages. Chaque étage correspond à un niveau
      particulier. Des escaliers permettent de passer d'un étage à un autre.
-Critères de validation:
-    • Les escaliers sont des cases traversables par le héros et les monstres.
-    • Lorsque le héros se trouve sur un escalier, il peut l'activer et il change alors de
-    niveau.
-    • Les monstres du niveau où le héros se trouvait avant l'escalier n'apparaissent pas
-    dans l'étage supérieur/inférieur. Ils restent à leur position et conservent leur points
-    de vie.
-    • De nouveaux monstres peuvent être présents à l'étage supérieur en fonction du
-    descriptif du niveau.
-    • Le Héros arrive aux mêmes coordonnées dans l'étage supérieur/inférieur après
-    avoir emprunté les escaliers.
-    • Les escaliers peuvent être de deux types : un escalier qui monte ou un escalier qui
-    descend.
-    • Les escaliers sont empruntables dans les deux sens : un escalier qui monte vers un
-    étage possède un escalier qui descend à la même position dans l'étage supérieur
-    (et inversement).
+- Critères de validation:
+    - Les escaliers sont des cases traversables par le héros et les monstres.
+    - Lorsque le héros se trouve sur un escalier, il peut l'activer et il change alors de
+      niveau.
+    - Les monstres du niveau où le héros se trouvait avant l'escalier n'apparaissent pas
+      dans l'étage supérieur/inférieur. Ils restent à leur position et conservent leur points
+      de vie.
+    - De nouveaux monstres peuvent être présents à l'étage supérieur en fonction du
+      descriptif du niveau.
+    - Le Héros arrive aux mêmes coordonnées dans l'étage supérieur/inférieur après
+      avoir emprunté les escaliers.
+    - Les escaliers peuvent être de deux types : un escalier qui monte ou un escalier qui
+      descend.
+    - Les escaliers sont empruntables dans les deux sens : un escalier qui monte vers un
+      étage possède un escalier qui descend à la même position dans l'étage supérieur
+      (et inversement).
+
+4. Fantômes
+- Descriptif :
+    -Le labyrinthe dispose d'un nouveau type de monstre : les fantômes.
+- Critères de validation
+    - Les fantômes peuvent traverser des murs mais pas les autres personnages (les
+      autres monstres ou le héros)
+    - Les autres monstres continuent à être bloqués par des murs.
+    - Les attaques des fantômes fonctionnent de la même manière que les attaques des
+      monstres de base.
+
+5. Troll
+- Descriptif :
+    - Les trolls sont un nouveau type de monstre. Un troll se régénère au fur et à mesure.
+- Critères de validation
+    - Un troll se déplace de la même manière qu'un monstre de base (les murs sont des
+      obstacles).
+    - Si un Troll ne prend aucun dégât pendant un tour de jeu, il regagne un point de
+      vie.
+    - Les attaques des trolls fonctionnent de la même manière que les attaques des
+      monstres de base.
+    - Un troll a par défaut 3 points de vie (à adapter).
+
+6. Serpent
+- Descriptif :
+    - Les serpents sont un nouveau type de monstre inspiré de sbake. Un serpent occupe plusieurs cases,
+      lorsqu'il se déplace, sa tête avance d'une case et son corps suit.
+- Critères de validation
+    - A chaque fois qu'un serpent se déplace, sa tête avance d'une case et sa queue se
+      réduit d'une case.
+    - Toutes les cases occupées par le serpent sont non traversables et sont achées à
+      l'écran.
+    - Le corps d'un serpent peut avoir des virages (si le serpent avance en tournant).
+    - Un serpent ne peut pas avancer sur une case occupée (y compris sa queue). Si le
+      serpent n'a pas de case libre adjacente, il ne se déplace pas. Un serpent peut donc
+      se retrouver bloqué par sa propre queue.
+    - Toutes les cases du serpent sont attaquables parle héros. Dés que le serpent n'a
+      plus de point de vie, il disparait entièrement.
