@@ -42,5 +42,6 @@ public class LabyDessin implements DessinJeu {
             gc.fillOval(labyrinthe.entites.get(i).getX() * 50, labyrinthe.entites.get(i).getY() * 50, 50, 50);
         }
         //dessin escalier
+
     }
 }
