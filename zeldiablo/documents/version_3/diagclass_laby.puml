@@ -1,5 +1,7 @@
 @startuml
+
 package gameLaby.laby{
+
 class Labyrinthe{
 + <static final> MUR: char
 + <static final> PJ: char
@@ -49,13 +51,54 @@ Abstract class Entité{
 +{abstract}deplacer()
 }
 
+Abstract class Combattant{
+- pv : int
+- force : int
++ Combattant(int vie, int f, int x, int y, boolean col)
++ getPv() : int
++ getForce() : int
++ setPv()
++ setForce()
++ etrePresent(int dx, int dy) : boolean
++ {abstract}attaquer(Combattant c)
++ {abstract}etreAttaque(int force)
+}
+
 class Monstre{
-+deplacer()
++ deplacer()
+}
+
+class Fantome{
++ Fantome(int vie, int frc, int x, int y)
++ attaquer(Combattant e)
++ etreAttaque(int force)
++ deplacer(int[] suiv)
+}
+
+class Serpent{
+- isHead : boolean
+- taille : int
+- tMax : int
+- nextPart : Serpent
++ Serpent(int vie, int frc, int x, int y,int tCour, int t)
++ etrePresent(int dx, int dy) : boolean
++ attaquer(Combattant e)
++ etreAttaque(int force)
++ deplacer(int[] suiv)
++ deplacerSerpent(int[] suiv) : Serpent
++ getIsHead() : boolean
+}
+
+class Troll{
++ Troll(int frc, int x, int y)
++ attaquer(Combattant e)
++ etreAttaque(int force)
++ deplacer(int[] suiv)
 }
 
 class Escalier{
-montant : boolean
-changerEtage()
++ montant : boolean
++ changerEtage()
 }
 
 class LabyJeu{
@@ -64,8 +107,9 @@ class LabyJeu{
 class LabyDessin{
 }
 
-package moteurJeu{
 }
+
+package moteurJeu{
 
 interface Jeu{
 }
@@ -82,11 +126,18 @@ class FrameStats{
 class MoteurJeu{
 }
 
+}
+
 Labyrinthe "1" --> "*" Entité : entites
+Labyrinthe "1" --> "*" Combattant : comb
 Labyrinthe "1" --> "1" Perso : + pj
 
-Entité <|-- Monstre
-Entité <|-- Perso
+Entité <|-- Combattant
+Combattant <|-- Monstre
+Combattant <|-- Perso
+Combattant <|-- Fantome
+Combattant <|-- Serpent
+Combattant <|-- Troll
 Entité <|-- Escalier
 Jeu <|.. LabyJeu
 DessinJeu <|.. LabyDessin
