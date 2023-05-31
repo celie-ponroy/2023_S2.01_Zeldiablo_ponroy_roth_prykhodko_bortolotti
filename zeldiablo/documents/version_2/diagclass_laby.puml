@@ -29,6 +29,7 @@ class Perso{
 Abstract class Entité{
 - x : int
 - y : int
+- collision : boolean
 + etrePresent(int dx, int dy): boolean
 +setX()
 +setY()
