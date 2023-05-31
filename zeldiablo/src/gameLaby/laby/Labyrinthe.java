@@ -260,4 +260,5 @@ public class Labyrinthe {
     public ArrayList<Entite> getEntites() {
         return entites;
     }
+
 }

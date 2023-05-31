@@ -46,6 +46,9 @@ public class LabyJeu implements Jeu {
         if (clavier.bas) {
             labyrinthe.deplacerEntite(labyrinthe.pj, Labyrinthe.BAS);
         }
+        if (clavier.a && labyrinthe.) {
+            this.changerLabyCourant();
+        }
 
     }
     public void init() {
