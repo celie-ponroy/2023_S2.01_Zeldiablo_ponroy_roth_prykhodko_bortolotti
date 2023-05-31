@@ -23,12 +23,17 @@ class Labyrinthe{
 + getEntites()
 
 }
+class Main{
+}
+class MainLaby{
+}
 class Perso{
 +Perso(int dx, int dy)
 }
 Abstract class Entitée{
 - x : int
 - y : int
+- collision : boolean
 + etrePresent(int dx, int dy): boolean
 +setX()
 +setY()
@@ -40,7 +45,26 @@ class Monstre{
 +deplacer()
 }
 class Escalier{
+montant : boolean
+changerEtage()
+}
+class LabyJeu{
+}
+class LabyDessin{
+}
+}
 
+
+package moteurJeu{
+interface Jeu{
+}
+interface DessinJeu{
+}
+class Clavier{
+}
+class FrameStats{
+}
+class MoteurJeu{
 }
 }
 Labyrinthe "1" --> "*" Entitée : monstres
@@ -48,4 +72,7 @@ Labyrinthe "1" --> "1" Perso : + pj
 Entitée <|-- Monstre
 Entitée <|-- Perso
 Entitée <|-- Escalier
+Jeu <|.. LabyJeu
+DessinJeu <|.. LabyDessin
+Application <|-- MoteurJeu
 @enduml

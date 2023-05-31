@@ -6,6 +6,8 @@ public abstract class Entite {
      */
     private int x;
     private int y;
+    private int pv;
+    private int force;
     private boolean collision;
 
 
@@ -14,7 +16,9 @@ public abstract class Entite {
      * @param x abscisse
      * @param y ordonnée
      */
-    public Entite(int x, int y, boolean col){
+    public Entite(int vie, int frc,  int x, int y, boolean col){
+        this.pv = vie;
+        this.force = frc;
         this.x = x;
         this.y = y;
         collision = col;
@@ -44,8 +48,19 @@ public abstract class Entite {
         return y;
     }
 
+    public int getPv(){
+        return pv;
+    }
+
+    public int getForce(){
+        return force;
+    }
+
+
     public  boolean getCollision(){
         return collision;
     }
+    public abstract void attaquer(Entite e);
+    public abstract void etreAttaquer(int force);
     public abstract void deplacer(int[] suiv);
 }
