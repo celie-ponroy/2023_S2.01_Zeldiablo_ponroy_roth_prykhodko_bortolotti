@@ -41,7 +41,7 @@ public class Labyrinthe {
      */
     public Perso pj;
     public ArrayList<Combattant> comb;
-    public ArrayList<Entite> entites;
+    public ArrayList<EntiteInteractives> entiteInteractives;
 
     /**
      * les murs du labyrinthe
@@ -103,7 +103,9 @@ public class Labyrinthe {
         // creation labyrinthe vide
         this.murs = new boolean[nbColonnes][nbLignes];
         this.pj = null;
-        this.entites = new ArrayList<Entite>();
+        this.entiteInteractives = new ArrayList<EntiteInteractives>();
+        this.comb = new ArrayList<Combattant>();
+
 
         // lecture des cases
         String ligne = bfRead.readLine();
@@ -134,19 +136,19 @@ public class Labyrinthe {
                         //pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         //ajoute MONSTRE
-                        this.entites.add(new Monstre(VIE_MONSTRE, ATTAQUE_MONSTRE,colonne, numeroLigne, true));
+                        this.comb.add(new Monstre(VIE_MONSTRE, ATTAQUE_MONSTRE,colonne, numeroLigne, true));
                         break;
                     case ESCALIER_DESC:
                         //pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         //ajoute MONSTRE
-                        this.entites.add(new Escalier(colonne, numeroLigne, false));
+                        this.entiteInteractives.add(new Escalier(colonne, numeroLigne, false));
                         break;
                     case ESCALIER_MONT:
                         //pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         //ajoute MONSTRE
-                        this.entites.add(new Escalier(colonne, numeroLigne, true));
+                        this.entiteInteractives.add(new Escalier(colonne, numeroLigne, true));
                         break;
 
                     default:
@@ -171,24 +173,24 @@ public class Labyrinthe {
      * @param act une des actions possibles
      */
 
-    public void deplacerEntite(Entite e, String act){
+    public void deplacerEntite(Combattant c, String act){
         // case courante
-        int[] courante = {e.getX(), e.getY()};
+        int[] courante = {c.getX(), c.getY()};
 
         // calcule case suivante
         int[] suivante = getSuivant(courante[0], courante[1], act);
 
         // si c'est pas un mur, on effectue le deplacement
-        if (deplacementValide(e, suivante))  {
+        if (deplacementValide(c, suivante))  {
             // on met a jour personnage
-            e.deplacer(suivante);
+            c.deplacer(suivante);
         }
     }
 
-    public boolean etreEntite(int x, int y){
+    public boolean etreCombattant(int x, int y){
         boolean res = false;
-        for(int i = 0; i < entites.size(); i++) {
-            res = entites.get(i).etrePresent(x, y);
+        for(int i = 0; i < comb.size(); i++) {
+            res = comb.get(i).etrePresent(x, y);
             if (res)
                 break;
         }
@@ -198,8 +200,8 @@ public class Labyrinthe {
     public boolean deplacementValide(Entite e, int[] suivante){
         return /*un fantome qui se deplace*/!e.getCollision() ||
                 /*case vide(ou avec entite) */(!this.murs[suivante[0]][suivante[1]] &&
-                                            /*entite de type phantom */((etreEntite(suivante[0],suivante[1]) && !getEntite(suivante[0],suivante[1]).getCollision())
-                                            || /*case vide*/!etreEntite(suivante[0],suivante[1])));
+                                            /*entite de type phantom */((etreCombattant(suivante[0],suivante[1]) && !getEntite(suivante[0],suivante[1]).getCollision())
+                                            || /*case vide*/!etreCombattant(suivante[0],suivante[1])));
     }
 
 
@@ -247,9 +249,9 @@ public class Labyrinthe {
 
     public Entite getEntite(int x, int y){
         Entite res = null;
-        for(int i = 0; i < entites.size(); i++) {
-            if(entites.get(i).etrePresent(x, y)){
-                res = entites.get(i);
+        for(int i = 0; i < comb.size(); i++) {
+            if(comb.get(i).etrePresent(x, y)){
+                res = comb.get(i);
                 break;
             }
         }
@@ -262,34 +264,38 @@ public class Labyrinthe {
         return pj;
     }
 
-    public ArrayList<Entite> getEntites() {
-        return entites;
+    public ArrayList<Combattant> getComb() {
+        return comb;
     }
 
-    public Entite[] monstreAutour() {
+    public ArrayList<EntiteInteractives> getEntiteInteractives() {
+        return entiteInteractives;
+    }
+
+    public Entite[] combattantAutour(Combattant c) {
         Entite[] m = new Entite[4];
 
-        int coordX = pj.getX();
-        int coordY = pj.getY();
+        int coordX = c.getX();
+        int coordY = c.getY();
 
         int[] suivantGauche = this.getSuivant(coordX, coordY, Labyrinthe.GAUCHE);
         int[] suivantDroite = this.getSuivant(coordX, coordY, Labyrinthe.DROITE);
         int[] suivantHaut = this.getSuivant(coordX, coordY, Labyrinthe.HAUT);
         int[] suivantBas = this.getSuivant(coordX, coordY, Labyrinthe.BAS);
 
-        if (etreEntite(suivantGauche[0], suivantGauche[1])) {
+        if (etreCombattant(suivantGauche[0], suivantGauche[1])) {
             Entite e = this.getEntite(suivantGauche[0], suivantGauche[1]);
             m[0] = e;
         }
-        if (etreEntite(suivantDroite[0], suivantDroite[1])) {
+        if (etreCombattant(suivantDroite[0], suivantDroite[1])) {
             Entite e = this.getEntite(suivantDroite[0], suivantDroite[1]);
             m[1] = e;
         }
-        if (etreEntite(suivantHaut[0], suivantHaut[1])) {
+        if (etreCombattant(suivantHaut[0], suivantHaut[1])) {
             Entite e = this.getEntite(suivantHaut[0], suivantHaut[1]);
             m[2] = e;
         }
-        if (etreEntite(suivantBas[0], suivantBas[1])) {
+        if (etreCombattant(suivantBas[0], suivantBas[1])) {
             Entite e = this.getEntite(suivantBas[0], suivantBas[1]);
             m[3] = e;
         }
@@ -298,12 +304,12 @@ public class Labyrinthe {
     }
 
 
-    public Escalier chercherEscalier(int x, int y){
+    public Escalier chercherEntitéeInteractive(int x, int y){
         Escalier res =null;
-        for(int i = 0; i<this.entites.size();i++){
-            if(entites.get(i) instanceof Escalier){
-                if(entites.get(i).getX()==x&& entites.get(i).getY()==y){
-                    res=(Escalier) entites.get(i);
+        for(int i = 0; i<this.entiteInteractives.size();i++){
+            if(entiteInteractives.get(i) instanceof Escalier){
+                if(entiteInteractives.get(i).getX()==x&& entiteInteractives.get(i).getY()==y){
+                    res=(Escalier) entiteInteractives.get(i);
                 }
             }
 

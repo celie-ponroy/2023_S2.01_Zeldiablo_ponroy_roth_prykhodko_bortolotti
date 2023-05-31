@@ -1,0 +1,20 @@
+Tristan & Célie : fonctionnalité 3;
+Florian & Yehor : fonctionnalité 1 & 2;
+
+Nous avons commencé à choisir les fonctionnalités, et a discuter des répercutions que celles-ci ont sur le diagramme des classe.
+Après s'être séparé les taches, nous avons commencé par faire des diagrammes de séquences en broillon.
+
+Nous avons décidé d'ajouter Combatant et EntitéInterractives pour séparer les Entités entre celles qui combatent et celles qui sont interractive (pour l'instant ce n'est que les escaliers)
+
+
+Fonctionnalités implémentés avec succès :
+-> fonctionnalité 1 : (à écrire)
+-> fonctionnalité 2 : (à écrire)
+-> fonctionnalité 3 : sans problème à priori (test non fait dans l'iterration)
+
+
+Bugs restants :
+(à écrire)
+
+
+Célie Ponroy

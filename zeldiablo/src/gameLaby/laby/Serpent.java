@@ -37,13 +37,14 @@ public class Serpent extends Combattant{
     }
 
     @Override
-    public void attaquer(Combattant e) {
-
+    public void attaquer(Combattant c) {
+        c.etreAttaque(Labyrinthe.ATTAQUE_MONSTRE);
     }
 
     @Override
     public void etreAttaque(int force) {
-
+        int pvRestant = this.getPv() - force;
+        this.setPv(pvRestant);
     }
 
     @Override
@@ -68,12 +69,7 @@ public class Serpent extends Combattant{
         }
         return newHead;
     }
-
-    public void setHead(boolean b){
-        isHead = b;
-    }
-
-
+    
     public boolean getIsHead(){
         return isHead;
     }
