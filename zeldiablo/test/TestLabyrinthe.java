@@ -49,7 +49,7 @@ public class TestLabyrinthe {
 
         // preparation des donnees
         Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
-        Monstre m = new Monstre(1, 1,false);
+        Monstre m = new Monstre(Labyrinthe.VIE_MONSTRE,Labyrinthe.ATTAQUE_MONSTRE,1, 1,false);
         laby.entites.add(m);
 
         int posMonstreX = 0;

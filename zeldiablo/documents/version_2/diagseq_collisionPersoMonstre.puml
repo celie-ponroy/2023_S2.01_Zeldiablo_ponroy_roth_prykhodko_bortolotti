@@ -14,21 +14,27 @@ activate m
 m -> p : getX()
 activate p
 m <-- p : x
+deactivate p
 
 m -> p : getY()
+activate p
 m <-- p : y
 deactivate p
 
 m -> l : getSuivant(x, y, action)
 activate l
 m <-- l : [x,y]
+deactivate l
 m -> l : getMur(x, y)
+activate l
 m <-- l : boolean
+
+
 
 alt si getMur renvoie false
     m -> l : getEntite(x, y)
     m <-- l : boolean
-    alt si getMonstre renvoie false
+    alt si getEntite renvoie false
         m -> l : deplacerEntite(perso,action)
         m <-- l : void
     end
