@@ -1,5 +1,5 @@
 package gameLaby.laby;
-import java.util.Random;
+
 
 public class Monstre extends Combattant{
 
@@ -12,10 +12,11 @@ public class Monstre extends Combattant{
         setY(suiv[1]);
     }
 
-    public void attaquer(Entite e){
-
+    public void attaquer(Combattant c){
+        c.etreAttaque(Labyrinthe.ATTAQUE_MONSTRE);
     }
-    public void etreAttaquer(int force){
-
+    public void etreAttaque(int force){
+        int pvRestant = this.getPv() - force;
+        this.setPv(pvRestant);
     }
 }

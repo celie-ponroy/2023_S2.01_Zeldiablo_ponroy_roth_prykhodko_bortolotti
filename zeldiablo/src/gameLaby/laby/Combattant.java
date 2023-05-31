@@ -26,6 +26,14 @@ public abstract class Combattant extends Entite {
         return force;
     }
 
+    public void setPv(int pv){
+        this.pv = pv;
+    }
+
+    public void setForce(int force){
+        this.force = force;
+    }
+
     /**
      * permet de savoir si le personnage est en x,y
      *
@@ -37,7 +45,7 @@ public abstract class Combattant extends Entite {
         return (this.getX() == dx && this.getY() == dy);
     }
 
-    public abstract void attaquer(Entite e);
-    public abstract void etreAttaquer(int force);
+    public abstract void attaquer(Combattant c);
+    public abstract void etreAttaque(int force);
 
 }

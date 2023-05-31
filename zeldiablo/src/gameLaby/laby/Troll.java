@@ -17,12 +17,12 @@ public class Troll extends Combattant{
 
 
     @Override
-    public void attaquer(Entite e) {
+    public void attaquer(Combattant e) {
 
     }
 
     @Override
-    public void etreAttaquer(int force) {
+    public void etreAttaque(int force) {
 
     }
 

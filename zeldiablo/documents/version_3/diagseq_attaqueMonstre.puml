@@ -14,7 +14,7 @@ activate l
 m <-- l : boolean
 deactivate l
 
-m -> mon : attaquer(Entite e)
+m -> mon : attaquer(Combattant c)
 
 activate mon
 

@@ -15,7 +15,7 @@ m <-- l : Entite[ ]
 deactivate l
 
 loop
-m -> p : attaquer(Entite e)
+m -> p : attaquer(Combattant c)
 
 activate p
 p -> mon : etreAttaque(force f)
