@@ -68,12 +68,7 @@ public class Serpent extends Combattant{
         }
         return newHead;
     }
-
-    public void setHead(boolean b){
-        isHead = b;
-    }
-
-
+    
     public boolean getIsHead(){
         return isHead;
     }

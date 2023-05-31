@@ -6,6 +6,7 @@ import moteurJeu.Jeu;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class LabyJeu implements Jeu {
     private Labyrinthe labyrinthe;
@@ -20,6 +21,8 @@ public class LabyJeu implements Jeu {
 
         int i=0;
         paths = f.listFiles();
+
+        Arrays.sort(paths);
         for (File path : paths) {
             this.labyrinthes.add(new Labyrinthe(path.getPath()));
             i++;
@@ -44,7 +47,7 @@ public class LabyJeu implements Jeu {
         if (clavier.bas) {
             labyrinthe.deplacerEntite(labyrinthe.pj, Labyrinthe.BAS);
         }
-        Escalier escalier =labyrinthe.chercherEscalier(labyrinthe.pj.getX(),labyrinthe.pj.getY());
+        Escalier escalier =labyrinthe.chercherEntitéeInteractive(labyrinthe.pj.getX(),labyrinthe.pj.getY());
         if (clavier.a && escalier!=null) {
             this.changerLabyCourant(escalier.montant);
         }

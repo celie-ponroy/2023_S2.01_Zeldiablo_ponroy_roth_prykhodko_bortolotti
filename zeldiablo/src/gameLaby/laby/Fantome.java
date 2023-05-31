@@ -16,10 +16,6 @@ public class Fantome extends Combattant{
         super(vie, frc, x, y, false);
     }
 
-
-
-
-
     @Override
     public void attaquer(Combattant e) {
 
