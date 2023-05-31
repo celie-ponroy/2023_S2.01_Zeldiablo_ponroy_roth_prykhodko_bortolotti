@@ -171,17 +171,17 @@ public class Labyrinthe {
      * @param act une des actions possibles
      */
 
-    public void deplacerEntite(Entite e, String act){
+    public void deplacerEntite(Combattant c, String act){
         // case courante
-        int[] courante = {e.getX(), e.getY()};
+        int[] courante = {c.getX(), c.getY()};
 
         // calcule case suivante
         int[] suivante = getSuivant(courante[0], courante[1], act);
 
         // si c'est pas un mur, on effectue le deplacement
-        if (deplacementValide(e, suivante))  {
+        if (deplacementValide(c, suivante))  {
             // on met a jour personnage
-            e.deplacer(suivante);
+            c.deplacer(suivante);
         }
     }
 

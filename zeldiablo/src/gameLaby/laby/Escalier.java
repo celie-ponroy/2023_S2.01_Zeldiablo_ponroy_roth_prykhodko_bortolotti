@@ -7,10 +7,6 @@ public class Escalier extends Entite{
         this.montant = estmontant;
     }
 
-    @Override
-    public void deplacer(int[] suiv) {
-        //l'escalier ne se déplace pas
-    }
     public void changerEtage(){
         //appel de changerLabyCourant de LabyJeu
 
