@@ -40,6 +40,7 @@ public class Labyrinthe {
      * attribut du personnage
      */
     public Perso pj;
+    public ArrayList<Combattant> comb;
     public ArrayList<Entite> entites;
 
     /**
@@ -265,7 +266,7 @@ public class Labyrinthe {
         return entites;
     }
 
-    public Entite[] monstreAutour(){
+    public Entite[] monstreAutour() {
         Entite[] m = new Entite[4];
 
         int coordX = pj.getX();
@@ -276,23 +277,37 @@ public class Labyrinthe {
         int[] suivantHaut = this.getSuivant(coordX, coordY, Labyrinthe.HAUT);
         int[] suivantBas = this.getSuivant(coordX, coordY, Labyrinthe.BAS);
 
-        if(etreEntite(suivantGauche[0], suivantGauche[1])){
+        if (etreEntite(suivantGauche[0], suivantGauche[1])) {
             Entite e = this.getEntite(suivantGauche[0], suivantGauche[1]);
             m[0] = e;
         }
-        if(etreEntite(suivantDroite[0], suivantDroite[1])){
+        if (etreEntite(suivantDroite[0], suivantDroite[1])) {
             Entite e = this.getEntite(suivantDroite[0], suivantDroite[1]);
             m[1] = e;
         }
-        if(etreEntite(suivantHaut[0], suivantHaut[1])){
+        if (etreEntite(suivantHaut[0], suivantHaut[1])) {
             Entite e = this.getEntite(suivantHaut[0], suivantHaut[1]);
             m[2] = e;
         }
-        if(etreEntite(suivantBas[0], suivantBas[1])){
+        if (etreEntite(suivantBas[0], suivantBas[1])) {
             Entite e = this.getEntite(suivantBas[0], suivantBas[1]);
             m[3] = e;
         }
 
         return m;
+    }
+
+
+    public Escalier chercherEscalier(int x, int y){
+        Escalier res =null;
+        for(int i = 0; i<this.entites.size();i++){
+            if(entites.get(i) instanceof Escalier){
+                if(entites.get(i).getX()==x&& entites.get(i).getY()==y){
+                    res=(Escalier) entites.get(i);
+                }
+            }
+
+        }
+        return res;
     }
 }
