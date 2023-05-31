@@ -185,10 +185,10 @@ public class Labyrinthe {
         }
     }
 
-    public boolean etreEntite(int x, int y){
+    public boolean etreCombattant(int x, int y){
         boolean res = false;
-        for(int i = 0; i < entites.size(); i++) {
-            res = entites.get(i).etrePresent(x, y);
+        for(int i = 0; i < comb.size(); i++) {
+            res = comb.get(i).etrePresent(x, y);
             if (res)
                 break;
         }
@@ -198,8 +198,8 @@ public class Labyrinthe {
     public boolean deplacementValide(Entite e, int[] suivante){
         return /*un fantome qui se deplace*/!e.getCollision() ||
                 /*case vide(ou avec entite) */(!this.murs[suivante[0]][suivante[1]] &&
-                                            /*entite de type phantom */((etreEntite(suivante[0],suivante[1]) && !getEntite(suivante[0],suivante[1]).getCollision())
-                                            || /*case vide*/!etreEntite(suivante[0],suivante[1])));
+                                            /*entite de type phantom */((etreCombattant(suivante[0],suivante[1]) && !getEntite(suivante[0],suivante[1]).getCollision())
+                                            || /*case vide*/!etreCombattant(suivante[0],suivante[1])));
     }
 
 
@@ -277,19 +277,19 @@ public class Labyrinthe {
         int[] suivantHaut = this.getSuivant(coordX, coordY, Labyrinthe.HAUT);
         int[] suivantBas = this.getSuivant(coordX, coordY, Labyrinthe.BAS);
 
-        if (etreEntite(suivantGauche[0], suivantGauche[1])) {
+        if (etreCombattant(suivantGauche[0], suivantGauche[1])) {
             Entite e = this.getEntite(suivantGauche[0], suivantGauche[1]);
             m[0] = e;
         }
-        if (etreEntite(suivantDroite[0], suivantDroite[1])) {
+        if (etreCombattant(suivantDroite[0], suivantDroite[1])) {
             Entite e = this.getEntite(suivantDroite[0], suivantDroite[1]);
             m[1] = e;
         }
-        if (etreEntite(suivantHaut[0], suivantHaut[1])) {
+        if (etreCombattant(suivantHaut[0], suivantHaut[1])) {
             Entite e = this.getEntite(suivantHaut[0], suivantHaut[1]);
             m[2] = e;
         }
-        if (etreEntite(suivantBas[0], suivantBas[1])) {
+        if (etreCombattant(suivantBas[0], suivantBas[1])) {
             Entite e = this.getEntite(suivantBas[0], suivantBas[1]);
             m[3] = e;
         }
