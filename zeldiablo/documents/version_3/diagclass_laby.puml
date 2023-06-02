@@ -30,6 +30,8 @@ class Labyrinthe{
 + getComb() : ArrayList<Combattant>
 + chercherEntitéeInteractive(int x, int y) : Escalier
 + persoAutour(Combattant c) : boolean
++ deplacementAleatoire() : void
++ comportementMonstre() : void
 }
 
 
