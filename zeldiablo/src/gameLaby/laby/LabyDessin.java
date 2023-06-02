@@ -3,6 +3,7 @@ package gameLaby.laby;
 import gameArkanoid.ArkanoidJeu;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
@@ -40,7 +41,8 @@ public class LabyDessin implements DessinJeu {
         for(int i = 0; i<labyrinthe.comb.size(); i++) {
             if (labyrinthe.comb.get(i) instanceof Monstre){
                 gc.setFill(Color.PURPLE);
-                gc.fillOval(labyrinthe.comb.get(i).getX() * 50, labyrinthe.comb.get(i).getY() * 50, 50, 50);
+                Image image = new Image("images/enemies-2.png");
+                gc.drawImage(image, labyrinthe.comb.get(i).getX() * 50, labyrinthe.comb.get(i).getY() * 50, 50, 50);
             }
 
         }
