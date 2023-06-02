@@ -50,7 +50,7 @@ public class TestLabyrinthe {
 
         // preparation des donnees
         Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
-        Fantome m = new Fantome(Labyrinthe.VIE_MONSTRE,1, 1);
+        Fantome m = new Fantome(1, 1);
         laby.comb.add(m);
 
         int posMonstreX = 0;

@@ -45,6 +45,12 @@ public abstract class Entite {
         return y;
     }
 
+    public int[] getPosition(){
+        int[] positionMonstre = new int[2];
+        positionMonstre[0] = this.getX();
+        positionMonstre[1] = this.getY();
+        return positionMonstre;
+    }
     public  boolean getCollision(){
         return collision;
     }
