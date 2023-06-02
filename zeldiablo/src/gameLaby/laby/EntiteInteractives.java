@@ -13,4 +13,9 @@ public class EntiteInteractives extends Entite{
     public EntiteInteractives(int x, int y, boolean col) {
         super(x, y, col);
     }
+
+//    @Override
+//    public void deplacer(int[] suiv) {
+//        //a faire
+//    }
 }

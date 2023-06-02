@@ -1,4 +1,4 @@
-import gameLaby.laby.Entite;
+import gameLaby.laby.Combattant;
 import gameLaby.laby.Labyrinthe;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
@@ -15,9 +15,9 @@ public class TestMonstre {
     @Test
     public void testPosMonstre() throws IOException {
         Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
-        ArrayList<Entite> listeEntite = laby.getEntites();
-        assertEquals(4, listeEntite.get(0).getX());
-        assertEquals(2, listeEntite.get(0).getY());
+        ArrayList<Combattant> listeComb = laby.getComb();
+        assertEquals(4, listeComb.get(0).getX());
+        assertEquals(2, listeComb.get(0).getY());
     }
 
     /**
@@ -38,10 +38,19 @@ public class TestMonstre {
     public void testMonstreObstacle() throws IOException {
         Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
         int xInit = laby.pj.getX();
-        laby.deplacerEntite(laby.pj, "Droite");
+        laby.deplacerCombattant(laby.pj, "Droite");
 
         int xFinal = laby.pj.getX();
         assertEquals(xInit, xFinal);
+    }
+
+    @Test
+    public void testAttaqueMonstre() throws IOException {
+        Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
+
+
+
+        //assertEquals(, ,);
     }
 
 }
