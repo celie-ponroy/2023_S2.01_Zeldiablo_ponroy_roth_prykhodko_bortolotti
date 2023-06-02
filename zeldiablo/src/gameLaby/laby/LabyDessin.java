@@ -53,10 +53,8 @@ public class LabyDessin implements DessinJeu {
         //desssin monstre
 
         for(int i = 0; i<labyrinthe.comb.size(); i++) {
-            if (labyrinthe.comb.get(i) instanceof Monstre){
                 Image imgCombatant = new Image(labyrinthe.comb.get(i).getImage());
                 gc.drawImage(imgCombatant, labyrinthe.comb.get(i).getX() * 50, labyrinthe.comb.get(i).getY() * 50, 50, 50);
-            }
 
         }
 

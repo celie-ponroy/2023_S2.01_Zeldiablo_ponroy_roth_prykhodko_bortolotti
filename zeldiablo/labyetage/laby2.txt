@@ -3,8 +3,8 @@
 XXXXXXXXXXXXXXXX
 X..............X
 X..............X
-X....M........LX
+X....S........LX
 X.............PX
-X........M.....X
+X........F.....X
 X..............X
 XXXXXXXXXXXXXXXX
