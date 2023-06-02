@@ -41,8 +41,8 @@ public class LabyDessin implements DessinJeu {
         for(int i = 0; i<labyrinthe.comb.size(); i++) {
             if (labyrinthe.comb.get(i) instanceof Monstre){
                 gc.setFill(Color.PURPLE);
-                Image image = new Image("images/enemies-2.png");
-                gc.drawImage(image, labyrinthe.comb.get(i).getX() * 50, labyrinthe.comb.get(i).getY() * 50, 50, 50);
+                //Image image = new Image("images/enemies-2.png");
+                //gc.drawImage(image, labyrinthe.comb.get(i).getX() * 50, labyrinthe.comb.get(i).getY() * 50, 50, 50);
             }
 
         }
