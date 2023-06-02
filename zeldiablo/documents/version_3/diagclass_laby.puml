@@ -17,15 +17,21 @@ class Labyrinthe{
 + Labyrinthe(String nom)
 + getSuivant(int x, int y, String action) : int[]
 + deplacerPerso(String action)
-+ deplacerEntitee()
++ deplacerCombattant() : void
 + etreFini(): boolean
++ etreCombattant(int x, int y) : boolean
 + getLengthY(): int
 + getLength(): int
 + getMur(int x, int y): boolean
 + getPj() : Perso
-+ getEntite(int x, int y) : Entite
-+ getEntites() : ArrayList<Entite>
-+ monstreAutour() : Entite[]
++ getCombattant(int x, int y) : Combattant
++ getEntiteInteractives() : ArrayList<EntiteInteractives>
++ combattantAutour(Combattant c) : Combattant[]
++ getComb() : ArrayList<Combattant>
++ chercherEntitéeInteractive(int x, int y) : Escalier
++ persoAutour(Combattant c) : boolean
++ deplacementAleatoire() : void
++ comportementMonstre() : void
 }
 
 
@@ -62,6 +68,11 @@ Abstract class Combattant{
 + etrePresent(int dx, int dy) : boolean
 + {abstract}attaquer(Combattant c)
 + {abstract}etreAttaque(int force)
+}
+
+class EntiteInteractives{
++ EntiteInteractives(int x, int y, boolean col)
++ deplacer(int[] suiv) : void
 }
 
 class Monstre{
@@ -102,6 +113,7 @@ class Escalier{
 }
 
 class LabyJeu{
+- nbcourant : int
 }
 
 class LabyDessin{
@@ -128,17 +140,20 @@ class MoteurJeu{
 
 }
 
-Labyrinthe "1" --> "*" Entité : entites
-Labyrinthe "1" --> "*" Combattant : comb
+Labyrinthe "1" --> "*" EntiteInteractives : + entiteInteractives
+Labyrinthe "1" --> "*" Combattant : + comb
 Labyrinthe "1" --> "1" Perso : + pj
+LabyJeu "1" --> "1" Labyrinthe : + labyrinthe
+LabyJeu "1" --> "1" Labyrinthe : + labyrinthes
 
 Entité <|-- Combattant
+Entité <|-- EntiteInteractives
 Combattant <|-- Monstre
 Combattant <|-- Perso
 Combattant <|-- Fantome
 Combattant <|-- Serpent
 Combattant <|-- Troll
-Entité <|-- Escalier
+EntiteInteractives <|-- Escalier
 Jeu <|.. LabyJeu
 DessinJeu <|.. LabyDessin
 Application <|-- MoteurJeu

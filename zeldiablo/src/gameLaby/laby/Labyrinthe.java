@@ -130,13 +130,13 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
-                        this.pj = new Perso(VIE_PERSO,ATTAQUE_PERSO, colonne, numeroLigne, true);
+                        this.pj = new Perso(VIE_PERSO, colonne, numeroLigne, true);
                         break;
                     case MONSTRE:
                         //pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         //ajoute MONSTRE
-                        this.comb.add(new Monstre(VIE_MONSTRE, ATTAQUE_MONSTRE,colonne, numeroLigne, true));
+                        this.comb.add(new Monstre(VIE_MONSTRE, colonne, numeroLigne, true));
                         break;
                     case ESCALIER_DESC:
                         //pas de mur
@@ -173,7 +173,7 @@ public class Labyrinthe {
      * @param act une des actions possibles
      */
 
-    public void deplacerEntite(Combattant c, String act){
+    public void deplacerCombattant(Combattant c, String act){
         // case courante
         int[] courante = {c.getX(), c.getY()};
 
@@ -197,11 +197,12 @@ public class Labyrinthe {
         return res;
     }
 
-    public boolean deplacementValide(Entite e, int[] suivante){
-        return /*un fantome qui se deplace*/!e.getCollision() ||
-                /*case vide(ou avec entite) */(!this.murs[suivante[0]][suivante[1]] &&
-                                            /*entite de type phantom */((etreCombattant(suivante[0],suivante[1]) && !getEntite(suivante[0],suivante[1]).getCollision())
-                                            || /*case vide*/!etreCombattant(suivante[0],suivante[1])));
+    public boolean deplacementValide(Combattant c, int[] suivante){
+        return /*un fantome qui se deplace*/!c.getCollision() ||
+                /*case vide(ou avec entite) */(!this.murs[suivante[0]][suivante[1]]
+                &&/*entite de type phantom */((etreCombattant(suivante[0],suivante[1])
+                && !getCombattant(suivante[0],suivante[1]).getCollision())
+                || /*case vide*/!etreCombattant(suivante[0],suivante[1])));
     }
 
 
@@ -247,8 +248,8 @@ public class Labyrinthe {
         return this.murs[x][y];
     }
 
-    public Entite getEntite(int x, int y){
-        Entite res = null;
+    public Combattant getCombattant(int x, int y){
+        Combattant res = null;
         for(int i = 0; i < comb.size(); i++) {
             if(comb.get(i).etrePresent(x, y)){
                 res = comb.get(i);
@@ -257,8 +258,6 @@ public class Labyrinthe {
         }
         return res;
     }
-
-
 
     public Perso getPj() {
         return pj;
@@ -272,8 +271,8 @@ public class Labyrinthe {
         return entiteInteractives;
     }
 
-    public Entite[] combattantAutour(Combattant c) {
-        Entite[] m = new Entite[4];
+    public Combattant[] combattantAutourPerso(Combattant c) {
+        Combattant[] m = new Combattant[4];
 
         int coordX = c.getX();
         int coordY = c.getY();
@@ -284,23 +283,48 @@ public class Labyrinthe {
         int[] suivantBas = this.getSuivant(coordX, coordY, Labyrinthe.BAS);
 
         if (etreCombattant(suivantGauche[0], suivantGauche[1])) {
-            Entite e = this.getEntite(suivantGauche[0], suivantGauche[1]);
-            m[0] = e;
+            Combattant c1 = this.getCombattant(suivantGauche[0], suivantGauche[1]);
+            m[0] = c1;
         }
         if (etreCombattant(suivantDroite[0], suivantDroite[1])) {
-            Entite e = this.getEntite(suivantDroite[0], suivantDroite[1]);
-            m[1] = e;
+            Combattant c2 = this.getCombattant(suivantDroite[0], suivantDroite[1]);
+            m[1] = c2;
         }
         if (etreCombattant(suivantHaut[0], suivantHaut[1])) {
-            Entite e = this.getEntite(suivantHaut[0], suivantHaut[1]);
-            m[2] = e;
+            Combattant c3 = this.getCombattant(suivantHaut[0], suivantHaut[1]);
+            m[2] = c3;
         }
         if (etreCombattant(suivantBas[0], suivantBas[1])) {
-            Entite e = this.getEntite(suivantBas[0], suivantBas[1]);
-            m[3] = e;
+            Combattant c4 = this.getCombattant(suivantBas[0], suivantBas[1]);
+            m[3] = c4;
         }
 
         return m;
+    }
+
+    public boolean persoAutour(Combattant c) {
+        boolean res = false;
+
+        int coordX = c.getX();
+        int coordY = c.getY();
+
+        int coordPersoX = this.pj.getX();
+        int coordPersoY = this.pj.getY();
+
+        if ((coordX == coordPersoX) && (coordY + 1 == coordPersoY)) {
+            res = true;
+        }
+        else if ((coordX == coordPersoX) && (coordY - 1 == coordPersoY)) {
+            res = true;
+        }
+        else if ((coordX + 1 == coordPersoX) && (coordY == coordPersoY)) {
+            res = true;
+        }
+        else if ((coordX - 1 == coordPersoX) && (coordY == coordPersoY)) {
+            res = true;
+        }
+
+        return res;
     }
 
 
@@ -317,4 +341,35 @@ public class Labyrinthe {
         return res;
     }
 
+    public String deplacementAleatoire(){
+        String res = "";
+        int valeur = (int) Math.floor ((Math.random() * 4) + 1) ;
+        switch (valeur){
+            case 1:
+                res = Labyrinthe.DROITE;
+                break;
+            case 2:
+                res = Labyrinthe.GAUCHE;
+                break;
+            case 3:
+                res = Labyrinthe.HAUT;
+                break;
+            case 4:
+                res = Labyrinthe.BAS;
+                break;
+        }
+        return res;
+    }
+
+    public void comportementMonstre(){
+        for(Combattant c : comb){
+            if(this.persoAutour(c)){
+                c.attaquer(pj);
+            }
+            else{
+                String action = deplacementAleatoire();
+                this.deplacerCombattant(c, action);
+            }
+        }
+    }
 }

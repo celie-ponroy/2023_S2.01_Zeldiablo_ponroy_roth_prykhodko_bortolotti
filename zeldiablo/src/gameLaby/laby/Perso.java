@@ -13,8 +13,8 @@ public class Perso extends Combattant{
      * @param dx position selon x
      * @param dy position selon y
      */
-    public Perso(int vie, int frc, int dx, int dy, boolean col) {
-        super(vie, frc, dx, dy, col);
+    public Perso(int vie,  int dx, int dy, boolean col) {
+        super(vie, dx, dy, col);
     }
 
 

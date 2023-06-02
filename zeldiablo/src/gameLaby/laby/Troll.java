@@ -10,8 +10,8 @@ public class Troll extends Combattant{
      * @param y   ordonnée
      * @param col
      */
-    public Troll(int frc, int x, int y) {
-        super(3, frc, x, y, true);
+    public Troll(int x, int y) {
+        super(3,  x, y, true);
     }
 
 

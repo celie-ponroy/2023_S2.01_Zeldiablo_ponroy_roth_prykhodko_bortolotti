@@ -1,39 +1,41 @@
 package gameLaby.laby;
 
-import javafx.scene.SnapshotParameters;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Serpent extends Combattant{
-     private boolean isHead;
-     private int taille, tMax;
-    private Serpent nextPart;
+
+    private ArrayList<SerPart> snake;
+    private int taille;
+
     /**
      * Constructeur Entite
      *
      * @param vie
-     * @param frc
+     * @param f
      * @param x   abscisse
      * @param y   ordonnée
      * @param col
      */
-    public Serpent(int vie, int frc, int x, int y,int tCour, int t) {
-        super(vie, frc, x, y, true);
-        taille = tCour;
-        tMax = t;
-        isHead = true;
-        nextPart = null;
+    public Serpent(int vie, int x, int y, int size) {
+        super(vie, x, y, true);
+        snake = new ArrayList<>();
+        SerPart sp = new SerPart(x, y);
+
+        taille = size;
     }
+
+
     @Override
-    public boolean etrePresent(int dx, int dy) {
-        boolean res = false;
-        Serpent s = this;
-        while (s!=null){
-            if ( super.etrePresent(dx, dy) )
-            {
-                res = true;
-                break;
-            }
+    public void deplacer(int[] suiv) {
+        SerPart sp = new SerPart(suiv[0], suiv[1]);
+        snake.add(sp);
+
+        if (snake.size()==taille){
+            snake.remove(snake.size()-1);
         }
-        return res;
+        this.setX(suiv[0]);
+        this.setY(suiv[1]);
     }
 
     @Override
@@ -48,29 +50,15 @@ public class Serpent extends Combattant{
     }
 
     @Override
-    public void deplacer(int[] suiv){}//deplacer serpent doit retourner un serpent
-
-
-    public Serpent deplacerSerpent(int[] suiv) {
-        Serpent newHead;
-        if (taille<tMax){
-            newHead = new Serpent(getPv(), getForce(), suiv[0], suiv[1], taille+1 ,tMax);
-            isHead = false;
-            newHead.nextPart = this;
-        }else{
-            newHead = new Serpent(getPv(), getForce(), suiv[0], suiv[1], tMax ,tMax);
-            Serpent tmpSnake = this;
-            while(tmpSnake.nextPart.nextPart!=null){
-                tmpSnake = tmpSnake.nextPart;
+    public boolean etrePresent(int dx, int dy) {
+        boolean res = false;
+        for (SerPart s : snake){
+            if (s.etrePresent(dx,dy)){
+                res = true;
+                break;
             }
-            tmpSnake.nextPart = null;
-            isHead = false;
-            newHead.nextPart = this;
         }
-        return newHead;
-    }
-    
-    public boolean getIsHead(){
-        return isHead;
+
+        return res;
     }
 }
