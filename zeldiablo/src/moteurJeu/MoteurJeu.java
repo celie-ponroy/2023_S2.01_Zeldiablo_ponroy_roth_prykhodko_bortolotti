@@ -92,7 +92,7 @@ public class MoteurJeu extends Application {
     // SURCHARGE Application
     //#################################
 
-    public void start(Stage primaryStage) {
+    public void startjeu(Stage primaryStage) {
         Canvas c = new Canvas(WIDTH, HEIGHT);
         Pane pane = new Pane(c);
         Scene s = new Scene(pane, WIDTH, HEIGHT);
@@ -105,7 +105,7 @@ public class MoteurJeu extends Application {
     /**
      * creation de l'application avec juste un canvas et des statistiques
      */
-    public void startJeu(Stage primaryStage) {
+    public void start(Stage primaryStage) {
         // initialisation du canvas de dessin et du container
         final Canvas canvas = new Canvas();
         final Pane canvasContainer = new Pane(canvas);

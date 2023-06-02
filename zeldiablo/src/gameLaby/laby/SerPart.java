@@ -38,6 +38,8 @@ public class SerPart {
         this.y = y;
     }
 
-
+    public String getImage() {
+        return "/Tetes_serp.png";
+    }
 
 }

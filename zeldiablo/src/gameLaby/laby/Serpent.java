@@ -61,4 +61,9 @@ public class Serpent extends Combattant{
 
         return res;
     }
+
+    @Override
+    public String getImage() {
+        return "/Tetes_serp.png";
+    }
 }

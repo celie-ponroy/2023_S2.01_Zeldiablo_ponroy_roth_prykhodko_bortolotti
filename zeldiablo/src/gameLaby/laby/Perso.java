@@ -43,6 +43,8 @@ public class Perso extends Combattant{
         this.setPv(pvRestant);
     }
 
-
-
+    @Override
+    public String getImage() {
+        return "link-2.png";
+    }
 }

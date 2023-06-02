@@ -14,10 +14,8 @@ public class EntiteInteractives extends Entite{
         super(x, y, col);
     }
 
-
-//    @Override
-//    public void deplacer(int[] suiv) {
-//        //a faire
-//    }
-
+    @Override
+    public String getImage() {
+        return "link-2.png";
+    }
 }

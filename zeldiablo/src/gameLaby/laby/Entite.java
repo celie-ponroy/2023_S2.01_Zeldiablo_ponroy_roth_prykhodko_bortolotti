@@ -6,7 +6,6 @@ public abstract class Entite {
      */
     private int x;
     private int y;
-
     private boolean collision;
 
 
@@ -54,6 +53,8 @@ public abstract class Entite {
     public  boolean getCollision(){
         return collision;
     }
+
+    public abstract String getImage();
 
 
 }
