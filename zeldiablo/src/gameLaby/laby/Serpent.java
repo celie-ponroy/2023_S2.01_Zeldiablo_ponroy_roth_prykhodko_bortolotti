@@ -17,8 +17,8 @@ public class Serpent extends Combattant{
      * @param y   ordonnée
      * @param col
      */
-    public Serpent(int vie, int x, int y, int size) {
-        super(vie, x, y, true);
+    public Serpent(int x, int y, int size) {
+        super(Labyrinthe.VIE_SERPENT, x, y, true);
         snake = new ArrayList<>();
         SerPart sp = new SerPart(x, y);
 
