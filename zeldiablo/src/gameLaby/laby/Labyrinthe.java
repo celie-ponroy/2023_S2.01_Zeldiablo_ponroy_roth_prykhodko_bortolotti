@@ -19,6 +19,9 @@ public class Labyrinthe {
     public static final char PJ = 'P';
     public static final char VIDE = '.';
     public static final char MONSTRE = 'M';
+    public static final char FANTOME = 'F';
+    public static final char SERPENT = 'S';
+    public static final char TROLL = 'T';
     public static final char ESCALIER_DESC = 'L';
     public static final char ESCALIER_MONT = 'J';
     public static final int VIE_PERSO = 10;
@@ -141,6 +144,24 @@ public class Labyrinthe {
                         this.murs[colonne][numeroLigne] = false;
                         //ajoute MONSTRE
                         this.comb.add(new Monstre(VIE_MONSTRE, colonne, numeroLigne, true));
+                        break;
+                    case TROLL:
+                        //pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        //ajoute TROLL
+                        this.comb.add(new Troll(colonne, numeroLigne));
+                        break;
+                    case FANTOME:
+                        //pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        //ajoute MONSTRE
+                        this.comb.add(new Fantome(colonne, numeroLigne));
+                        break;
+                    case SERPENT:
+                        //pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        //ajoute MONSTRE
+                        this.comb.add(new Serpent(colonne, numeroLigne, 4));
                         break;
                     case ESCALIER_DESC:
                         //pas de mur
