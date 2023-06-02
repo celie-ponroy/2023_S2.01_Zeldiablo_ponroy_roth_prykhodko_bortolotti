@@ -61,16 +61,16 @@ public class LabyJeu implements Jeu {
 //        return labyrinthe.etreFini();
         boolean res = false;
         //perso mort
-
-
-
+        if (labyrinthe.pj.etreMort()) {
+            res = true;
+            return res;
+        }
 //        Labyrinthe l = labyrinthes.get(labyrinthes.size()-1);
-
-
-
-
-        //boss mort
-
+//        boss mort
+//        if (){
+//
+//
+//        }
         return res;
     }
 
@@ -83,13 +83,12 @@ public class LabyJeu implements Jeu {
         }else{
             nbcourant-=1;
         }
-        int x = labyrinthe.pj.getX();
-        int y = labyrinthe.pj.getY();
+
+        Perso perso = labyrinthe.pj;
 
         labyrinthe=labyrinthes.get(nbcourant);
 
-        labyrinthe.pj.setX(x);
-        labyrinthe.pj.setY(y);
+        labyrinthe.pj=perso;
     }
 
 
