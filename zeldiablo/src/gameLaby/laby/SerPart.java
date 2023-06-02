@@ -16,7 +16,7 @@ public class SerPart extends Entite {
 
         return res;
     }
-    
+
 
     public String getImage() {
         return "/corps_serp.png";
