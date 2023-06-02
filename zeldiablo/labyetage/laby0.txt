@@ -2,6 +2,6 @@
 13
 XXXXXXX.XXXXX
 X.J...X.XJ..X
-X.P.T.X.X.F.X
+X.P...X.X.F.X
 X.....X.X...X
 XXXXXXX.XXXXX
