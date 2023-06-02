@@ -1,8 +1,5 @@
 package gameLaby.laby;
 
-import gameArkanoid.ArkanoidDessin;
-import gameArkanoid.ArkanoidJeu;
-import moteurJeu.DessinJeu;
 import moteurJeu.MoteurJeu;
 
 import java.io.IOException;

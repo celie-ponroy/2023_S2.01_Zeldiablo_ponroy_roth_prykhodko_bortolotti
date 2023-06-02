@@ -59,7 +59,7 @@
       vie.
     - Les attaques des trolls fonctionnent de la même manière que les attaques des
       monstres de base.
-    - Un troll a par défaut 3 points de vie (à adapter).
+    - Un troll a par défaut 9 points de vie.
 
 6. Serpent
 - Descriptif :
