@@ -270,7 +270,7 @@ public class Labyrinthe {
         return entiteInteractives;
     }
 
-    public Combattant[] combattantAutour(Combattant c) {
+    public Combattant[] combattantAutourPerso(Combattant c) {
         Combattant[] m = new Combattant[4];
 
         int coordX = c.getX();
@@ -301,6 +301,31 @@ public class Labyrinthe {
         return m;
     }
 
+    public boolean persoAutour(Combattant c) {
+        boolean res = false;
+
+        int coordX = c.getX();
+        int coordY = c.getY();
+
+        int coordPersoX = this.pj.getX();
+        int coordPersoY = this.pj.getY();
+
+        if ((coordX == coordPersoX) && (coordY + 1 == coordPersoY)) {
+            res = true;
+        }
+        else if ((coordX == coordPersoX) && (coordY - 1 == coordPersoY)) {
+            res = true;
+        }
+        else if ((coordX + 1 == coordPersoX) && (coordY == coordPersoY)) {
+            res = true;
+        }
+        else if ((coordX - 1 == coordPersoX) && (coordY == coordPersoY)) {
+            res = true;
+        }
+
+        return res;
+    }
+
 
     public Escalier chercherEntitéeInteractive(int x, int y){
         Escalier res =null;
@@ -313,6 +338,38 @@ public class Labyrinthe {
 
         }
         return res;
+    }
+
+    public String deplacementAleatoire(){
+        String res = "";
+        int valeur = (int) Math.floor ((Math.random() * 4)) ;
+        switch (valeur){
+            case 1:
+                res = Labyrinthe.DROITE;
+                break;
+            case 2:
+                res = Labyrinthe.GAUCHE;
+                break;
+            case 3:
+                res = Labyrinthe.HAUT;
+                break;
+            case 4:
+                res = Labyrinthe.BAS;
+                break;
+        }
+        return res;
+    }
+
+    public void comportementMonstre(){
+        for(Combattant c : comb){
+            if(this.persoAutour(c)){
+                c.attaquer(pj);
+            }
+            else{
+                String action = deplacementAleatoire();
+                this.deplacerCombattant(c,action);
+            }
+        }
     }
 
 }
