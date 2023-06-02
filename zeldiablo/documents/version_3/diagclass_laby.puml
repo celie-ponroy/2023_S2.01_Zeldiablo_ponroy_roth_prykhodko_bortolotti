@@ -19,13 +19,15 @@ class Labyrinthe{
 + deplacerPerso(String action)
 + deplacerEntitee()
 + etreFini(): boolean
++ etreCombattant(int x, int y) : boolean
 + getLengthY(): int
 + getLength(): int
 + getMur(int x, int y): boolean
 + getPj() : Perso
 + getEntite(int x, int y) : Entite
 + getEntites() : ArrayList<Entite>
-+ monstreAutour() : Entite[]
++ combattantAutour(Combattant c) : Combattant[]
++ getComb() : ArrayList<Combattant>
 }
 
 
@@ -62,6 +64,11 @@ Abstract class Combattant{
 + etrePresent(int dx, int dy) : boolean
 + {abstract}attaquer(Combattant c)
 + {abstract}etreAttaque(int force)
+}
+
+class EntiteInteractives{
++ EntiteInteractives(int x, int y, boolean col)
++ deplacer(int[] suiv) : void
 }
 
 class Monstre{
@@ -128,17 +135,18 @@ class MoteurJeu{
 
 }
 
-Labyrinthe "1" --> "*" Entité : entites
-Labyrinthe "1" --> "*" Combattant : comb
+Labyrinthe "1" --> "*" EntiteInteractives : + entiteInteractives
+Labyrinthe "1" --> "*" Combattant : + comb
 Labyrinthe "1" --> "1" Perso : + pj
 
 Entité <|-- Combattant
+Entité <|-- EntiteInteractives
 Combattant <|-- Monstre
 Combattant <|-- Perso
 Combattant <|-- Fantome
 Combattant <|-- Serpent
 Combattant <|-- Troll
-Entité <|-- Escalier
+EntiteInteractives <|-- Escalier
 Jeu <|.. LabyJeu
 DessinJeu <|.. LabyDessin
 Application <|-- MoteurJeu

@@ -272,8 +272,8 @@ public class Labyrinthe {
         return entiteInteractives;
     }
 
-    public Entite[] combattantAutour(Combattant c) {
-        Entite[] m = new Entite[4];
+    public Combattant[] combattantAutour(Combattant c) {
+        Combattant[] m = new Entite[4];
 
         int coordX = c.getX();
         int coordY = c.getY();
