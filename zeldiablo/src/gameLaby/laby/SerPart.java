@@ -1,19 +1,15 @@
 package gameLaby.laby;
 
-public class SerPart {
-    int x, y;
-
+public class SerPart extends Entite {
     public SerPart(int xPos, int yPos) {
-        x = xPos;
-        y = yPos;
+        super(xPos, yPos, true);
     }
-
 
 
     public boolean etrePresent(int dx, int dy) {
         boolean res = false;
 
-        if ( dx ==x && dy == y )
+        if ( dx ==getX() && dy == getY() )
         {
             res = true;
         }
@@ -22,22 +18,8 @@ public class SerPart {
     }
 
 
-    public int getX() {
-        return x;
+    public String getImage() {
+        return "/corps_serp.png";
     }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-
 
 }

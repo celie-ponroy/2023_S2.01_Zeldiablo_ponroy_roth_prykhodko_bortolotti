@@ -19,10 +19,17 @@ public class Labyrinthe {
     public static final char PJ = 'P';
     public static final char VIDE = '.';
     public static final char MONSTRE = 'M';
+    public static final char FANTOME = 'F';
+    public static final char SERPENT = 'S';
+    public static final char TROLL = 'T';
     public static final char ESCALIER_DESC = 'L';
     public static final char ESCALIER_MONT = 'J';
     public static final int VIE_PERSO = 10;
     public static final int VIE_MONSTRE = 9;
+    public static final int VIE_FANTOME = 9;
+    public static final int VIE_TROLL = 6;
+    public static final int VIE_SERPENT = 12;
+
     public static final int ATTAQUE_PERSO = 3;
     public static final int ATTAQUE_MONSTRE = 1;
 
@@ -130,13 +137,31 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
-                        this.pj = new Perso(VIE_PERSO, colonne, numeroLigne, true);
+                        this.pj = new Perso(colonne, numeroLigne, true);
                         break;
                     case MONSTRE:
                         //pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         //ajoute MONSTRE
                         this.comb.add(new Monstre(VIE_MONSTRE, colonne, numeroLigne, true));
+                        break;
+                    case TROLL:
+                        //pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        //ajoute TROLL
+                        this.comb.add(new Troll(colonne, numeroLigne));
+                        break;
+                    case FANTOME:
+                        //pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        //ajoute MONSTRE
+                        this.comb.add(new Fantome(colonne, numeroLigne));
+                        break;
+                    case SERPENT:
+                        //pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        //ajoute MONSTRE
+                        this.comb.add(new Serpent(colonne, numeroLigne, 4));
                         break;
                     case ESCALIER_DESC:
                         //pas de mur
@@ -198,7 +223,7 @@ public class Labyrinthe {
     }
 
     public boolean deplacementValide(Combattant c, int[] suivante){
-        return /*un fantome qui se deplace*/!c.getCollision() ||
+        return /*un fantome qui se deplace*/(!c.getCollision() && suivante[0]>0 && suivante[0] < murs.length-2 && suivante[1] > 0 && suivante[1] < murs[0].length-2 )||
                 /*case vide(ou avec entite) */(!this.murs[suivante[0]][suivante[1]]
                 &&/*entite de type phantom */((etreCombattant(suivante[0],suivante[1])
                 && !getCombattant(suivante[0],suivante[1]).getCollision())
@@ -212,7 +237,7 @@ public class Labyrinthe {
      * @return fin du jeu
      */
     public boolean etreFini() {
-        return false;
+        return true;
     }
 
     // ##################################

@@ -11,7 +11,7 @@ public class Troll extends Combattant{
      * @param col
      */
     public Troll(int x, int y) {
-        super(3,  x, y, true);
+        super(Labyrinthe.VIE_TROLL,  x, y, true);
     }
 
 
@@ -31,5 +31,10 @@ public class Troll extends Combattant{
     public void deplacer(int[] suiv) {
         setX(suiv[0]);
         setY(suiv[1]);
+    }
+
+    @Override
+    public String getImage() {
+        return "/troll.png";
     }
 }

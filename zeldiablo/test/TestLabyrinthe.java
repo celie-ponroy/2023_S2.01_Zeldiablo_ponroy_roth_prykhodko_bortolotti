@@ -1,3 +1,4 @@
+import gameLaby.laby.Fantome;
 import gameLaby.laby.Labyrinthe;
 import gameLaby.laby.Monstre;
 import org.junit.jupiter.api.Test;
@@ -49,7 +50,7 @@ public class TestLabyrinthe {
 
         // preparation des donnees
         Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
-        Monstre m = new Monstre(Labyrinthe.VIE_MONSTRE,Labyrinthe.ATTAQUE_MONSTRE,1, 1,false);
+        Fantome m = new Fantome(1, 1);
         laby.comb.add(m);
 
         int posMonstreX = 0;

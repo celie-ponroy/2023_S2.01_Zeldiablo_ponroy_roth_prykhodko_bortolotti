@@ -11,4 +11,15 @@ public class Escalier extends EntiteInteractives{
         //appel de changerLabyCourant de LabyJeu
 
     }
+
+    @Override
+    public String getImage() {
+        String res;
+        if(this.montant){
+            res="/esc_monte.png";
+        }else {
+            res = "/esc_desc.png";
+        }
+        return res;
+    }
 }

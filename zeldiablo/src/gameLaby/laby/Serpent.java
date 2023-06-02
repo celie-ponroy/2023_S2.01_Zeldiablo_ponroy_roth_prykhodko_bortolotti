@@ -1,5 +1,8 @@
 package gameLaby.laby;
 
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -17,8 +20,8 @@ public class Serpent extends Combattant{
      * @param y   ordonnée
      * @param col
      */
-    public Serpent(int vie, int x, int y, int size) {
-        super(vie, x, y, true);
+    public Serpent(int x, int y, int size) {
+        super(Labyrinthe.VIE_SERPENT, x, y, true);
         snake = new ArrayList<>();
         SerPart sp = new SerPart(x, y);
 
@@ -60,5 +63,16 @@ public class Serpent extends Combattant{
         }
 
         return res;
+    }
+
+    public void drawComb(GraphicsContext gc, Image imgCombatant, Labyrinthe labyrinthe){
+        for (SerPart s : snake ){
+            gc.drawImage(imgCombatant, s.getX() * 50, s.getY() * 50, 50, 50);
+        }
+    }
+
+    @Override
+    public String getImage() {
+        return "/Tetes_serp.png";
     }
 }

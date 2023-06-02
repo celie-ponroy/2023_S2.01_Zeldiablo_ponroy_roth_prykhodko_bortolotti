@@ -12,8 +12,8 @@ public class Fantome extends Combattant{
      * @param y   ordonnée
      * @param col
      */
-    public Fantome(int vie, int x, int y) {
-        super(vie, x, y, false);
+    public Fantome(int x, int y) {
+        super(Labyrinthe.VIE_FANTOME, x, y, false);
     }
 
     @Override
@@ -31,5 +31,10 @@ public class Fantome extends Combattant{
     public void deplacer(int[] suiv) {
         setX(suiv[0]);
         setY(suiv[1]);
+    }
+
+    @Override
+    public String getImage() {
+        return "/fantome.png";
     }
 }
