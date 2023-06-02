@@ -1,5 +1,8 @@
 package gameLaby.laby;
 
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+
 public abstract class Combattant extends Entite {
 
     private int pv;
@@ -40,11 +43,14 @@ public abstract class Combattant extends Entite {
         return this.pv <=0 ;
     }
 
+    public void drawComb(GraphicsContext gc, Image imgCombatant, Labyrinthe labyrinthe){
+        gc.drawImage(imgCombatant, getX() * 50, getY() * 50, 50, 50);
+    }
+
+
     public abstract void deplacer(int[] suiv);
 
     public abstract void attaquer(Combattant c);
     public abstract void etreAttaque(int force);
-
-
 
 }
