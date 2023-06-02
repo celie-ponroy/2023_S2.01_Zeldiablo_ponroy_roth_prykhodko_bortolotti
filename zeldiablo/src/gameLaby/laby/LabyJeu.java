@@ -34,18 +34,19 @@ public class LabyJeu implements Jeu {
     public void update(double secondes, Clavier clavier){
         if (clavier.droite) {
             labyrinthe.deplacerCombattant(labyrinthe.pj, Labyrinthe.DROITE);
+            labyrinthe.comportementMonstre();
         }
         if (clavier.gauche) {
             labyrinthe.deplacerCombattant(labyrinthe.pj, Labyrinthe.GAUCHE);
-        }
-        if (clavier.droite) {
-            labyrinthe.deplacerCombattant(labyrinthe.pj, Labyrinthe.DROITE);
+            labyrinthe.comportementMonstre();
         }
         if (clavier.haut) {
             labyrinthe.deplacerCombattant(labyrinthe.pj, Labyrinthe.HAUT);
+            labyrinthe.comportementMonstre();
         }
         if (clavier.bas) {
             labyrinthe.deplacerCombattant(labyrinthe.pj, Labyrinthe.BAS);
+            labyrinthe.comportementMonstre();
         }
         Escalier escalier =labyrinthe.chercherEntitéeInteractive(labyrinthe.pj.getX(),labyrinthe.pj.getY());
         if (clavier.a && escalier!=null) {
@@ -77,4 +78,6 @@ public class LabyJeu implements Jeu {
         labyrinthe.pj.setX(x);
         labyrinthe.pj.setY(y);
     }
+
+
 }

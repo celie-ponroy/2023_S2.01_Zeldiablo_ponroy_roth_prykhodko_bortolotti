@@ -130,13 +130,13 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
-                        this.pj = new Perso(VIE_PERSO,ATTAQUE_PERSO, colonne, numeroLigne, true);
+                        this.pj = new Perso(VIE_PERSO, colonne, numeroLigne, true);
                         break;
                     case MONSTRE:
                         //pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         //ajoute MONSTRE
-                        this.comb.add(new Monstre(VIE_MONSTRE, ATTAQUE_MONSTRE,colonne, numeroLigne, true));
+                        this.comb.add(new Monstre(VIE_MONSTRE, colonne, numeroLigne, true));
                         break;
                     case ESCALIER_DESC:
                         //pas de mur
@@ -197,11 +197,12 @@ public class Labyrinthe {
         return res;
     }
 
-    public boolean deplacementValide(Entite e, int[] suivante){
-        return /*un fantome qui se deplace*/!e.getCollision() ||
-                /*case vide(ou avec entite) */(!this.murs[suivante[0]][suivante[1]] &&
-                                            /*entite de type phantom */((etreCombattant(suivante[0],suivante[1]) && !getCombattant(suivante[0],suivante[1]).getCollision())
-                                            || /*case vide*/!etreCombattant(suivante[0],suivante[1])));
+    public boolean deplacementValide(Combattant c, int[] suivante){
+        return /*un fantome qui se deplace*/!c.getCollision() ||
+                /*case vide(ou avec entite) */(!this.murs[suivante[0]][suivante[1]]
+                &&/*entite de type phantom */((etreCombattant(suivante[0],suivante[1])
+                && !getCombattant(suivante[0],suivante[1]).getCollision())
+                || /*case vide*/!etreCombattant(suivante[0],suivante[1])));
     }
 
 
@@ -342,7 +343,7 @@ public class Labyrinthe {
 
     public String deplacementAleatoire(){
         String res = "";
-        int valeur = (int) Math.floor ((Math.random() * 4)) ;
+        int valeur = (int) Math.floor ((Math.random() * 4) + 1) ;
         switch (valeur){
             case 1:
                 res = Labyrinthe.DROITE;
@@ -367,9 +368,8 @@ public class Labyrinthe {
             }
             else{
                 String action = deplacementAleatoire();
-                this.deplacerCombattant(c,action);
+                this.deplacerCombattant(c, action);
             }
         }
     }
-
 }

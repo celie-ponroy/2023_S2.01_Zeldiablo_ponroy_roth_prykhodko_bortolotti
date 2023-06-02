@@ -3,7 +3,6 @@ package gameLaby.laby;
 public abstract class Combattant extends Entite {
 
     private int pv;
-    private int force;
 
     /**
      * Constructeur Entite
@@ -12,26 +11,18 @@ public abstract class Combattant extends Entite {
      * @param y   ordonnée
      * @param col
      */
-    public Combattant(int vie, int f, int x, int y, boolean col) {
+    public Combattant(int vie, int x, int y, boolean col) {
         super(x, y, col);
         pv = vie;
-        force = f;
     }
 
     public int getPv(){
         return pv;
     }
 
-    public int getForce(){
-        return force;
-    }
 
     public void setPv(int pv){
         this.pv = pv;
-    }
-
-    public void setForce(int force){
-        this.force = force;
     }
 
     /**

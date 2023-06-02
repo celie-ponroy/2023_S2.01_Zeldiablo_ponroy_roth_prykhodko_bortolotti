@@ -113,6 +113,7 @@ class Escalier{
 }
 
 class LabyJeu{
+- nbcourant : int
 }
 
 class LabyDessin{
@@ -142,6 +143,8 @@ class MoteurJeu{
 Labyrinthe "1" --> "*" EntiteInteractives : + entiteInteractives
 Labyrinthe "1" --> "*" Combattant : + comb
 Labyrinthe "1" --> "1" Perso : + pj
+LabyJeu "1" --> "1" Labyrinthe : + labyrinthe
+LabyJeu "1" --> "1" Labyrinthe : + labyrinthes
 
 Entité <|-- Combattant
 Entité <|-- EntiteInteractives

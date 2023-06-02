@@ -12,8 +12,8 @@ public class Fantome extends Combattant{
      * @param y   ordonnée
      * @param col
      */
-    public Fantome(int vie, int frc, int x, int y) {
-        super(vie, frc, x, y, false);
+    public Fantome(int vie, int x, int y) {
+        super(vie, x, y, false);
     }
 
     @Override
