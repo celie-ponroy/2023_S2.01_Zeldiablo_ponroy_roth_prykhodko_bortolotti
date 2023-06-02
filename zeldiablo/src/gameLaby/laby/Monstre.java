@@ -3,8 +3,8 @@ package gameLaby.laby;
 
 public class Monstre extends Combattant{
 
-    public Monstre(int vie, int frc, int x, int y, boolean col){
-        super(vie, frc, x, y, col);
+    public Monstre(int vie, int x, int y, boolean col){
+        super(vie, x, y, col);
     }
     @Override
     public void deplacer(int[] suiv) {

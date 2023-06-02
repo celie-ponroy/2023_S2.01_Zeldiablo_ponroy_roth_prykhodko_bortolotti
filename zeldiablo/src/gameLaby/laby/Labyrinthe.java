@@ -130,13 +130,13 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
-                        this.pj = new Perso(VIE_PERSO,ATTAQUE_PERSO, colonne, numeroLigne, true);
+                        this.pj = new Perso(VIE_PERSO, colonne, numeroLigne, true);
                         break;
                     case MONSTRE:
                         //pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         //ajoute MONSTRE
-                        this.comb.add(new Monstre(VIE_MONSTRE, ATTAQUE_MONSTRE,colonne, numeroLigne, true));
+                        this.comb.add(new Monstre(VIE_MONSTRE, colonne, numeroLigne, true));
                         break;
                     case ESCALIER_DESC:
                         //pas de mur
