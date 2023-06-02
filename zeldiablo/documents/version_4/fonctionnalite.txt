@@ -1,4 +1,4 @@
-1. Attaque des monstres
+1. Attaque des monstres (vient de l'itération 3)
 - Descriptif :
     - Lorsqu'un monstre doit agir, si le monstre se trouve à côté du héros, alors il ne se
       déplace pas, mais il attaque celui-ci.
@@ -7,7 +7,7 @@
       le Héros perd 1 point de vie.
     - Lorsque le monstre est loin du joueur, il n'attaque pas, mais se déplace.
 
-2. Attaque du joueur
+2. Attaque du joueur (vient de l'itération 3)
 - Descriptif :
     - Lorsque le joueur appuie sur une touche donnée (par défaut la touche espace), il
       effectue une attaque contre les monstres qui se trouvent à côté de lui.
@@ -18,7 +18,7 @@
     - S'il n'y a aucun monstre autour du joueur, l'attaque à quand même lieu et empêche
       le déplacement du joueur, mais les monstres ne prennent pas de dégâts
 
-4. Fantômes
+3. Fantômes (vient de l'itération 3)
 - Descriptif :
     -Le labyrinthe dispose d'un nouveau type de monstre : les fantômes.
 - Critères de validation
@@ -29,7 +29,7 @@
       monstres de base.
     - Un fantôme a par défaut 9 points de vie.
 
-5. Troll
+4. Troll (vient de l'itération 3)
 - Descriptif :
     - Les trolls sont un nouveau type de monstre. Un troll se régénère au fur et à mesure.
 - Critères de validation
@@ -41,7 +41,7 @@
       monstres de base.
     - Un troll a par défaut 6 points de vie.
 
-6. Serpent
+5. Serpent (vient de l'itération 3)
 - Descriptif :
     - Les serpents sont un nouveau type de monstre inspiré de sbake. Un serpent occupe plusieurs cases,
       lorsqu'il se déplace, sa tête avance d'une case et son corps suit.
@@ -56,4 +56,12 @@
       se retrouver bloqué par sa propre queue.
     - Toutes les cases du serpent sont attaquables parle héros. Dès que le serpent n'a
       plus de point de vie, il disparait entièrement.
-    - Un serpent a par défaut 12 points de vie.
+    - Un serpent a par défaut 12 points de vie.*
+
+6. Fin du jeu : mort du héros
+- Descriptif :
+   - Lorsque le héros n'a plus de points de vie, le jeu s'arrête et la partie est perdue.
+- Critères de validation
+   - Le héros par défaut dispose de 10 points de vie.
+   - Chaque monstre fait 1 point de dégât lorsque le héros se fait attaquer.
+   - Quand le héros meurt, un message de fin est affiché sur la console et le jeu s'arrête.
