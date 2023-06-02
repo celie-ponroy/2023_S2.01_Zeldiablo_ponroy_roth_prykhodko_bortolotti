@@ -1,5 +1,4 @@
-import gameLaby.laby.Combattant;
-import gameLaby.laby.Labyrinthe;
+import gameLaby.laby.*;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -70,7 +69,47 @@ public class TestMonstre {
 
         // verification
         assertNotEquals(posInit, positionMonstre,"le monstre a du bouger");
-
     }
+
+    public void testCreationFantome() throws IOException {
+        // preparation des donnees
+        Labyrinthe laby = new Labyrinthe("labySimple/laby1.txt");
+
+        //methode testee
+        Fantome f = new Fantome(1,1);
+        laby.comb.add(f);
+        int vie = f.getPv();
+
+        // verification
+        assertEquals(vie, 9,"le fantome a du etre cree avec 9 pv");
+    }
+
+    public void testCreationTroll() throws IOException {
+        // preparation des donnees
+        Labyrinthe laby = new Labyrinthe("labySimple/laby1.txt");
+
+        //methode testee
+        Troll t = new Troll(1,1);
+        laby.comb.add(t);
+        int vie = t.getPv();
+
+        // verification
+        assertEquals(vie, 6,"le troll a du etre cree avec 6 pv");
+    }
+
+    public void testCreationSerpent() throws IOException {
+        // preparation des donnees
+        Labyrinthe laby = new Labyrinthe("labySimple/laby1.txt");
+
+        //methode testee
+        Serpent s = new Serpent(1,1,3);
+        laby.comb.add(s);
+        int vie = s.getPv();
+
+        // verification
+        assertEquals(vie, 12,"le serpent a du etre cree avec 12 pv");
+    }
+
+
 
 }
