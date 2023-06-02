@@ -7,21 +7,23 @@ import javafx.application.Application;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.awt.*;
 
-import static java.awt.Color.*;
+
 
 // copied from: https://gist.github.com/james-d/8327842
 // and modified to use canvas drawing instead of shapes
@@ -92,11 +94,56 @@ public class MoteurJeu extends Application {
     // SURCHARGE Application
     //#################################
 
-    public void startjeu(Stage primaryStage) {
-        Canvas c = new Canvas(WIDTH, HEIGHT);
-        Pane pane = new Pane(c);
+    public void start(Stage primaryStage) {
+        VBox pane = new VBox();
         Scene s = new Scene(pane, WIDTH, HEIGHT);
-        pane.setStyle("-fx-background-image:url('https://www.palaiszelda.com/images/z3/z3start.gif'); -fx-background-repeat: no-repeat; -fx-background-size: 500 500; -fx-background-position: center center;\");");
+
+        Image img = new Image("/final.png");
+        BackgroundImage bImg = new BackgroundImage(img,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.DEFAULT,
+                new BackgroundSize(800, 600, false, false, false, false));
+        Background bGround = new Background(bImg);
+        pane.setBackground(bGround);
+
+
+
+
+        Image img1 = new Image("/play.png");
+        ImageView start = new ImageView(img1);
+        start.setFitWidth(200);
+        start.setFitHeight(110);
+        start.setTranslateX(300);
+        start.setTranslateY(400);
+        pane.getChildren().add(start);
+
+
+
+
+        Image img2 = new Image("/quit.png");
+        ImageView quit = new ImageView(img2);
+        quit.setFitWidth(160);
+        quit.setFitHeight(90);
+        quit.setTranslateX(320);
+        quit.setTranslateY(400);
+        pane.getChildren().add(quit);
+
+        start.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent MouseEvent) {
+                startJeu(primaryStage);
+            }
+        });
+
+        quit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                primaryStage.close();
+            }
+        });
+
+
         primaryStage.setScene(s);
         primaryStage.show();
     }
@@ -105,7 +152,7 @@ public class MoteurJeu extends Application {
     /**
      * creation de l'application avec juste un canvas et des statistiques
      */
-    public void start(Stage primaryStage) {
+    public void startJeu(Stage primaryStage) {
         // initialisation du canvas de dessin et du container
         final Canvas canvas = new Canvas();
         final Pane canvasContainer = new Pane(canvas);
