@@ -17,17 +17,18 @@ class Labyrinthe{
 + Labyrinthe(String nom)
 + getSuivant(int x, int y, String action) : int[]
 + deplacerPerso(String action)
-+ deplacerEntitee()
++ deplacerCombattant() : void
 + etreFini(): boolean
 + etreCombattant(int x, int y) : boolean
 + getLengthY(): int
 + getLength(): int
 + getMur(int x, int y): boolean
 + getPj() : Perso
-+ getEntite(int x, int y) : Entite
-+ getEntites() : ArrayList<Entite>
++ getCombattant(int x, int y) : Combattant
++ getEntiteInteractives() : ArrayList<EntiteInteractives>
 + combattantAutour(Combattant c) : Combattant[]
 + getComb() : ArrayList<Combattant>
++ chercherEntitéeInteractive(int x, int y) : Escalier
 }
 
 

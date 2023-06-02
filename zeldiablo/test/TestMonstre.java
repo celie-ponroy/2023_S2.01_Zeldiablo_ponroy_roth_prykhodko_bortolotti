@@ -38,7 +38,7 @@ public class TestMonstre {
     public void testMonstreObstacle() throws IOException {
         Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
         int xInit = laby.pj.getX();
-        laby.deplacerEntite(laby.pj, "Droite");
+        laby.deplacerCombattant(laby.pj, "Droite");
 
         int xFinal = laby.pj.getX();
         assertEquals(xInit, xFinal);
