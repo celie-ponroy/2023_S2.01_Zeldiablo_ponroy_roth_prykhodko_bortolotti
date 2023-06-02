@@ -223,7 +223,7 @@ public class Labyrinthe {
     }
 
     public boolean deplacementValide(Combattant c, int[] suivante){
-        return /*un fantome qui se deplace*/(!c.getCollision() && suivante[0]>0 && suivante[0] < murs[0].length-1 && suivante[1] > 0 && suivante[1] < murs.length-1 )||
+        return /*un fantome qui se deplace*/(!c.getCollision() && suivante[0]>0 && suivante[0] < murs.length-1 && suivante[1] > 0 && suivante[1] < murs[0].length-1 )||
                 /*case vide(ou avec entite) */(!this.murs[suivante[0]][suivante[1]]
                 &&/*entite de type phantom */((etreCombattant(suivante[0],suivante[1])
                 && !getCombattant(suivante[0],suivante[1]).getCollision())
