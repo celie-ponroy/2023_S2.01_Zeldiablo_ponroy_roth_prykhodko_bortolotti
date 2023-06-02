@@ -13,8 +13,8 @@ public class Perso extends Combattant{
      * @param dx position selon x
      * @param dy position selon y
      */
-    public Perso(int vie,  int dx, int dy, boolean col) {
-        super(vie, dx, dy, col);
+    public Perso(int dx, int dy, boolean col) {
+        super(Labyrinthe.VIE_PERSO, dx, dy, col);
     }
 
 
@@ -42,5 +42,7 @@ public class Perso extends Combattant{
         int pvRestant = this.getPv() - force;
         this.setPv(pvRestant);
     }
+
+
 
 }

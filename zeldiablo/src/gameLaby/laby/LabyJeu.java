@@ -58,7 +58,20 @@ public class LabyJeu implements Jeu {
         //rien
     }
     public boolean etreFini(){
-        return labyrinthe.etreFini();
+//        return labyrinthe.etreFini();
+        boolean res = false;
+        //perso mort
+
+
+
+//        Labyrinthe l = labyrinthes.get(labyrinthes.size()-1);
+
+
+
+
+        //boss mort
+
+        return res;
     }
 
     public Labyrinthe getLabyrinthe() {
