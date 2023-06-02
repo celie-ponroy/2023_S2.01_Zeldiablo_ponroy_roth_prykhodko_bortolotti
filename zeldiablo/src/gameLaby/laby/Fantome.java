@@ -32,4 +32,9 @@ public class Fantome extends Combattant{
         setX(suiv[0]);
         setY(suiv[1]);
     }
+
+    @Override
+    public String getImage() {
+        return "/fantome.png";
+    }
 }

@@ -29,16 +29,8 @@ public class LabyDessin implements DessinJeu {
         //dessin escalier
 
         for(int i = 0; i<labyrinthe.entiteInteractives.size(); i++) {
-            if (labyrinthe.entiteInteractives.get(i) instanceof Escalier){
-                Image escalier;
-                if(((Escalier) labyrinthe.entiteInteractives.get(i)).montant){
-                    escalier=new Image("/esc_monte.png");
-                }else {
-                    escalier=new Image("/esc_desc.png");
-                }
-
+                Image escalier=new Image(labyrinthe.entiteInteractives.get(i).getImage());
                 gc.drawImage(escalier, labyrinthe.entiteInteractives.get(i).getX() * 50, labyrinthe.entiteInteractives.get(i).getY() * 50, 50, 50);
-            }
 
         }
 
@@ -62,9 +54,8 @@ public class LabyDessin implements DessinJeu {
 
         for(int i = 0; i<labyrinthe.comb.size(); i++) {
             if (labyrinthe.comb.get(i) instanceof Monstre){
-                gc.setFill(Color.PURPLE);
-                Image fantome = new Image("/fantome.png");
-                gc.drawImage(fantome, labyrinthe.comb.get(i).getX() * 50, labyrinthe.comb.get(i).getY() * 50, 50, 50);
+                Image imgCombatant = new Image(labyrinthe.comb.get(i).getImage());
+                gc.drawImage(imgCombatant, labyrinthe.comb.get(i).getX() * 50, labyrinthe.comb.get(i).getY() * 50, 50, 50);
             }
 
         }

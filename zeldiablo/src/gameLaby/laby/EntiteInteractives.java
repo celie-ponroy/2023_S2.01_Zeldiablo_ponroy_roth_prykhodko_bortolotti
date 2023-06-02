@@ -14,4 +14,8 @@ public class EntiteInteractives extends Entite{
         super(x, y, col);
     }
 
+    @Override
+    public String getImage() {
+        return "link-2.png";
+    }
 }

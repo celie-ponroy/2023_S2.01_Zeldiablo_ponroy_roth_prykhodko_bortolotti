@@ -19,4 +19,9 @@ public class Monstre extends Combattant{
         int pvRestant = this.getPv() - force;
         this.setPv(pvRestant);
     }
+
+    @Override
+    public String getImage() {
+        return "link-2.png";
+    }
 }
