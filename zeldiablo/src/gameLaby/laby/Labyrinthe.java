@@ -197,11 +197,12 @@ public class Labyrinthe {
         return res;
     }
 
-    public boolean deplacementValide(Entite e, int[] suivante){
-        return /*un fantome qui se deplace*/!e.getCollision() ||
-                /*case vide(ou avec entite) */(!this.murs[suivante[0]][suivante[1]] &&
-                                            /*entite de type phantom */((etreCombattant(suivante[0],suivante[1]) && !getCombattant(suivante[0],suivante[1]).getCollision())
-                                            || /*case vide*/!etreCombattant(suivante[0],suivante[1])));
+    public boolean deplacementValide(Combattant c, int[] suivante){
+        return /*un fantome qui se deplace*/!c.getCollision() ||
+                /*case vide(ou avec entite) */(!this.murs[suivante[0]][suivante[1]]
+                &&/*entite de type phantom */((etreCombattant(suivante[0],suivante[1])
+                && !getCombattant(suivante[0],suivante[1]).getCollision())
+                || /*case vide*/!etreCombattant(suivante[0],suivante[1])));
     }
 
 
@@ -342,7 +343,7 @@ public class Labyrinthe {
 
     public String deplacementAleatoire(){
         String res = "";
-        int valeur = (int) Math.floor ((Math.random() * 4)) ;
+        int valeur = (int) Math.floor ((Math.random() * 4) + 1) ;
         switch (valeur){
             case 1:
                 res = Labyrinthe.DROITE;
@@ -367,9 +368,8 @@ public class Labyrinthe {
             }
             else{
                 String action = deplacementAleatoire();
-                this.deplacerCombattant(c,action);
+                this.deplacerCombattant(c, action);
             }
         }
     }
-
 }
