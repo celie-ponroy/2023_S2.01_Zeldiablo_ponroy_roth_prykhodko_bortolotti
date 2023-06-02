@@ -44,13 +44,14 @@ public class TestMonstre {
         assertEquals(xInit, xFinal);
     }
 
-    @Test
-    public void testAttaqueMonstre() throws IOException {
-        Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
-
-
-
-        //assertEquals(, ,);
-    }
+//    @Test
+//    public void testAttaqueMonstre() throws IOException {
+//        Labyrinthe laby = new Labyrinthe("labySimple/laby0.txt");
+//        laby.
+//
+//
+//
+//        //assertEquals(, ,);
+//    }
 
 }

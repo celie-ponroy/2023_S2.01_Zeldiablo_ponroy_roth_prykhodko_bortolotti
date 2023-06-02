@@ -23,6 +23,10 @@ public class Labyrinthe {
     public static final char ESCALIER_MONT = 'J';
     public static final int VIE_PERSO = 10;
     public static final int VIE_MONSTRE = 9;
+    public static final int VIE_FANTOME = 9;
+    public static final int VIE_TROLL = 6;
+    public static final int VIE_SERPENT = 12;
+
     public static final int ATTAQUE_PERSO = 3;
     public static final int ATTAQUE_MONSTRE = 1;
 
