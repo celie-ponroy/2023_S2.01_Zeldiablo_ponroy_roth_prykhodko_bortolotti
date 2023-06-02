@@ -9,12 +9,19 @@ import javafx.beans.property.SimpleLongProperty;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import java.awt.*;
+
+import static java.awt.Color.*;
 
 // copied from: https://gist.github.com/james-d/8327842
 // and modified to use canvas drawing instead of shapes
@@ -85,16 +92,27 @@ public class MoteurJeu extends Application {
     // SURCHARGE Application
     //#################################
 
-    @Override
+    public void start(Stage primaryStage) {
+        Canvas c = new Canvas(WIDTH, HEIGHT);
+        Pane pane = new Pane(c);
+        Scene s = new Scene(pane, WIDTH, HEIGHT);
+        pane.setStyle("-fx-background-image:url('https://www.palaiszelda.com/images/z3/z3start.gif'); -fx-background-repeat: no-repeat; -fx-background-size: 500 500; -fx-background-position: center center;\");");
+        primaryStage.setScene(s);
+        primaryStage.show();
+    }
+
+
     /**
      * creation de l'application avec juste un canvas et des statistiques
      */
-    public void start(Stage primaryStage) {
+    public void startJeu(Stage primaryStage) {
         // initialisation du canvas de dessin et du container
         final Canvas canvas = new Canvas();
         final Pane canvasContainer = new Pane(canvas);
         canvas.widthProperty().bind(canvasContainer.widthProperty());
         canvas.heightProperty().bind(canvasContainer.heightProperty());
+
+
 
         // affichage des stats
         final Label stats = new Label();
