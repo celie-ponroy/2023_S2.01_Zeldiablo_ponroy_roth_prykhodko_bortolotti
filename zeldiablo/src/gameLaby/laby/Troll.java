@@ -11,7 +11,7 @@ public class Troll extends Combattant{
      * @param col
      */
     public Troll(int x, int y) {
-        super(3,  x, y, true);
+        super(Labyrinthe.VIE_TROLL,  x, y, true);
     }
 
 

@@ -14,8 +14,4 @@ public class EntiteInteractives extends Entite{
         super(x, y, col);
     }
 
-
-    public void deplacer(int[] suiv) {
-        //a faire
-    }
 }

@@ -134,7 +134,7 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
-                        this.pj = new Perso(VIE_PERSO, colonne, numeroLigne, true);
+                        this.pj = new Perso(colonne, numeroLigne, true);
                         break;
                     case MONSTRE:
                         //pas de mur
@@ -216,7 +216,7 @@ public class Labyrinthe {
      * @return fin du jeu
      */
     public boolean etreFini() {
-        return false;
+        return true;
     }
 
     // ##################################

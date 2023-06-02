@@ -36,9 +36,15 @@ public abstract class Combattant extends Entite {
         return (this.getX() == dx && this.getY() == dy);
     }
 
+    public boolean etreMort(){
+        return this.pv <=0 ;
+    }
+
     public abstract void deplacer(int[] suiv);
 
     public abstract void attaquer(Combattant c);
     public abstract void etreAttaque(int force);
+
+
 
 }
