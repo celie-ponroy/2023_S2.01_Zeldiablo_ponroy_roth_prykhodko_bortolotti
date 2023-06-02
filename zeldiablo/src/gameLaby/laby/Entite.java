@@ -6,6 +6,7 @@ public abstract class Entite {
      */
     private int x;
     private int y;
+    //ajouter un String nom fichier
 
     private boolean collision;
 
