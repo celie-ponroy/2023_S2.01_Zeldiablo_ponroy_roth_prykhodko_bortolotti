@@ -39,7 +39,7 @@ public class SerPart {
     }
 
     public String getImage() {
-        return "/Tetes_serp.png";
+        return "/corps_serp.png";
     }
 
 }
