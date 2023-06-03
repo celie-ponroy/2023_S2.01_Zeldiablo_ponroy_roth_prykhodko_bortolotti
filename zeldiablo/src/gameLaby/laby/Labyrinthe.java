@@ -223,11 +223,13 @@ public class Labyrinthe {
     }
 
     public boolean deplacementValide(Combattant c, int[] suivante){
-        return /*un fantome qui se deplace*/(!c.getCollision() && suivante[0]>0 && suivante[0] < murs.length-1 && suivante[1] > 0 && suivante[1] < murs[0].length-1 )||
-                /*case vide(ou avec entite) */(!this.murs[suivante[0]][suivante[1]]
-                &&/*entite de type phantom */((etreCombattant(suivante[0],suivante[1])
-                && !getCombattant(suivante[0],suivante[1]).getCollision())
-                || /*case vide*/!etreCombattant(suivante[0],suivante[1])));
+        if (suivante[0]<0 || suivante[0] > murs.length-1 || suivante[1] < 0 || suivante[1] > murs[0].length-1)
+            return false;
+        return /*un fantome qui se deplace*/!c.getCollision() ||
+                /*case vide(ou avec entite) */(!this.murs[suivante[0]][suivante[1]] &&
+                        /*entite de type fantome */((etreCombattant(suivante[0],suivante[1]) &&
+                                                    !getCombattant(suivante[0],suivante[1]).getCollision()) ||
+                        /*case vide*/!etreCombattant(suivante[0],suivante[1])));
     }
 
 
@@ -296,32 +298,19 @@ public class Labyrinthe {
         return entiteInteractives;
     }
 
-    public Combattant[] combattantAutourPerso(Combattant c) {
-        Combattant[] m = new Combattant[4];
+    public ArrayList<Combattant> combattantAutourPerso(Combattant c) {
+        ArrayList<Combattant> m = new ArrayList<>();
 
         int coordX = c.getX();
         int coordY = c.getY();
 
-        int[] suivantGauche = this.getSuivant(coordX, coordY, Labyrinthe.GAUCHE);
-        int[] suivantDroite = this.getSuivant(coordX, coordY, Labyrinthe.DROITE);
-        int[] suivantHaut = this.getSuivant(coordX, coordY, Labyrinthe.HAUT);
-        int[] suivantBas = this.getSuivant(coordX, coordY, Labyrinthe.BAS);
+        String[] str = { Labyrinthe.GAUCHE, Labyrinthe.DROITE, Labyrinthe.HAUT, Labyrinthe.BAS };
 
-        if (etreCombattant(suivantGauche[0], suivantGauche[1])) {
-            Combattant c1 = this.getCombattant(suivantGauche[0], suivantGauche[1]);
-            m[0] = c1;
-        }
-        if (etreCombattant(suivantDroite[0], suivantDroite[1])) {
-            Combattant c2 = this.getCombattant(suivantDroite[0], suivantDroite[1]);
-            m[1] = c2;
-        }
-        if (etreCombattant(suivantHaut[0], suivantHaut[1])) {
-            Combattant c3 = this.getCombattant(suivantHaut[0], suivantHaut[1]);
-            m[2] = c3;
-        }
-        if (etreCombattant(suivantBas[0], suivantBas[1])) {
-            Combattant c4 = this.getCombattant(suivantBas[0], suivantBas[1]);
-            m[3] = c4;
+        for (String s : str ) {
+            int[] suiv = this.getSuivant(coordX, coordY, s);
+            Combattant c1 = this.getCombattant(suiv[0], suiv[1]);
+            if (c1!=null)
+                m.add(c1);
         }
 
         return m;
@@ -388,6 +377,11 @@ public class Labyrinthe {
 
     public void comportementMonstre(){
         for(Combattant c : comb){
+            if (c.etreMort()){
+                c.setCollision(false);
+                continue;
+            }
+
             if(this.persoAutour(c)){
                 c.attaquer(pj);
             }

@@ -4,6 +4,7 @@ import gameArkanoid.ArkanoidJeu;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
@@ -39,7 +40,10 @@ public class LabyDessin implements DessinJeu {
         int x = perso.getX();
         int y = perso.getY();
         Image link = new Image("link-2.png");
+//        gc.drawImage(link,x*50, y*50, 50, 50);
+        ImageView imageView = new ImageView(link);
         gc.drawImage(link,x*50, y*50, 50, 50);
+
 
         //dessin murs
         for(int i = 0; i<labyrinthe.getLength(); i++) {
@@ -53,6 +57,9 @@ public class LabyDessin implements DessinJeu {
         //desssin monstre
 
         for(int i = 0; i<labyrinthe.comb.size(); i++) {
+                if (labyrinthe.comb.get(i).etreMort())
+                    continue;
+
                 Image imgCombatant = new Image(labyrinthe.comb.get(i).getImage());
                 labyrinthe.comb.get(i).drawComb(gc, imgCombatant, labyrinthe);
 

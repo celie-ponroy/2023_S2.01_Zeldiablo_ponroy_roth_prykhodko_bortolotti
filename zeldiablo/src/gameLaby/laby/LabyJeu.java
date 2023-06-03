@@ -52,25 +52,35 @@ public class LabyJeu implements Jeu {
         if (clavier.a && escalier!=null) {
             this.changerLabyCourant(escalier.montant);
         }
-
+        if (clavier.e) {
+            ArrayList<Combattant> arr = labyrinthe.combattantAutourPerso(labyrinthe.pj);
+            for (Combattant c :arr  ) {
+                c.etreAttaque(labyrinthe.ATTAQUE_PERSO);
+            }
+        }
     }
     public void init() {
         //rien
     }
+
     public boolean etreFini(){
-//        return labyrinthe.etreFini();
-        boolean res = false;
+        boolean res = true;
         //perso mort
         if (labyrinthe.pj.etreMort()) {
-            res = true;
             return res;
         }
-//        Labyrinthe l = labyrinthes.get(labyrinthes.size()-1);
+        Labyrinthe l = labyrinthes.get(labyrinthes.size()-1);
+
 //        boss mort
-//        if (){
-//
-//
-//        }
+        for ( Labyrinthe tmpL : labyrinthes ) {
+            for ( Combattant c : tmpL.comb ) {
+                if (!c.etreMort()){
+//                    System.out.println(c.getClass());
+                    return false;
+                }
+            }
+        }
+
         return res;
     }
 

@@ -7,7 +7,7 @@ public class Clavier {
     /**
      * controle appuyes
      */
-    public boolean haut, bas, gauche, droite, a;
+    public boolean haut, bas, gauche, droite, a, e;
 
     /**
      * stocke les commandes
@@ -18,6 +18,10 @@ public class Clavier {
 
         switch (event.getCode()) {
 
+            // si touche bas
+            case E:
+                this.e = true;
+                break;
             // si touche bas
             case S:
                 this.bas = true;
@@ -56,6 +60,10 @@ public class Clavier {
 
         switch (event.getCode()) {
 
+            // si touche bas
+            case E:
+                this.e = false;
+                break;
             // si touche bas
             case S:
                 this.bas = false;
