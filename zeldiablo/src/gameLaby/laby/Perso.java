@@ -41,7 +41,6 @@ public class Perso extends Combattant{
     public void etreAttaque(int force){
         int pvRestant = this.getPv() - force;
         this.setPv(pvRestant);
-        System.out.println("Frank perd "+force+" pv");
     }
 
     @Override
