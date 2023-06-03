@@ -2,6 +2,7 @@ package moteurJeu;
 
 //https://github.com/zarandok/megabounce/blob/master/MainCanvas.java
 
+import gameLaby.laby.LabyJeu;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.beans.property.LongProperty;
@@ -224,6 +225,18 @@ public class MoteurJeu extends Application {
         final AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long timestamp) {
+                //fin du jeu
+                if (jeu.etreFini()){
+                    System.out.println("PV: " + ((LabyJeu)jeu).getLabyrinthe().pj.getPv());
+                    if ( ((LabyJeu)jeu).getLabyrinthe().pj.getPv() == 0  )
+                        System.out.println("Perso est mort");
+                    else
+                        System.out.println("Vouz avez gagne");
+                    this.stop();
+                    //lancer finDuJeu
+
+                    return;
+                }
 
                 // si jamais passe dans la boucle, initialise le temps
                 if (lastUpdateTime.get() == 0) {
