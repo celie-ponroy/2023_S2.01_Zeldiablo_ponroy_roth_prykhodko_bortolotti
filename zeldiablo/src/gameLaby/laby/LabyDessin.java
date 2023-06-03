@@ -1,10 +1,8 @@
 package gameLaby.laby;
 
-import gameArkanoid.ArkanoidJeu;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
@@ -48,6 +46,7 @@ public class LabyDessin implements DessinJeu {
         if(perso.getPv()==0){        //faire si le perso meurt
             Image link = new Image("link-mort.png");
             gc.drawImage(link,x*50, y*50, 50, 50);
+            //faire un game over
         }else{
             Image link = new Image("link-2.png");
             gc.drawImage(link,x*50, y*50, 50, 50);
@@ -76,6 +75,26 @@ public class LabyDessin implements DessinJeu {
                 labyrinthe.comb.get(i).drawComb(gc, imgCombatant, labyrinthe);
 
         }
+        if(perso.getPv()==0){
+            gameover(canvas,labyrinthe);
+        }
     }
+    public void gameover( Canvas canvas,Labyrinthe labyrinthe) {
+        final GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.setFill(Color.RED);
+        gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        Perso perso = labyrinthe.getPj();
+        int x = perso.getX();
+        int y = perso.getY();
+
+        Image link = new Image("link-mort.png");
+        gc.drawImage(link, x * 50, y * 50, 50, 50);
+        //ajouter texte
+        Image gameOver = new Image("/gameOver.png");
+        double centerX = (canvas.getWidth() - gameOver.getWidth()) / 2;
+        double centerY = (canvas.getHeight() - gameOver.getHeight()) / 2;
+        gc.drawImage(gameOver, centerX, centerY);
+    }
+
 
 }

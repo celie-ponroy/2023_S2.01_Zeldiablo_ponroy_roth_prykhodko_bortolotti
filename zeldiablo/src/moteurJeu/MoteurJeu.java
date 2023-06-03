@@ -230,8 +230,10 @@ public class MoteurJeu extends Application {
                     System.out.println("PV: " + ((LabyJeu)jeu).getLabyrinthe().pj.getPv());
                     if ( ((LabyJeu)jeu).getLabyrinthe().pj.getPv() == 0  )
                         System.out.println("Perso est mort");
+                        //afficher you win
                     else
                         System.out.println("Vouz avez gagne");
+                    //afficher game over
                     this.stop();
                     //lancer finDuJeu
 
