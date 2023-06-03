@@ -8,22 +8,18 @@ import javafx.application.Application;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-
+import java.io.File;
 
 
 // copied from: https://gist.github.com/james-d/8327842
@@ -58,6 +54,7 @@ public class MoteurJeu extends Application {
      * touches appuyee entre deux frame
      */
     Clavier controle = new Clavier();
+
 
     /**
      * lancement d'un jeu
@@ -99,6 +96,7 @@ public class MoteurJeu extends Application {
         VBox pane = new VBox();
         Scene s = new Scene(pane, WIDTH, HEIGHT);
 
+        //ajout de l'image de fond
         Image img = new Image("/final.png");
         BackgroundImage bImg = new BackgroundImage(img,
                 BackgroundRepeat.NO_REPEAT,
@@ -108,9 +106,7 @@ public class MoteurJeu extends Application {
         Background bGround = new Background(bImg);
         pane.setBackground(bGround);
 
-
-
-
+        //ajout du boutton play
         Image img1 = new Image("/play.png");
         ImageView start = new ImageView(img1);
         start.setFitWidth(200);
@@ -119,9 +115,7 @@ public class MoteurJeu extends Application {
         start.setTranslateY(400);
         pane.getChildren().add(start);
 
-
-
-
+        //ajout du boutton quit
         Image img2 = new Image("/quit.png");
         ImageView quit = new ImageView(img2);
         quit.setFitWidth(160);
@@ -136,6 +130,16 @@ public class MoteurJeu extends Application {
                 startJeu(primaryStage);
             }
         });
+
+        /*start.setOnMouseDragOver(new EventHandler<MouseDragEvent>() {
+            @Override
+            public void handle(MouseDragEvent mouseDragEvent) {
+                start.setFitWidth(230);
+                start.setFitHeight(150);
+            }
+        });
+        
+         */
 
         quit.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

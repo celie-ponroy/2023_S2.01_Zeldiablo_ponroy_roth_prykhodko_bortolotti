@@ -10,6 +10,13 @@ public class Clavier {
     public boolean haut, bas, gauche, droite, a, e;
 
     /**
+     * méthode utile a la classe TestEscalier
+     */
+    public void interagir(){
+        this.a = true;
+    }
+
+    /**
      * stocke les commandes
      *
      * @param event evenement clavier
