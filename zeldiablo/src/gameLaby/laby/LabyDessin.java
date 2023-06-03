@@ -11,12 +11,17 @@ import moteurJeu.Jeu;
 public class LabyDessin implements DessinJeu {
     @Override
     public void dessinerJeu(Jeu jeu, Canvas canvas) {
+
         LabyJeu labyJeu = (LabyJeu) jeu;
         Labyrinthe labyrinthe = labyJeu.getLabyrinthe();
 
 
         // recupere un pinceau pour dessiner
         final GraphicsContext gc = canvas.getGraphicsContext2D();
+        //netoyer le canvas
+        gc.setFill(Color.BLACK);
+
+        gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         // dessin fond
         for(int i = 0; i<labyrinthe.getLength(); i++) {
@@ -38,19 +43,31 @@ public class LabyDessin implements DessinJeu {
         Perso perso = labyrinthe.getPj();
         int x = perso.getX();
         int y = perso.getY();
-        Image link = new Image("link-2.png");
-        gc.drawImage(link,x*50, y*50, 50, 50);
+        if(perso.getPv()==0){        //faire si le perso meurt
+            Image link = new Image("link-mort.png");
+            gc.drawImage(link,x*50, y*50, 50, 50);
+        }else{
+            Image link = new Image("link-2.png");
+            gc.drawImage(link,x*50, y*50, 50, 50);
+            for( int i=0; i<perso.getPv();i++){
+                Image coeur = new Image("/coeur.png");
+                gc.drawImage(coeur,0+(i*50),canvas.getHeight()-50,50,50);
+            }
+        }
+
+
+
 
         //dessin murs
         for(int i = 0; i<labyrinthe.getLength(); i++) {
             for(int j = 0; j< labyrinthe.getLengthY(); j++)
                 if(labyrinthe.getMur(i,j)){
-                    Image wall = new Image("/tiles_wall.png");//changer avec image murs
+                    Image wall = new Image("/tiles_wall.png");
                     gc.drawImage(wall, i*50,j*50, 50, 50);
                     }
         }
 
-        //desssin monstre
+        //desssin monstres
 
         for(int i = 0; i<labyrinthe.comb.size(); i++) {
                 Image imgCombatant = new Image(labyrinthe.comb.get(i).getImage());

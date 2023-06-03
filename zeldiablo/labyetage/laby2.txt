@@ -1,10 +1,10 @@
 8
 16
 XXXXXXXXXXXXXXXX
-X..............X
+X.....T........X
 X..............X
 X....S........LX
 X.............PX
-X........F.....X
+X.T......F.....X
 X..............X
 XXXXXXXXXXXXXXXX
