@@ -7,9 +7,12 @@ import javafx.scene.paint.Color;
 import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
 
+
+
 public class LabyDessin implements DessinJeu {
     @Override
     public void dessinerJeu(Jeu jeu, Canvas canvas) {
+
 
         LabyJeu labyJeu = (LabyJeu) jeu;
         Labyrinthe labyrinthe = labyJeu.getLabyrinthe();
@@ -75,25 +78,53 @@ public class LabyDessin implements DessinJeu {
                 labyrinthe.comb.get(i).drawComb(gc, imgCombatant, labyrinthe);
 
         }
-        if(perso.getPv()==0){
-            gameover(canvas,labyrinthe);
+        if (jeu.etreFini()){
+            if(perso.getPv()==0){
+                gameover(canvas,labyrinthe);
+            }else {
+                win(canvas,labyrinthe);
+            }
         }
+
+    }
+    public void win ( Canvas canvas,Labyrinthe labyrinthe){
+        final GraphicsContext gc = canvas.getGraphicsContext2D();
+
+        gc.setFill(Color.BLACK);
+        gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        //Texte
+        Image youWin = new Image("/youWin.png");
+        double centerXwin = (canvas.getWidth() - youWin.getWidth()) / 2;
+        double centerYwin = (canvas.getHeight() - youWin.getHeight()) / 2;
+        gc.drawImage(youWin, centerXwin, centerYwin+100);
+        //dessiner le perso par dessus le texte
+        Perso perso = labyrinthe.getPj();
+        int x = perso.getX();
+        int y = perso.getY();
+
+        Image link = new Image("/link-win.png");
+        double centerX = (canvas.getWidth() - link.getWidth()*2) / 2;//a changer
+        double centerY = (canvas.getHeight() - link.getHeight()*2) / 2;
+        gc.drawImage(link, centerX, centerY,(link.getWidth() *2),(link.getHeight()*2));
+
     }
     public void gameover( Canvas canvas,Labyrinthe labyrinthe) {
         final GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.RED);
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
+        //ajouter texte
+        Image gameOver = new Image("/gameOver.png");
+        double centerX = (canvas.getWidth() - gameOver.getWidth()) / 2;
+        double centerY = (canvas.getHeight() - gameOver.getHeight()) / 2;
+        gc.drawImage(gameOver, centerX, centerY);
+        //dessiner le perso par dessus le texte
         Perso perso = labyrinthe.getPj();
         int x = perso.getX();
         int y = perso.getY();
 
         Image link = new Image("link-mort.png");
         gc.drawImage(link, x * 50, y * 50, 50, 50);
-        //ajouter texte
-        Image gameOver = new Image("/gameOver.png");
-        double centerX = (canvas.getWidth() - gameOver.getWidth()) / 2;
-        double centerY = (canvas.getHeight() - gameOver.getHeight()) / 2;
-        gc.drawImage(gameOver, centerX, centerY);
     }
 
 

@@ -2,7 +2,6 @@ package moteurJeu;
 
 //https://github.com/zarandok/megabounce/blob/master/MainCanvas.java
 
-import gameLaby.laby.LabyJeu;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.beans.property.LongProperty;
@@ -14,12 +13,10 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-import java.io.File;
 
 
 // copied from: https://gist.github.com/james-d/8327842
@@ -227,16 +224,7 @@ public class MoteurJeu extends Application {
             public void handle(long timestamp) {
                 //fin du jeu
                 if (jeu.etreFini()){
-                    System.out.println("PV: " + ((LabyJeu)jeu).getLabyrinthe().pj.getPv());
-                    if ( ((LabyJeu)jeu).getLabyrinthe().pj.getPv() == 0  )
-                        System.out.println("Perso est mort");
-                        //afficher you win
-                    else
-                        System.out.println("Vouz avez gagne");
-                    //afficher game over
                     this.stop();
-                    //lancer finDuJeu
-
                     return;
                 }
 
