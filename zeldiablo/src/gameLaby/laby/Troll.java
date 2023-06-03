@@ -25,6 +25,7 @@ public class Troll extends Combattant{
     public void etreAttaque(int force) {
         int pvRestant = this.getPv() - force;
         this.setPv(pvRestant);
+        System.out.println("Le Troll se fait fumer, il perd "+force+" pv");
     }
 
     @Override
