@@ -45,10 +45,10 @@ public abstract class Entite {
     }
 
     public int[] getPosition(){
-        int[] positionMonstre = new int[2];
-        positionMonstre[0] = this.getX();
-        positionMonstre[1] = this.getY();
-        return positionMonstre;
+        int[] positionEntite = new int[2];
+        positionEntite[0] = this.getX();
+        positionEntite[1] = this.getY();
+        return positionEntite;
     }
     public  boolean getCollision(){
         return collision;
