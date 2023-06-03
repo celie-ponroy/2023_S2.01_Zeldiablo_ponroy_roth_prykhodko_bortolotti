@@ -46,6 +46,7 @@ public class LabyDessin implements DessinJeu {
         if(perso.getPv()==0){        //faire si le perso meurt
             Image link = new Image("link-mort.png");
             gc.drawImage(link,x*50, y*50, 50, 50);
+            //faire un game over?
         }else{
             Image link = new Image("link-2.png");
             gc.drawImage(link,x*50, y*50, 50, 50);
