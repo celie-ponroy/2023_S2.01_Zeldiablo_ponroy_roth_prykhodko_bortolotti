@@ -22,6 +22,6 @@ public class Monstre extends Combattant{
 
     @Override
     public String getImage() {
-        return "link-2.png";
+        return null;
     }
 }

@@ -19,6 +19,6 @@ public class EntiteInteractives extends Entite{
 
     @Override
     public String getImage() {
-        return "link-2.png";
+        return null;
     }
 }
