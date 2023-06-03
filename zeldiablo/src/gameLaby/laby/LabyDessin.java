@@ -57,8 +57,6 @@ public class LabyDessin implements DessinJeu {
             }
         }
         
-
-
         //dessin murs
         for(int i = 0; i<labyrinthe.getLength(); i++) {
             for(int j = 0; j< labyrinthe.getLengthY(); j++)
