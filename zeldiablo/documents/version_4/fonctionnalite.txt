@@ -65,3 +65,7 @@
    - Le héros par défaut dispose de 10 points de vie.
    - Chaque monstre fait 1 point de dégât lorsque le héros se fait attaquer.
    - Quand le héros meurt, un message de fin est affiché sur la console et le jeu s'arrête.
+
+7. Affichage avec des sprites
+  La fenêtre n'affiche plus des Figures de base (rond, ...) mais des sprites représentant
+  les personnages et les objets
