@@ -1,0 +1,17 @@
+Célie: fonctionnalité 7;
+
+
+
+Fonctionnalités implémentés avec succès :
+-> fonctionnalité 1 :
+-> fonctionnalité 2 :
+-> fonctionnalité 3 :
+-> fonctionnalité 4 :
+-> fonctionnalité 5 :
+-> fonctionnalité 7 : fini
+
+Pour la fonctionnalité 7 (l'ajout de sprite), nous avons pris la décision d'ajouter une méthode à Entitée sui renvoie l'image qui représente la classe , cette dernière est redéfinie pour chaque sous classe,
+et renvoie null pour chaque classe n'étant pas censé être présente dans le labyrinthe ;
+
+Bugs restants :
+aucuns
