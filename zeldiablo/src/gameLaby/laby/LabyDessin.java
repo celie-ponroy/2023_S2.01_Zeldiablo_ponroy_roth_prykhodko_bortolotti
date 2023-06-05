@@ -16,7 +16,8 @@ public class LabyDessin implements DessinJeu {
 
     /**
      * Méthode qui dessine un jeu
-     * @param jeu jeu a afficher
+     *
+     * @param jeu    jeu a afficher
      * @param canvas canvas dans lequel dessiner l'etat du jeu
      */
     @Override
@@ -35,7 +36,7 @@ public class LabyDessin implements DessinJeu {
 
         dessinSol(labyrinthe, gc);
         dessinEntiteInteractives(labyrinthe, gc);
-        dessinPerso(labyrinthe,canvas);
+        dessinPerso(labyrinthe, canvas);
         dessinMurs(labyrinthe, gc);
         dessinCombatants(labyrinthe, gc);
 
@@ -51,7 +52,8 @@ public class LabyDessin implements DessinJeu {
 
     /**
      * affichage de l'écran quand le jeu est win
-     * @param canvas canvas utilisé pour l'affichage
+     *
+     * @param canvas     canvas utilisé pour l'affichage
      * @param labyrinthe
      */
     private void win(Canvas canvas, Labyrinthe labyrinthe) {
@@ -63,7 +65,7 @@ public class LabyDessin implements DessinJeu {
         Image youWin = new Image("/youWin.png");
         double centerXwin = (canvas.getWidth() - youWin.getWidth()) / 2;
         double centerYwin = (canvas.getHeight() - youWin.getHeight()) / 2;
-        gc.drawImage(youWin, centerXwin, centerYwin + tailleCase*2);
+        gc.drawImage(youWin, centerXwin, centerYwin + tailleCase * 2);
         //dessiner le perso par dessus le texte
         Perso perso = labyrinthe.getPj();
         int x = perso.getX();
@@ -77,8 +79,9 @@ public class LabyDessin implements DessinJeu {
     }
 
     /**
-     *  affichage de l'écran gameOver
-     * @param canvas canvas utilisé pour l'affichage
+     * affichage de l'écran gameOver
+     *
+     * @param canvas     canvas utilisé pour l'affichage
      * @param labyrinthe
      */
 
@@ -103,22 +106,25 @@ public class LabyDessin implements DessinJeu {
 
     /**
      * Méthode qui dessine le sol du niveau
+     *
      * @param labyrinthe
-     * @param gc GraphicContent utilisé our afficher
+     * @param gc         GraphicContent utilisé our afficher
      */
     private void dessinSol(Labyrinthe labyrinthe, GraphicsContext gc) {
 
-        for(int i = 0; i<labyrinthe.getLength();i++) {
+        for (int i = 0; i < labyrinthe.getLength(); i++) {
             for (int j = 0; j < labyrinthe.getLengthY(); j++) {
                 Image image = new Image("/tiles.png");
                 gc.drawImage(image, i * tailleCase, j * tailleCase, tailleCase, tailleCase);
             }
         }
     }
+
     /**
      * Méthode qui dessine les Entités interracives du niveau
+     *
      * @param labyrinthe
-     * @param gc GraphicContent utilisé our afficher
+     * @param gc         GraphicContent utilisé our afficher
      */
 
     private void dessinEntiteInteractives(Labyrinthe labyrinthe, GraphicsContext gc) {
@@ -131,10 +137,11 @@ public class LabyDessin implements DessinJeu {
 
     /**
      * Dessine le personnage du labyrinthe
+     *
      * @param labyrinthe
-     * @param canvas canvas utilisé pour l'affichage
+     * @param canvas     canvas utilisé pour l'affichage
      */
-    private void dessinPerso(Labyrinthe labyrinthe, Canvas canvas){
+    private void dessinPerso(Labyrinthe labyrinthe, Canvas canvas) {
         //dessin perso
         final GraphicsContext gc = canvas.getGraphicsContext2D();
         Perso perso = labyrinthe.getPj();
@@ -157,10 +164,11 @@ public class LabyDessin implements DessinJeu {
 
     /**
      * dessine les murs du labyrinthe
+     *
      * @param labyrinthe
-     * @param gc GraphicContent utilisé our afficher
+     * @param gc         GraphicContent utilisé our afficher
      */
-    private void dessinMurs(Labyrinthe labyrinthe,GraphicsContext gc) {
+    private void dessinMurs(Labyrinthe labyrinthe, GraphicsContext gc) {
         for (int i = 0; i < labyrinthe.getLength(); i++) {
             for (int j = 0; j < labyrinthe.getLengthY(); j++)
                 if (labyrinthe.getMur(i, j)) {
@@ -172,10 +180,11 @@ public class LabyDessin implements DessinJeu {
 
     /**
      * dessin des combatants
+     *
      * @param labyrinthe
-     * @param gc GraphicContent utilisé our afficher
+     * @param gc         GraphicContent utilisé our afficher
      */
-    private void dessinCombatants(Labyrinthe labyrinthe, GraphicsContext gc){
+    private void dessinCombatants(Labyrinthe labyrinthe, GraphicsContext gc) {
         for (int i = 0; i < labyrinthe.comb.size(); i++) {
             if (labyrinthe.comb.get(i).etreMort())
                 continue;

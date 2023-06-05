@@ -28,7 +28,7 @@ public abstract class Combattant extends Entite {
      *
      * @return Les points de vie actuels du combattant.
      */
-    public int getPv(){
+    public int getPv() {
         return pv;
     }
 
@@ -38,7 +38,7 @@ public abstract class Combattant extends Entite {
      *
      * @param pv Les nouveaux points de vie du combattant.
      */
-    public void setPv(int pv){
+    public void setPv(int pv) {
         this.pv = pv;
     }
 
@@ -59,17 +59,17 @@ public abstract class Combattant extends Entite {
      *
      * @return true si le combattant est mort, false sinon.
      */
-    public boolean etreMort(){
-        return this.pv <=0 ;
+    public boolean etreMort() {
+        return this.pv <= 0;
     }
 
     /**
      * Dessine le combattant sur le contexte graphique donné.
      *
-     * @param gc Le contexte graphique sur lequel dessiner le combattant.
+     * @param gc           Le contexte graphique sur lequel dessiner le combattant.
      * @param imgCombatant L'image du combattant à dessiner.
      */
-    public void drawComb(GraphicsContext gc, Image imgCombatant){
+    public void drawComb(GraphicsContext gc, Image imgCombatant) {
         gc.drawImage(imgCombatant, getX() * 50, getY() * 50, 50, 50);
     }
 

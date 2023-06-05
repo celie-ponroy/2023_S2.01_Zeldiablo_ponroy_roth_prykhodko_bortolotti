@@ -3,8 +3,7 @@ package gameLaby.entites;
 /**
  * Class EntitéInteractive
  */
-public class EntiteInteractives extends Entite{
-
+public class EntiteInteractives extends Entite {
 
     /**
      * Constructeur Entite

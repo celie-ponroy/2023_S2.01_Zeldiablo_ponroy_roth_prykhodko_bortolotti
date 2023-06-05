@@ -1,10 +1,11 @@
 package gameLaby.entites;
+
 import gameLaby.laby.*;
 
 /**
  * gere un personnage situe en x,y
  */
-public class Perso extends Combattant{
+public class Perso extends Combattant {
 
 
     /**
@@ -18,7 +19,6 @@ public class Perso extends Combattant{
     }
 
 
-
     /**
      * permet de savoir si le personnage est en x,y
      *
@@ -29,17 +29,18 @@ public class Perso extends Combattant{
     public boolean etrePresent(int dx, int dy) {
         return (this.getX() == dx && this.getY() == dy);
     }
+
     @Override
-    public void deplacer(int[] suiv){
+    public void deplacer(int[] suiv) {
         setX(suiv[0]);
         setY(suiv[1]);
     }
 
-    public void attaquer(Combattant c){
+    public void attaquer(Combattant c) {
         c.etreAttaque(Labyrinthe.ATTAQUE_PERSO);
     }
 
-    public void etreAttaque(int force){
+    public void etreAttaque(int force) {
         int pvRestant = this.getPv() - force;
         this.setPv(pvRestant);
     }

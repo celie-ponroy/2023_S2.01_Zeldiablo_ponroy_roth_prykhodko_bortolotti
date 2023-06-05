@@ -18,7 +18,7 @@ public class MainArkanoidRapide {
         ArkanoidDessin dessinArk = new ArkanoidDessin();
 
         // parametrage du moteur de jeu
-        MoteurJeu.setTaille(width,height);
+        MoteurJeu.setTaille(width, height);
         MoteurJeu.setFPS(pFPS);
 
         // lancement du jeu

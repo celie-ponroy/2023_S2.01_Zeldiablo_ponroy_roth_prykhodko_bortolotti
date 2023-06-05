@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import gameLaby.entites.*;
 
 /**
@@ -41,7 +42,6 @@ public class Labyrinthe {
     public static final String BAS = "Bas";
     public static final String GAUCHE = "Gauche";
     public static final String DROITE = "Droite";
-
 
 
     /**
@@ -198,10 +198,11 @@ public class Labyrinthe {
      * deplace l'entite en fonction de l'action.
      * gere la collision avec les murs
      * et les monstres
+     *
      * @param act une des actions possibles
      */
 
-    public void deplacerCombattant(Combattant c, String act){
+    public void deplacerCombattant(Combattant c, String act) {
         // case courante
         int[] courante = {c.getX(), c.getY()};
 
@@ -209,15 +210,15 @@ public class Labyrinthe {
         int[] suivante = getSuivant(courante[0], courante[1], act);
 
         // si c'est pas un mur, on effectue le deplacement
-        if (deplacementValide(c, suivante))  {
+        if (deplacementValide(c, suivante)) {
             // on met a jour personnage
             c.deplacer(suivante);
         }
     }
 
-    public boolean etreCombattant(int x, int y){
+    public boolean etreCombattant(int x, int y) {
         boolean res = false;
-        for(int i = 0; i < comb.size(); i++) {
+        for (int i = 0; i < comb.size(); i++) {
             // on verifie si un combattant se trouve aux coordonnees x y
             res = comb.get(i).etrePresent(x, y);
             if (res)
@@ -226,16 +227,16 @@ public class Labyrinthe {
         return res;
     }
 
-    public boolean deplacementValide(Combattant c, int[] suivante){
+    public boolean deplacementValide(Combattant c, int[] suivante) {
         // si il y a un mur
-        if (suivante[0]<0 || suivante[0] > murs.length-1 || suivante[1] < 0 || suivante[1] > murs[0].length-1)
+        if (suivante[0] < 0 || suivante[0] > murs.length - 1 || suivante[1] < 0 || suivante[1] > murs[0].length - 1)
             return false;
 
         return /*un fantome qui se deplace*/!c.getCollision() ||
                 /*case vide(ou avec entite) */(!this.murs[suivante[0]][suivante[1]] &&
-                        /*entite de type fantome */((etreCombattant(suivante[0],suivante[1]) &&
-                                                    !getCombattant(suivante[0],suivante[1]).getCollision()) ||
-                        /*case vide*/!etreCombattant(suivante[0],suivante[1])));
+                /*entite de type fantome */((etreCombattant(suivante[0], suivante[1]) &&
+                !getCombattant(suivante[0], suivante[1]).getCollision()) ||
+                /*case vide*/!etreCombattant(suivante[0], suivante[1])));
     }
 
 
@@ -272,6 +273,7 @@ public class Labyrinthe {
 
     /**
      * return mur en (i,j)
+     *
      * @param x
      * @param y
      * @return
@@ -281,10 +283,10 @@ public class Labyrinthe {
         return this.murs[x][y];
     }
 
-    public Combattant getCombattant(int x, int y){
+    public Combattant getCombattant(int x, int y) {
         Combattant res = null;
-        for(int i = 0; i < comb.size(); i++) {
-            if(comb.get(i).etrePresent(x, y)){
+        for (int i = 0; i < comb.size(); i++) {
+            if (comb.get(i).etrePresent(x, y)) {
                 // on recupere le combattant se trouvant aux coordonnees x y
                 res = comb.get(i);
                 break;
@@ -314,14 +316,14 @@ public class Labyrinthe {
         int coordY = c.getY();
 
         // tableau stockant les directions vers lesquelles on peut attaquer
-        String[] str = { Labyrinthe.GAUCHE, Labyrinthe.DROITE, Labyrinthe.HAUT, Labyrinthe.BAS };
+        String[] str = {Labyrinthe.GAUCHE, Labyrinthe.DROITE, Labyrinthe.HAUT, Labyrinthe.BAS};
 
-        for (String s : str ) {
+        for (String s : str) {
             // coordonnees de la case suivante selon l'action
             int[] suiv = this.getSuivant(coordX, coordY, s);
             // renvoie l'eventuel combattant aux coordonnees suiv
             Combattant c1 = this.getCombattant(suiv[0], suiv[1]);
-            if (c1!=null)
+            if (c1 != null)
                 // si il y a effectivement un combattant, on l'ajoute a la liste m
                 m.add(c1);
         }
@@ -343,14 +345,11 @@ public class Labyrinthe {
         // on teste si le perso est autour du combattant en parametre
         if ((coordX == coordPersoX) && (coordY + 1 == coordPersoY)) {
             res = true;
-        }
-        else if ((coordX == coordPersoX) && (coordY - 1 == coordPersoY)) {
+        } else if ((coordX == coordPersoX) && (coordY - 1 == coordPersoY)) {
             res = true;
-        }
-        else if ((coordX + 1 == coordPersoX) && (coordY == coordPersoY)) {
+        } else if ((coordX + 1 == coordPersoX) && (coordY == coordPersoY)) {
             res = true;
-        }
-        else if ((coordX - 1 == coordPersoX) && (coordY == coordPersoY)) {
+        } else if ((coordX - 1 == coordPersoX) && (coordY == coordPersoY)) {
             res = true;
         }
 
@@ -358,12 +357,12 @@ public class Labyrinthe {
     }
 
 
-    public Escalier chercherEntitéeInteractive(int x, int y){
-        Escalier res =null;
-        for(int i = 0; i<this.entiteInteractives.size();i++){
-            if(entiteInteractives.get(i) instanceof Escalier){
-                if(entiteInteractives.get(i).getX()==x&& entiteInteractives.get(i).getY()==y){
-                    res=(Escalier) entiteInteractives.get(i);
+    public Escalier chercherEntitéeInteractive(int x, int y) {
+        Escalier res = null;
+        for (int i = 0; i < this.entiteInteractives.size(); i++) {
+            if (entiteInteractives.get(i) instanceof Escalier) {
+                if (entiteInteractives.get(i).getX() == x && entiteInteractives.get(i).getY() == y) {
+                    res = (Escalier) entiteInteractives.get(i);
                 }
             }
 
@@ -371,12 +370,12 @@ public class Labyrinthe {
         return res;
     }
 
-    public String deplacementAleatoire(){
+    public String deplacementAleatoire() {
         String res = "";
         // donne un chiffre aleatoire 1, 2, 3 ou 4
-        int valeur = (int) Math.floor ((Math.random() * 4) + 1) ;
+        int valeur = (int) Math.floor((Math.random() * 4) + 1);
         // donne une direction selon le chiffre obtenu
-        switch (valeur){
+        switch (valeur) {
             case 1:
                 res = Labyrinthe.DROITE;
                 break;
@@ -393,22 +392,22 @@ public class Labyrinthe {
         return res;
     }
 
-    public void comportementMonstre(){
+    public void comportementMonstre() {
 
         // on parcourt la liste des combattants du labyrinthe
-        for(Combattant c : comb){
+        for (Combattant c : comb) {
             // si le monstre est mort, on enleve sa collision
-            if (c.etreMort()){
+            if (c.etreMort()) {
                 c.setCollision(false);
                 continue;
             }
 
             // fait attaquer le monstre si le perso est autour
-            if(this.persoAutour(c)){
+            if (this.persoAutour(c)) {
                 c.attaquer(pj);
             }
             // si le perso n'est pas autour, le monstre se deplace
-            else{
+            else {
                 String action = deplacementAleatoire();
                 this.deplacerCombattant(c, action);
             }

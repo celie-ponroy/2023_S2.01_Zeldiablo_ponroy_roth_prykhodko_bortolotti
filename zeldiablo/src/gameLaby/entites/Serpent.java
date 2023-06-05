@@ -1,14 +1,16 @@
 package gameLaby.entites;
+
 import gameLaby.laby.*;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+
 import java.util.ArrayList;
 
 
 /**
  * Classe représentant un serpent dans le jeu.
  */
-public class Serpent extends Combattant{
+public class Serpent extends Combattant {
 
     private ArrayList<SerPart> snake;
     private int taille;
@@ -16,8 +18,8 @@ public class Serpent extends Combattant{
     /**
      * Constructeur du Serpent.
      *
-     * @param x   Position x du serpent sur la grille.
-     * @param y   Position y du serpent sur la grille.
+     * @param x    Position x du serpent sur la grille.
+     * @param y    Position y du serpent sur la grille.
      * @param size Taille du serpent.
      */
     public Serpent(int x, int y, int size) {
@@ -39,8 +41,8 @@ public class Serpent extends Combattant{
         SerPart sp = new SerPart(suiv[0], suiv[1]);
         snake.add(0, sp);
 
-        if (snake.size()==taille+1){
-            snake.remove(snake.size()-1);
+        if (snake.size() == taille + 1) {
+            snake.remove(snake.size() - 1);
         }
         this.setX(suiv[0]);
         this.setY(suiv[1]);
@@ -78,8 +80,8 @@ public class Serpent extends Combattant{
     @Override
     public boolean etrePresent(int dx, int dy) {
         boolean res = false;
-        for (SerPart s : snake){
-            if (s.etrePresent(dx,dy)){
+        for (SerPart s : snake) {
+            if (s.etrePresent(dx, dy)) {
                 res = true;
                 break;
             }
@@ -91,12 +93,12 @@ public class Serpent extends Combattant{
     /**
      * Méthode permettant de dessiner le serpent.
      *
-     * @param gc Contexte graphique dans lequel le serpent doit être dessiné.
+     * @param gc           Contexte graphique dans lequel le serpent doit être dessiné.
      * @param imgCombatant Image du serpent.
      */
     @Override
-    public void drawComb(GraphicsContext gc, Image imgCombatant){
-        if(snake.size() == 0)
+    public void drawComb(GraphicsContext gc, Image imgCombatant) {
+        if (snake.size() == 0)
             return;
 
         imgCombatant = new Image(getImage());
