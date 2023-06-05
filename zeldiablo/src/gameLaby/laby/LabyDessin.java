@@ -8,9 +8,17 @@ import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
 import gameLaby.entites.*;
 
+/**
+ * class LabyDessin
+ */
 public class LabyDessin implements DessinJeu {
     static int tailleCase = 50;
 
+    /**
+     * Méthode qui dessine un jeu
+     * @param jeu jeu a afficher
+     * @param canvas canvas dans lequel dessiner l'etat du jeu
+     */
     @Override
     public void dessinerJeu(Jeu jeu, Canvas canvas) {
 
@@ -41,6 +49,11 @@ public class LabyDessin implements DessinJeu {
 
     }
 
+    /**
+     * affichage de l'écran quand le jeu est win
+     * @param canvas canvas utilisé pour l'affichage
+     * @param labyrinthe
+     */
     private void win(Canvas canvas, Labyrinthe labyrinthe) {
         final GraphicsContext gc = canvas.getGraphicsContext2D();
 
@@ -62,6 +75,12 @@ public class LabyDessin implements DessinJeu {
         gc.drawImage(link, centerX, centerY, (link.getWidth() * 2), (link.getHeight() * 2));
 
     }
+
+    /**
+     *  affichage de l'écran gameOver
+     * @param canvas canvas utilisé pour l'affichage
+     * @param labyrinthe
+     */
 
     private void gameover(Canvas canvas, Labyrinthe labyrinthe) {
         final GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -85,7 +104,7 @@ public class LabyDessin implements DessinJeu {
     /**
      * Méthode qui dessine le sol du niveau
      * @param labyrinthe
-     * @param gc
+     * @param gc GraphicContent utilisé our afficher
      */
     private void dessinSol(Labyrinthe labyrinthe, GraphicsContext gc) {
 
@@ -96,6 +115,11 @@ public class LabyDessin implements DessinJeu {
             }
         }
     }
+    /**
+     * Méthode qui dessine les Entités interracives du niveau
+     * @param labyrinthe
+     * @param gc GraphicContent utilisé our afficher
+     */
 
     private void dessinEntiteInteractives(Labyrinthe labyrinthe, GraphicsContext gc) {
         for (int i = 0; i < labyrinthe.entiteInteractives.size(); i++) {
@@ -104,6 +128,12 @@ public class LabyDessin implements DessinJeu {
 
         }
     }
+
+    /**
+     * Dessine le personnage du labyrinthe
+     * @param labyrinthe
+     * @param canvas canvas utilisé pour l'affichage
+     */
     private void dessinPerso(Labyrinthe labyrinthe, Canvas canvas){
         //dessin perso
         final GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -124,6 +154,12 @@ public class LabyDessin implements DessinJeu {
         }
 
     }
+
+    /**
+     * dessine les murs du labyrinthe
+     * @param labyrinthe
+     * @param gc GraphicContent utilisé our afficher
+     */
     private void dessinMurs(Labyrinthe labyrinthe,GraphicsContext gc) {
         for (int i = 0; i < labyrinthe.getLength(); i++) {
             for (int j = 0; j < labyrinthe.getLengthY(); j++)
@@ -133,6 +169,12 @@ public class LabyDessin implements DessinJeu {
                 }
         }
     }
+
+    /**
+     * dessin des combatants
+     * @param labyrinthe
+     * @param gc GraphicContent utilisé our afficher
+     */
     private void dessinCombatants(Labyrinthe labyrinthe, GraphicsContext gc){
         for (int i = 0; i < labyrinthe.comb.size(); i++) {
             if (labyrinthe.comb.get(i).etreMort())

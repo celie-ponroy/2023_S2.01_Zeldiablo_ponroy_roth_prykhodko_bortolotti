@@ -8,46 +8,67 @@ class Labyrinthe{
 + <static final> MUR: char
 + <static final> PJ: char
 + <static final> VIDE: char
++ <static final> MONSTRE : char
++ <static final> FANTOME : char
++ <static final> SERPENT : char
++ <static final> TROLL : char
++ <static final> ESCALIER_DESC : char
++ <static final> ESCALIER_MONT : char
++ <static final> VIE_PERSO : int
++ <static final> VIE_MONSTRE : int
++ <static final> VIE_FANTOME : int
++ <static final> VIE_TROLL : int
++ <static final> VIE_SERPENT : int
++ <static final> ATTAQUE_PERSO : int
++ <static final> ATTAQUE_MONSTRE : int
+
 + <static final> HAUT: String
 + <static final> BAS: String
 + <static final> GAUCHE: String
 + <static final> DROITE: String
-+ <static final> MONSTRE : char
-+ <static final> ESCALIERUP : char
-+ <static final> ESCALIERDOWN : char
+
 + murs : boolean[][]
-+ Labyrinthe(String nom)
+
 + getSuivant(int x, int y, String action) : int[]
-+ deplacerPerso(String action)
-+ deplacerCombattant() : void
-+ etreFini(): boolean
++ Labyrinthe(String nom)
++ deplacerCombattant(Combattant c, String act) : void
 + etreCombattant(int x, int y) : boolean
++ deplacementValide(Combattant c, int[] suivante) : boolean
++ etreFini() : boolean
 + getLengthY(): int
 + getLength(): int
 + getMur(int x, int y): boolean
-+ getPj() : Perso
 + getCombattant(int x, int y) : Combattant
-+ getEntiteInteractives() : ArrayList<EntiteInteractives>
-+ combattantAutour(Combattant c) : Combattant[]
++ getPj() : Perso
 + getComb() : ArrayList<Combattant>
-+ chercherEntitéeInteractive(int x, int y) : Escalier
++ getEntiteInteractives() : ArrayList<EntiteInteractives>
++ combattantAutourPerso(Combattant c) : ArrayList<Combattant>
 + persoAutour(Combattant c) : boolean
-+ deplacementAleatoire() : void
++ chercherEntitéeInteractive(int x, int y) : Escalier
++ deplacementAleatoire() : String
 + comportementMonstre() : void
 }
 
 class LabyJeu{
 - nbcourant : int
++ LabyJeu(String nomdossier)
++ update(double secondes, Clavier clavier) : void
++ init() : void
++ etreFini() : boolean
++ getLabyrinthe() : Labyrinthe
++ changerLabyCourant(boolean suivant) : void
 }
 
 class LabyDessin{
--win(Canvas canvas,Labyrinthe labyrinthe):void
--gameover( Canvas canvas,Labyrinthe labyrinthe):void
--dessinSol(labyrinthe, gc):void
--dessinEntiteInteractives(labyrinthe, gc):void
--dessinPerso(labyrinthe,canvas):void
--dessinMurs(labyrinthe, gc):void
--dessinCombatants(labyrinthe, gc):void
++ tailleCase : int
++ dessinerJeu(Jeu jeu, Canvas canvas) : void
+- win(Canvas canvas,Labyrinthe labyrinthe) : void
+- gameover( Canvas canvas,Labyrinthe labyrinthe) : void
+- dessinSol(Labyrinthe labyrinthe, GraphicsContext gc) : void
+- dessinEntiteInteractives(Labyrinthe labyrinthe, GraphicsContext gc) : void
+- dessinPerso(Labyrinthe labyrinthe, Canvas canvas) : void
+- dessinMurs(Labyrinthe labyrinthe,GraphicsContext gc) : void
+- dessinCombatants(Labyrinthe labyrinthe, GraphicsContext gc) : void
 }
 
 }

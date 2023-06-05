@@ -2,6 +2,9 @@ package gameLaby.entites;
 
 import gameLaby.laby.*;
 
+/**
+ * Class troll
+ */
 public class Troll extends Combattant {
     /**
      * Constructeur Troll

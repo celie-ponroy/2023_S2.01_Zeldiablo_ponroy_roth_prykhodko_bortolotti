@@ -1,5 +1,8 @@
 package gameLaby.entites;
 
+/**
+ * Class EntitéInteractive
+ */
 public class EntiteInteractives extends Entite{
 
 
@@ -13,8 +16,6 @@ public class EntiteInteractives extends Entite{
     public EntiteInteractives(int x, int y, boolean col) {
         super(x, y, col);
     }
-
-    public void deplacer(int[] suiv) {}
 
     @Override
     public String getImage() {

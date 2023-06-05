@@ -12,6 +12,7 @@ public class LabyJeu implements Jeu {
     private Labyrinthe labyrinthe;
     private ArrayList<Labyrinthe> labyrinthes;
     private int nbcourant;
+
     public LabyJeu(String nomdossier) throws IOException {
         nbcourant=0;
         labyrinthes= new ArrayList<Labyrinthe>();
