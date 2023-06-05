@@ -15,8 +15,7 @@ public class Troll extends Combattant {
     public Troll(int x, int y) {
         super(Labyrinthe.VIE_TROLL, x, y, true);
     }
-
-
+    
     @Override
     public void attaquer(Combattant c) {
         c.etreAttaque(Labyrinthe.ATTAQUE_MONSTRE);

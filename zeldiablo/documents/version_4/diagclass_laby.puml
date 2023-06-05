@@ -204,7 +204,7 @@ Labyrinthe "1" --> "*" Combattant : + comb
 Labyrinthe "1" --> "1" Perso : + pj
 LabyJeu "1" --> "1" Labyrinthe : + labyrinthe
 LabyJeu "1" --> "*" Labyrinthe : + labyrinthes
-Serpent "1" --> "1" SerPart : - snake
+Serpent "1" --> "*" SerPart : - snake
 
 Main -right> Labyrinthe : use
 MainLaby -> LabyJeu : use
