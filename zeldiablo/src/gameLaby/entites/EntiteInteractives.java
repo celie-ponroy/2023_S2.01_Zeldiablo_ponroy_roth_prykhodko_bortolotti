@@ -15,7 +15,6 @@ public class EntiteInteractives extends Entite{
     }
 
     public void deplacer(int[] suiv) {}
-        //a faire
 
     @Override
     public String getImage() {

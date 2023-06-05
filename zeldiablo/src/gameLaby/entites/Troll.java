@@ -4,13 +4,10 @@ import gameLaby.laby.*;
 
 public class Troll extends Combattant {
     /**
-     * Constructeur Entite
+     * Constructeur Troll
      *
-     * @param vie
-     * @param frc
      * @param x   abscisse
      * @param y   ordonnée
-     * @param col
      */
     public Troll(int x, int y) {
         super(Labyrinthe.VIE_TROLL,  x, y, true);

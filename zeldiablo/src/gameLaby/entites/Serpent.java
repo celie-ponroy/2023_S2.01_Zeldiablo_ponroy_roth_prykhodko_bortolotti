@@ -12,11 +12,9 @@ public class Serpent extends Combattant{
     /**
      * Constructeur Entite
      *
-     * @param vie
-     * @param f
      * @param x   abscisse
      * @param y   ordonnée
-     * @param col
+     * @param size la taille du serpent
      */
     public Serpent(int x, int y, int size) {
         super(Labyrinthe.VIE_SERPENT, x, y, true);

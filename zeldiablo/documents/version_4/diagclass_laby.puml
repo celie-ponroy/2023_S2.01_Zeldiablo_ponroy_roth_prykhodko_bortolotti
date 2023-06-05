@@ -1,6 +1,8 @@
 @startuml
 
-package gameLaby.laby{
+package gameLaby{
+
+package laby{
 
 class Labyrinthe{
 + <static final> MUR: char
@@ -34,85 +36,6 @@ class Labyrinthe{
 + comportementMonstre() : void
 }
 
-
-class Main{
-}
-
-class MainLaby{
-}
-
-class Perso{
-+Perso(int dx, int dy)
-}
-
-Abstract class Entité{
-- x : int
-- y : int
-- collision : boolean
-+ etrePresent(int dx, int dy): boolean
-+setX()
-+setY()
-+getX(): int
-+getY(): int
-+{abstract}deplacer()
-+{abstract}getImage():String
-}
-
-Abstract class Combattant{
-- pv : int
-- force : int
-+ Combattant(int vie, int f, int x, int y, boolean col)
-+ getPv() : int
-+ getForce() : int
-+ setPv()
-+ setForce()
-+ etrePresent(int dx, int dy) : boolean
-+ {abstract}attaquer(Combattant c)
-+ {abstract}etreAttaque(int force)
-}
-
-class EntiteInteractives{
-+ EntiteInteractives(int x, int y, boolean col)
-+ deplacer(int[] suiv) : void
-}
-
-class Monstre{
-+ deplacer()
-}
-
-class Fantome{
-+ Fantome(int vie, int frc, int x, int y)
-+ attaquer(Combattant e)
-+ etreAttaque(int force)
-+ deplacer(int[] suiv)
-}
-
-class Serpent{
-- isHead : boolean
-- taille : int
-- tMax : int
-- nextPart : Serpent
-+ Serpent(int vie, int frc, int x, int y,int tCour, int t)
-+ etrePresent(int dx, int dy) : boolean
-+ attaquer(Combattant e)
-+ etreAttaque(int force)
-+ deplacer(int[] suiv)
-+ deplacerSerpent(int[] suiv) : Serpent
-+ getIsHead() : boolean
-}
-
-class Troll{
-+ Troll(int frc, int x, int y)
-+ attaquer(Combattant e)
-+ etreAttaque(int force)
-+ deplacer(int[] suiv)
-}
-
-class Escalier{
-+ montant : boolean
-+ changerEtage()
-}
-
 class LabyJeu{
 - nbcourant : int
 }
@@ -125,6 +48,113 @@ class LabyDessin{
 -dessinPerso(labyrinthe,canvas):void
 -dessinMurs(labyrinthe, gc):void
 -dessinCombatants(labyrinthe, gc):void
+}
+
+}
+
+package entites{
+
+class Perso{
++ Perso(int dx, int dy, boolean col)
++ etrePresent(int dx, int dy) : boolean
++ deplacer(int[] suiv) : void
++ attaquer(Combattant c) : void
++ etreAttaque(int force) : void
++ getImage() : String
+}
+
+Abstract class Entité{
+- x : int
+- y : int
+- collision : boolean
++ Entité(int x, int y, boolean col)
++ etrePresent(int dx, int dy) : boolean
++ setX(int x) : void
++ setY(int y) : void
++ setCollision(boolean col) : void
++ getX() : int
++ getY() : int
++ getPosition() : int[]
++ getCollision() : boolean
++ {abstract}getImage():String
+}
+
+Abstract class Combattant{
+- pv : int
++ Combattant(int vie, int x, int y, boolean col)
++ getPv() : int
++ setPv()
++ etrePresent(int dx, int dy) : boolean
++ etreMort() : boolean
++ drawComb(GraphicsContext gc, Image imgCombatant) : void
++ {abstract}deplacer(int[] suiv) : void
++ {abstract}attaquer(Combattant c) : void
++ {abstract}etreAttaque(int force) : void
+}
+
+class EntiteInteractives{
++ EntiteInteractives(int x, int y, boolean col)
++ deplacer(int[] suiv) : void
++ getImage() : String
+}
+
+class Monstre{
++ Monstre(int vie, int x, int y, boolean col)
++ deplacer(int[] suiv) : void
++ attaquer(Combattant c) : void
++ etreAttaque(int force) : void
++ getImage() : String
+}
+
+class Fantome{
++ Fantome(int x, int y)
++ attaquer(Combattant c) : void
++ etreAttaque(int force) : void
++ deplacer(int[] suiv) : void
++ getImage() : String
+}
+
+class Serpent{
+- taille : int
++ Serpent(int x, int y, int size)
++ attaquer(Combattant e) : void
++ etreAttaque(int force) : void
++ deplacer(int[] suiv) : void
++ etrePresent(int dx, int dy) : boolean
++ drawComb(GraphicsContext gc, Image imgCombatant) : void
++ getImage() : String
+}
+
+class SerPart{
++ SerPart(int xPos, int yPos)
++ etrePresent(int dx, int dy) : boolean
++ getImage() : String
+}
+
+class Troll{
++ Troll(int x, int y)
++ attaquer(Combattant c) : void
++ etreAttaque(int force) : void
++ deplacer(int[] suiv) : void
++ getImage() : String
+}
+
+class Escalier{
++ montant : boolean
++ changerEtage() : void
++ getImage() : String
+}
+
+}
+
+package mains{
+
+class Main{
+}
+
+class MainLaby{
+}
+
 }
 
 }
@@ -153,14 +183,16 @@ Labyrinthe "1" --> "*" Combattant : + comb
 Labyrinthe "1" -left-> "1" Perso : + pj
 LabyJeu "1" --> "1" Labyrinthe : + labyrinthe
 LabyJeu "1" --> "*" Labyrinthe : + labyrinthes
+Serpent "1" --> "1" SerPart : - snake
 
 Main -left> Labyrinthe : use
 MainLaby -> LabyJeu : use
 MainLaby -> MoteurJeu : use
 Entité <|-left- Combattant
+Entité <|-- SerPart
 Entité <|-- EntiteInteractives
 Combattant <|-- Monstre
-Combattant <|-down- Perso
+Combattant <|-- Perso
 Combattant <|-- Fantome
 Combattant <|-- Serpent
 Combattant <|-- Troll
