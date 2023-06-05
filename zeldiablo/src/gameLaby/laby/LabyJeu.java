@@ -9,11 +9,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Classe représentant le jeu du Labyrinthe.
+ */
+
 public class LabyJeu implements Jeu {
     private Labyrinthe labyrinthe;
     private ArrayList<Labyrinthe> labyrinthes;
     private int nbcourant;
 
+    /**
+     * Constructeur du jeu LabyJeu.
+     *
+     * @param nomdossier Le nom du dossier contenant les labyrinthes.
+     */
     public LabyJeu(String nomdossier) throws IOException {
         nbcourant = 0;
         labyrinthes = new ArrayList<Labyrinthe>();
@@ -32,6 +41,12 @@ public class LabyJeu implements Jeu {
         this.labyrinthe = labyrinthes.get(nbcourant);
     }
 
+    /**
+     * Méthode pour mettre à jour l'état du jeu.
+     *
+     * @param secondes Le temps écoulé depuis la dernière mise à jour.
+     * @param clavier L'état actuel du clavier.
+     */
     public void update(double secondes, Clavier clavier) {
         if (clavier.droite) {
             labyrinthe.deplacerCombattant(labyrinthe.pj, Labyrinthe.DROITE);
@@ -61,10 +76,18 @@ public class LabyJeu implements Jeu {
         }
     }
 
+    /**
+     * Initialisation du jeu.
+     */
     public void init() {
         //rien
     }
 
+    /**
+     * Méthode pour vérifier si le jeu est fini.
+     *
+     * @return true si le jeu est fini, false sinon.
+     */
     public boolean etreFini() {
         boolean res = true;
         //perso mort
@@ -85,10 +108,20 @@ public class LabyJeu implements Jeu {
         return res;
     }
 
+    /**
+     * Renvoie le labyrinthe actuel du jeu.
+     *
+     * @return labyrinthe actuel.
+     */
     public Labyrinthe getLabyrinthe() {
         return labyrinthe;
     }
 
+    /**
+     * Change le labyrinthe courant du jeu.
+     *
+     * @param suivant Un booléen indiquant si on passe au labyrinthe suivant (true) ou précédent (false).
+     */
     public void changerLabyCourant(boolean suivant) {
         if (suivant) {
             nbcourant += 1;
