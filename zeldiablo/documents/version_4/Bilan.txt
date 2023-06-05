@@ -1,7 +1,7 @@
 Célie: fonctionnalité 7;
 Florian : fonctionnalité 1;
-Florian & Yehor : fonctionnalité 2
-Yehor : fonctionnalités 3, 4, 5, 6;
+Florian & Yehor : fonctionnalité 2;
+Yehor : fonctionnalités 3, 4, 5 et 6;
 
 
 Fonctionnalités implémentés avec succès :
@@ -13,10 +13,17 @@ Fonctionnalités implémentés avec succès :
 -> fonctionnalité 6 : fini
 -> fonctionnalité 7 : fini
 
+Les fonctionnalités 1 à 5 viennent toutes de l'itération précédente (la troisième) et ont été fini dans cette itération.
+Les diagrammes de séquence liés à ces fonctionnalités se trouvent donc dans le répertoire "version_3".
+
 Pour la fonctionnalité 7 (l'ajout de sprite), nous avons pris la décision d'ajouter une méthode à Entité
 qui renvoie l'image qui représente la classe, cette dernière est redéfinie pour chaque sous classe,
 et renvoie null pour chaque classe n'étant pas censé être présente dans le labyrinthe.
 Il y a également une méthode dans Combattant pour permettre d'afficher les combattants tels que Serpent;
+
+
+Pour la fonctionnalité 8 (l'ajout d'un menu), dans la classe MoteurJeu, nous avons renommé la méthode start de base en "stratJeu", puis nous avons crée une nouvelle méthode start qui crée un menu avec deux image (start et quit)
+qui sont des images cliquable, lorsque l'utilisateur clique sur l'image start, la méthode startJeu se lance.
 
 Bugs restants :
 aucuns
