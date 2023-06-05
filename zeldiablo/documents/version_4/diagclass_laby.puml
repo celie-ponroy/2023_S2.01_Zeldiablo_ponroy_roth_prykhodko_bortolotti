@@ -180,19 +180,19 @@ class MoteurJeu{
 
 Labyrinthe "1" --> "*" EntiteInteractives : + entiteInteractives
 Labyrinthe "1" --> "*" Combattant : + comb
-Labyrinthe "1" -left-> "1" Perso : + pj
+Labyrinthe "1" --> "1" Perso : + pj
 LabyJeu "1" --> "1" Labyrinthe : + labyrinthe
 LabyJeu "1" --> "*" Labyrinthe : + labyrinthes
 Serpent "1" --> "1" SerPart : - snake
 
-Main -left> Labyrinthe : use
+Main -right> Labyrinthe : use
 MainLaby -> LabyJeu : use
 MainLaby -> MoteurJeu : use
 Entité <|-left- Combattant
 Entité <|-- SerPart
 Entité <|-- EntiteInteractives
 Combattant <|-- Monstre
-Combattant <|-- Perso
+Combattant <|-up- Perso
 Combattant <|-- Fantome
 Combattant <|-- Serpent
 Combattant <|-- Troll
