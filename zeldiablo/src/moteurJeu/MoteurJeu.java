@@ -171,7 +171,7 @@ public class MoteurJeu extends Application {
         root.setBottom(stats);
 
         // creation de la scene
-        final Scene scene = new Scene(root, WIDTH, HEIGHT);
+        final Scene scene = new Scene(root, 1000, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
 
