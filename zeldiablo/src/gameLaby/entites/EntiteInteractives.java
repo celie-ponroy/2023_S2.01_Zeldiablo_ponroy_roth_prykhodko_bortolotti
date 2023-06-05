@@ -5,7 +5,6 @@ package gameLaby.entites;
  */
 public class EntiteInteractives extends Entite{
 
-
     /**
      * Constructeur Entite
      *
