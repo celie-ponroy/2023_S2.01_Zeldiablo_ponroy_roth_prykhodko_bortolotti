@@ -126,10 +126,16 @@ public class MoteurJeu extends Application {
         pane.getChildren().add(quit);
 
         //ajout d'une musique de fond
+<<<<<<< HEAD
         String path = "musique/menu.mp3";
         Media media = new Media(new File(path).toURI().toString());
         media_player = new MediaPlayer(media);
        media_player.play();
+=======
+        String chemin = "musique/menu.mp3";
+        Media menu = new Media(new File(chemin).toURI().toString());
+        media_player = new MediaPlayer(menu);
+>>>>>>> f5fffe597b634a09d2d39bf41d6417314511f6bb
 
         start.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
