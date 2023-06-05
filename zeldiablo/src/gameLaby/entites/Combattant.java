@@ -1,4 +1,4 @@
-package gameLaby.laby;
+package gameLaby.entites;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;

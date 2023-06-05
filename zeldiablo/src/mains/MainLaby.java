@@ -1,8 +1,9 @@
-package gameLaby.laby;
+package mains;
 
 import moteurJeu.MoteurJeu;
-
 import java.io.IOException;
+import gameLaby.laby.*;
+
 
 public class MainLaby {
     public static void main(String[] args) throws IOException {

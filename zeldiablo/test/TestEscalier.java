@@ -1,9 +1,11 @@
 import gameLaby.laby.*;
 import moteurJeu.Clavier;
 import org.junit.jupiter.api.Test;
-
+import gameLaby.entites.*;
 import java.io.IOException;
 import java.util.ArrayList;
+
+
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

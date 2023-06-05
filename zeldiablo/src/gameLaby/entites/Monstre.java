@@ -1,6 +1,6 @@
-package gameLaby.laby;
+package gameLaby.entites;
 
-
+import gameLaby.laby.*;
 public class Monstre extends Combattant{
 
     public Monstre(int vie, int x, int y, boolean col){

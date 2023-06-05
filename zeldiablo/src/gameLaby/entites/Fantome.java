@@ -1,5 +1,5 @@
-package gameLaby.laby;
-
+package gameLaby.entites;
+import gameLaby.laby.*;
 public class Fantome extends Combattant{
 
 

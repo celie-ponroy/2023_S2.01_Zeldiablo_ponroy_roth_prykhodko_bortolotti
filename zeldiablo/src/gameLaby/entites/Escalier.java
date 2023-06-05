@@ -1,8 +1,8 @@
-package gameLaby.laby;
+package gameLaby.entites;
 
 public class Escalier extends EntiteInteractives{
         public boolean montant;//si l'escalier monte(true) ou descends(false)
-    Escalier(int x, int y, boolean estmontant){
+    public Escalier(int x, int y, boolean estmontant){
         super(x,y,false);
         this.montant = estmontant;
     }
