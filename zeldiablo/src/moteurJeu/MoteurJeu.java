@@ -18,7 +18,6 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 
-
 // copied from: https://gist.github.com/james-d/8327842
 // and modified to use canvas drawing instead of shapes
 
@@ -162,7 +161,6 @@ public class MoteurJeu extends Application {
         canvas.heightProperty().bind(canvasContainer.heightProperty());
 
 
-
         // affichage des stats
         final Label stats = new Label();
         stats.textProperty().bind(frameStats.textProperty());
@@ -223,7 +221,7 @@ public class MoteurJeu extends Application {
             @Override
             public void handle(long timestamp) {
                 //fin du jeu
-                if (jeu.etreFini()){
+                if (jeu.etreFini()) {
                     this.stop();
                     return;
                 }

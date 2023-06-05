@@ -3,6 +3,7 @@ package gameLaby.laby;
 import moteurJeu.Clavier;
 import moteurJeu.Jeu;
 import gameLaby.entites.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,13 +15,13 @@ public class LabyJeu implements Jeu {
     private int nbcourant;
 
     public LabyJeu(String nomdossier) throws IOException {
-        nbcourant=0;
-        labyrinthes= new ArrayList<Labyrinthe>();
+        nbcourant = 0;
+        labyrinthes = new ArrayList<Labyrinthe>();
         //initialiser labyrinthes
-        File f  = new File("./"+nomdossier);
+        File f = new File("./" + nomdossier);
         File[] paths;
 
-        int i=0;
+        int i = 0;
         paths = f.listFiles();
 
         Arrays.sort(paths);
@@ -28,10 +29,10 @@ public class LabyJeu implements Jeu {
             this.labyrinthes.add(new Labyrinthe(path.getPath()));
             i++;
         }
-        this.labyrinthe=labyrinthes.get(nbcourant);
+        this.labyrinthe = labyrinthes.get(nbcourant);
     }
 
-    public void update(double secondes, Clavier clavier){
+    public void update(double secondes, Clavier clavier) {
         if (clavier.droite) {
             labyrinthe.deplacerCombattant(labyrinthe.pj, Labyrinthe.DROITE);
             labyrinthe.comportementMonstre();
@@ -48,33 +49,34 @@ public class LabyJeu implements Jeu {
             labyrinthe.deplacerCombattant(labyrinthe.pj, Labyrinthe.BAS);
             labyrinthe.comportementMonstre();
         }
-        Escalier escalier =labyrinthe.chercherEntitéeInteractive(labyrinthe.pj.getX(),labyrinthe.pj.getY());
-        if (clavier.a && escalier!=null) {
+        Escalier escalier = labyrinthe.chercherEntitéeInteractive(labyrinthe.pj.getX(), labyrinthe.pj.getY());
+        if (clavier.a && escalier != null) {
             this.changerLabyCourant(escalier.montant);
         }
         if (clavier.e) {
             ArrayList<Combattant> arr = labyrinthe.combattantAutourPerso(labyrinthe.pj);
-            for (Combattant c :arr  ) {
+            for (Combattant c : arr) {
                 c.etreAttaque(labyrinthe.ATTAQUE_PERSO);
             }
         }
     }
+
     public void init() {
         //rien
     }
 
-    public boolean etreFini(){
+    public boolean etreFini() {
         boolean res = true;
         //perso mort
         if (labyrinthe.pj.etreMort()) {
             return res;
         }
-        Labyrinthe l = labyrinthes.get(labyrinthes.size()-1);
+        Labyrinthe l = labyrinthes.get(labyrinthes.size() - 1);
 
 //      tous les monstres sont morts
-        for ( Labyrinthe tmpL : labyrinthes ) {
-            for ( Combattant c : tmpL.comb ) {
-                if (!c.etreMort()){
+        for (Labyrinthe tmpL : labyrinthes) {
+            for (Combattant c : tmpL.comb) {
+                if (!c.etreMort()) {
                     return false;
                 }
             }
@@ -86,18 +88,19 @@ public class LabyJeu implements Jeu {
     public Labyrinthe getLabyrinthe() {
         return labyrinthe;
     }
-    public void changerLabyCourant(boolean suivant){
-        if(suivant){
-            nbcourant+=1;
-        }else{
-            nbcourant-=1;
+
+    public void changerLabyCourant(boolean suivant) {
+        if (suivant) {
+            nbcourant += 1;
+        } else {
+            nbcourant -= 1;
         }
 
         Perso perso = labyrinthe.pj;
 
-        labyrinthe=labyrinthes.get(nbcourant);
+        labyrinthe = labyrinthes.get(nbcourant);
 
-        labyrinthe.pj=perso;
+        labyrinthe.pj = perso;
     }
 
 

@@ -1,13 +1,15 @@
 package gameLaby.entites;
+
 import gameLaby.laby.*;
-public class Fantome extends Combattant{
+
+public class Fantome extends Combattant {
 
 
     /**
      * Constructeur Fantome
      *
-     * @param x   abscisse
-     * @param y   ordonnée
+     * @param x abscisse
+     * @param y ordonnée
      */
     public Fantome(int x, int y) {
         super(Labyrinthe.VIE_FANTOME, x, y, false);

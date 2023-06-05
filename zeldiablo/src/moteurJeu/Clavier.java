@@ -12,7 +12,7 @@ public class Clavier {
     /**
      * méthode utile a la classe TestEscalier
      */
-    public void interagir(){
+    public void interagir() {
         this.a = true;
     }
 
