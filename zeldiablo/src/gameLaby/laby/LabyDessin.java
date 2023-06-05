@@ -8,8 +8,9 @@ import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
 
 
-
 public class LabyDessin implements DessinJeu {
+    static int tailleCase = 50;
+
     @Override
     public void dessinerJeu(Jeu jeu, Canvas canvas) {
 
@@ -49,7 +50,7 @@ public class LabyDessin implements DessinJeu {
         Image youWin = new Image("/youWin.png");
         double centerXwin = (canvas.getWidth() - youWin.getWidth()) / 2;
         double centerYwin = (canvas.getHeight() - youWin.getHeight()) / 2;
-        gc.drawImage(youWin, centerXwin, centerYwin + 100);
+        gc.drawImage(youWin, centerXwin, centerYwin + tailleCase*2);
         //dessiner le perso par dessus le texte
         Perso perso = labyrinthe.getPj();
         int x = perso.getX();
@@ -78,7 +79,7 @@ public class LabyDessin implements DessinJeu {
         int y = perso.getY();
 
         Image link = new Image("link-mort.png");
-        gc.drawImage(link, x * 50, y * 50, 50, 50);
+        gc.drawImage(link, x * tailleCase, y * tailleCase, tailleCase, tailleCase);
     }
 
     /**
@@ -91,7 +92,7 @@ public class LabyDessin implements DessinJeu {
         for(int i = 0; i<labyrinthe.getLength();i++) {
             for (int j = 0; j < labyrinthe.getLengthY(); j++) {
                 Image image = new Image("/tiles.png");
-                gc.drawImage(image, i * 50, j * 50, 50, 50);
+                gc.drawImage(image, i * tailleCase, j * tailleCase, tailleCase, tailleCase);
             }
         }
     }
@@ -99,7 +100,7 @@ public class LabyDessin implements DessinJeu {
     private void dessinEntiteInteractives(Labyrinthe labyrinthe, GraphicsContext gc) {
         for (int i = 0; i < labyrinthe.entiteInteractives.size(); i++) {
             Image escalier = new Image(labyrinthe.entiteInteractives.get(i).getImage());
-            gc.drawImage(escalier, labyrinthe.entiteInteractives.get(i).getX() * 50, labyrinthe.entiteInteractives.get(i).getY() * 50, 50, 50);
+            gc.drawImage(escalier, labyrinthe.entiteInteractives.get(i).getX() * 50, labyrinthe.entiteInteractives.get(i).getY() * tailleCase, tailleCase, tailleCase);
 
         }
     }
@@ -112,13 +113,13 @@ public class LabyDessin implements DessinJeu {
 
         if (perso.getPv() == 0) {        //faire si le perso meurt
             Image link = new Image("link-mort.png");
-            gc.drawImage(link, x * 50, y * 50, 50, 50);
+            gc.drawImage(link, x * tailleCase, y * tailleCase, tailleCase, tailleCase);
         } else {
             Image link = new Image("link-2.png");
-            gc.drawImage(link, x * 50, y * 50, 50, 50);
+            gc.drawImage(link, x * tailleCase, y * tailleCase, tailleCase, tailleCase);
             for (int i = 0; i < perso.getPv(); i++) {
                 Image coeur = new Image("/coeur.png");
-                gc.drawImage(coeur, 0 + (i * 50), canvas.getHeight() - 50, 50, 50);
+                gc.drawImage(coeur, 0 + (i * tailleCase), canvas.getHeight() - tailleCase, tailleCase, tailleCase);
             }
         }
 
@@ -128,7 +129,7 @@ public class LabyDessin implements DessinJeu {
             for (int j = 0; j < labyrinthe.getLengthY(); j++)
                 if (labyrinthe.getMur(i, j)) {
                     Image wall = new Image("/tiles_wall.png");
-                    gc.drawImage(wall, i * 50, j * 50, 50, 50);
+                    gc.drawImage(wall, i * tailleCase, j * tailleCase, tailleCase, tailleCase);
                 }
         }
     }
