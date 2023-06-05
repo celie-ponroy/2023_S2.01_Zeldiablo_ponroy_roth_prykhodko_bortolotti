@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+
+participant "Moteur Jeu" as m
+participant "Labyd : Labydessin" as labyd
+participant "laby : Labyrinthe" as laby
+participant "jeu : Jeu" as labyJeu
+participant "gc :GraphicContext " as gc
+participant "canvas :Canvas " as canvas
+activate m
+m-> labyd:dessinerJeu(LabyJeu , Canvas)
+activate labyd
+labyd -> labyJeu :getLabyrinthe()
+labyd <-- labyJeu : laby
+labyd->canvas: getGraphicsContext2D();
+labyd<--canvas:gc
+labyd -> gc : fillRect(0, 0, canvas.getWidth(), canvas.getHeight())
+labyd <-- gc
+
+labyd ->labyd : dessinSol(labyrinthe, gc)
+activate labyd
+labyd <--labyd
+deactivate labyd
+
+labyd ->labyd :dessinEntiteInteractives(labyrinthe, gc)
+activate labyd
+labyd <--labyd
+deactivate labyd
+
+labyd -> labyd : dessinPerso(labyrinthe,canvas)
+activate labyd
+labyd <--labyd
+deactivate labyd
+labyd ->labyd : dessinMurs(labyrinthe, gc)
+activate labyd
+labyd <--labyd
+deactivate labyd
+labyd ->labyd :  dessinCombatants(labyrinthe, gc)
+activate labyd
+labyd <--labyd
+deactivate labyd
+m<-- labyd
+deactivate labyd
+deactivate m
+
+@enduml
