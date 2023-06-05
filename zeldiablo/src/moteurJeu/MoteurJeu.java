@@ -129,7 +129,9 @@ public class MoteurJeu extends Application {
         String chemin = "musique/menu.mp3";
         Media menu = new Media(new File(chemin).toURI().toString());
         media_player = new MediaPlayer(menu);
+
         media_player.play();
+
         start.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent MouseEvent) {
