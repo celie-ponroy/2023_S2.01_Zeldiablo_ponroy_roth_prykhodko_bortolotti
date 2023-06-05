@@ -43,7 +43,7 @@ public abstract class Combattant extends Entite {
         return this.pv <=0 ;
     }
 
-    public void drawComb(GraphicsContext gc, Image imgCombatant, Labyrinthe labyrinthe){
+    public void drawComb(GraphicsContext gc, Image imgCombatant){
         gc.drawImage(imgCombatant, getX() * 50, getY() * 50, 50, 50);
     }
 

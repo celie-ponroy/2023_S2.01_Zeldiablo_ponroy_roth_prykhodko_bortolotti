@@ -1,17 +1,22 @@
 Célie: fonctionnalité 7;
-
+Florian : fonctionnalité 1;
+Florian & Yehor : fonctionnalité 2
+Yehor : fonctionnalités 3, 4 et 5;
 
 
 Fonctionnalités implémentés avec succès :
--> fonctionnalité 1 :
--> fonctionnalité 2 :
--> fonctionnalité 3 :
--> fonctionnalité 4 :
--> fonctionnalité 5 :
+-> fonctionnalité 1 : fini
+-> fonctionnalité 2 : fini
+-> fonctionnalité 3 : fini
+-> fonctionnalité 4 : fini
+-> fonctionnalité 5 : fini
+-> fonctionnalité 6 : fini
 -> fonctionnalité 7 : fini
 
-Pour la fonctionnalité 7 (l'ajout de sprite), nous avons pris la décision d'ajouter une méthode à Entitée sui renvoie l'image qui représente la classe , cette dernière est redéfinie pour chaque sous classe,
-et renvoie null pour chaque classe n'étant pas censé être présente dans le labyrinthe ;et renvoie null pour chaque classe n'étant pas censé être présente dans le labyrinthe , et une méthode d ns combatant pour permettre d'afficher les combatants tels que serpent;
+Pour la fonctionnalité 7 (l'ajout de sprite), nous avons pris la décision d'ajouter une méthode à Entité
+qui renvoie l'image qui représente la classe, cette dernière est redéfinie pour chaque sous classe,
+et renvoie null pour chaque classe n'étant pas censé être présente dans le labyrinthe.
+Il y a également une méthode dans Combattant pour permettre d'afficher les combattants tels que Serpent;
 
 Bugs restants :
 aucuns

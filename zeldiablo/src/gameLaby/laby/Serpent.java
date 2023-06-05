@@ -65,8 +65,8 @@ public class Serpent extends Combattant{
 
         return res;
     }
-
-    public void drawComb(GraphicsContext gc, Image imgCombatant, Labyrinthe labyrinthe){
+    @Override
+    public void drawComb(GraphicsContext gc, Image imgCombatant){
         if(snake.size() == 0)
             return;
 
@@ -76,9 +76,6 @@ public class Serpent extends Combattant{
         for (int i = 1; i < snake.size(); i++) {
             gc.drawImage(imgCombatant, snake.get(i).getX() * 50, snake.get(i).getY() * 50, 50, 50);
         }
-//        for (SerPart s : snake ){
-//            gc.drawImage(imgCombatant, s.getX() * 50, s.getY() * 50, 50, 50);
-//        }
     }
 
     @Override
