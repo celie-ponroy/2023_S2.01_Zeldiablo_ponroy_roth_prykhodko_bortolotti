@@ -13,6 +13,9 @@ Fonctionnalités implémentés avec succès :
 -> fonctionnalité 6 : fini
 -> fonctionnalité 7 : fini
 
+Les fonctionnalités 1 à 5 viennent toutes de l'itération précédente (la troisième) et ont été fini dans cette itération.
+Les diagrammes de séquence liés à ces fonctionnalités se trouvent donc dans le répertoire "version_3".
+
 Pour la fonctionnalité 7 (l'ajout de sprite), nous avons pris la décision d'ajouter une méthode à Entité
 qui renvoie l'image qui représente la classe, cette dernière est redéfinie pour chaque sous classe,
 et renvoie null pour chaque classe n'étant pas censé être présente dans le labyrinthe.
