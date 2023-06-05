@@ -1,0 +1,169 @@
+@startuml
+
+package gameLaby.laby{
+
+class Labyrinthe{
++ <static final> MUR: char
++ <static final> PJ: char
++ <static final> VIDE: char
++ <static final> HAUT: String
++ <static final> BAS: String
++ <static final> GAUCHE: String
++ <static final> DROITE: String
++ <static final> MONSTRE : char
++ <static final> ESCALIERUP : char
++ <static final> ESCALIERDOWN : char
++ murs : boolean[][]
++ Labyrinthe(String nom)
++ getSuivant(int x, int y, String action) : int[]
++ deplacerPerso(String action)
++ deplacerCombattant() : void
++ etreFini(): boolean
++ etreCombattant(int x, int y) : boolean
++ getLengthY(): int
++ getLength(): int
++ getMur(int x, int y): boolean
++ getPj() : Perso
++ getCombattant(int x, int y) : Combattant
++ getEntiteInteractives() : ArrayList<EntiteInteractives>
++ combattantAutour(Combattant c) : Combattant[]
++ getComb() : ArrayList<Combattant>
++ chercherEntitéeInteractive(int x, int y) : Escalier
++ persoAutour(Combattant c) : boolean
++ deplacementAleatoire() : void
++ comportementMonstre() : void
+}
+
+
+class Main{
+}
+
+class MainLaby{
+}
+
+class Perso{
++Perso(int dx, int dy)
+}
+
+Abstract class Entité{
+- x : int
+- y : int
+- collision : boolean
++ etrePresent(int dx, int dy): boolean
++setX()
++setY()
++getX(): int
++getY(): int
++{abstract}deplacer()
++{abstract}getImage():String
+}
+
+Abstract class Combattant{
+- pv : int
+- force : int
++ Combattant(int vie, int f, int x, int y, boolean col)
++ getPv() : int
++ getForce() : int
++ setPv()
++ setForce()
++ etrePresent(int dx, int dy) : boolean
++ {abstract}attaquer(Combattant c)
++ {abstract}etreAttaque(int force)
+}
+
+class EntiteInteractives{
++ EntiteInteractives(int x, int y, boolean col)
++ deplacer(int[] suiv) : void
+}
+
+class Monstre{
++ deplacer()
+}
+
+class Fantome{
++ Fantome(int vie, int frc, int x, int y)
++ attaquer(Combattant e)
++ etreAttaque(int force)
++ deplacer(int[] suiv)
+}
+
+class Serpent{
+- isHead : boolean
+- taille : int
+- tMax : int
+- nextPart : Serpent
++ Serpent(int vie, int frc, int x, int y,int tCour, int t)
++ etrePresent(int dx, int dy) : boolean
++ attaquer(Combattant e)
++ etreAttaque(int force)
++ deplacer(int[] suiv)
++ deplacerSerpent(int[] suiv) : Serpent
++ getIsHead() : boolean
+}
+
+class Troll{
++ Troll(int frc, int x, int y)
++ attaquer(Combattant e)
++ etreAttaque(int force)
++ deplacer(int[] suiv)
+}
+
+class Escalier{
++ montant : boolean
++ changerEtage()
+}
+
+class LabyJeu{
+- nbcourant : int
+}
+
+class LabyDessin{
+-win(Canvas canvas,Labyrinthe labyrinthe):void
+-gameover( Canvas canvas,Labyrinthe labyrinthe):void
+-dessinSol(labyrinthe, gc):void
+-dessinEntiteInteractives(labyrinthe, gc):void
+-dessinPerso(labyrinthe,canvas):void
+-dessinMurs(labyrinthe, gc):void
+-dessinCombatants(labyrinthe, gc):void
+}
+
+}
+
+package moteurJeu{
+
+interface Jeu{
+}
+
+interface DessinJeu{
+}
+
+class Clavier{
+}
+
+class FrameStats{
+}
+
+class MoteurJeu{
+}
+
+}
+
+Labyrinthe "1" --> "*" EntiteInteractives : + entiteInteractives
+Labyrinthe "1" --> "*" Combattant : + comb
+Labyrinthe "1" --> "1" Perso : + pj
+LabyJeu "1" --> "1" Labyrinthe : + labyrinthe
+LabyJeu "1" --> "1" Labyrinthe : + labyrinthes
+
+Entité <|-- Combattant
+Entité <|-- EntiteInteractives
+Combattant <|-- Monstre
+Combattant <|-- Perso
+Combattant <|-- Fantome
+Combattant <|-- Serpent
+Combattant <|-- Troll
+EntiteInteractives <|-- Escalier
+Jeu <|.. LabyJeu
+DessinJeu <|.. LabyDessin
+Application <|-- MoteurJeu
+
+@enduml
