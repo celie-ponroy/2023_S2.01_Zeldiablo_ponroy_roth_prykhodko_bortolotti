@@ -1,7 +1,7 @@
 5
-20
-XXXXXXXXXXXXXXXXXXXX
-X.J......T.......J.X
-X..................X
-X.........P........X
-XXXXXXXXXXXXXXXXXXXX
+16
+XXXXXXXXXXXXXXXX
+X.J....T.....J.X
+X..............X
+X.......P......X
+XXXXXXXXXXXXXXXX
