@@ -1,4 +1,4 @@
-package mains;
+package gameLaby.mains;
 
 import moteurJeu.MoteurJeu;
 import java.io.IOException;
