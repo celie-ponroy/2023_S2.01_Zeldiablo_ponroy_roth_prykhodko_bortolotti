@@ -56,11 +56,6 @@ public class LabyJeu implements Jeu {
             ArrayList<Combattant> arr = labyrinthe.combattantAutourPerso(labyrinthe.pj);
             for (Combattant c :arr  ) {
                 c.etreAttaque(labyrinthe.ATTAQUE_PERSO);
-                if(c.getPv() > 0) {
-                    System.out.println("Il reste " + c.getPv() + " pv au monstre");
-                }else if(c.getPv() == 0){
-                    System.out.println("Le monstre est mort!");
-                } else if(c.getPv() < 0){}
             }
         }
     }
