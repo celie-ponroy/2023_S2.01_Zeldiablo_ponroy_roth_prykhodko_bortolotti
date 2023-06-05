@@ -15,7 +15,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 
 // copied from: https://gist.github.com/james-d/8327842
@@ -32,7 +37,7 @@ public class MoteurJeu extends Application {
     /**
      * taille par defaut
      */
-    private static double WIDTH = 800;
+    private static double WIDTH = 1000;
     private static double HEIGHT = 600;
 
     /**
@@ -87,7 +92,7 @@ public class MoteurJeu extends Application {
     //#################################
     // SURCHARGE Application
     //#################################
-
+    protected MediaPlayer media_player;
     public void start(Stage primaryStage) {
         VBox pane = new VBox();
         Scene s = new Scene(pane, WIDTH, HEIGHT);
@@ -98,7 +103,7 @@ public class MoteurJeu extends Application {
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.DEFAULT,
-                new BackgroundSize(800, 600, false, false, false, false));
+                new BackgroundSize(WIDTH, HEIGHT, false, false, false, false));
         Background bGround = new Background(bImg);
         pane.setBackground(bGround);
 
@@ -119,6 +124,12 @@ public class MoteurJeu extends Application {
         quit.setTranslateX(320);
         quit.setTranslateY(400);
         pane.getChildren().add(quit);
+
+        //ajout d'une musique de fond
+        String path = "musique/menu.mp3";
+        Media media = new Media(new File(path).toURI().toString());
+        media_player = new MediaPlayer(media);
+        MediaView viewer = new MediaView(media_player);
 
         start.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -171,7 +182,7 @@ public class MoteurJeu extends Application {
         root.setBottom(stats);
 
         // creation de la scene
-        final Scene scene = new Scene(root, WIDTH, HEIGHT);
+        final Scene scene = new Scene(root, 1000, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
 

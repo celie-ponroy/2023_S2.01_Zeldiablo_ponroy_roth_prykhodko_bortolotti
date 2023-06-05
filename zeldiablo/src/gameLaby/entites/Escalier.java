@@ -25,11 +25,6 @@ public class Escalier extends EntiteInteractives {
      *
      * @return le lien vers l'image qui représnte l'escalier
      */
-
-    public void changerEtage() {
-        //appel de changerLabyCourant de LabyJeu
-    }
-
     @Override
     public String getImage() {
         String res;
