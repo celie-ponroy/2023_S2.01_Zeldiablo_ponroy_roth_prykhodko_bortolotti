@@ -67,3 +67,14 @@
 7. Affichage avec des sprites
   - La fenêtre n'affiche plus des Figures de base (rond, ...) mais des sprites représentant
     les personnages et les objets
+
+8. Création d'un menu
+- Descriptif :
+    Plutot que de lancer directement le jeu, le joueur lance un menu qui lui permet de
+    lancer le jeu ou de quitter l'application. Ce menu ré-apparait lorsque le joueur gagne
+    ou perd.
+- Critères de validation
+    - Le menu possède une image spécfique.
+    - Le menu propose deux options jouer ou quitter.
+    - Le menu s'affiche dans la même JFrame que le rendu du jeu.
+    - Pendant le menu, le jeu n'est pas créé et ne tourne pas.

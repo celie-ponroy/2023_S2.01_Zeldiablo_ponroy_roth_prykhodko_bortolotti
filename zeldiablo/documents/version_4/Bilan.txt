@@ -18,5 +18,9 @@ qui renvoie l'image qui représente la classe, cette dernière est redéfinie po
 et renvoie null pour chaque classe n'étant pas censé être présente dans le labyrinthe.
 Il y a également une méthode dans Combattant pour permettre d'afficher les combattants tels que Serpent;
 
+
+Pour la fonctionnalité 8 (l'ajout d'un menu), dans la classe MoteurJeu, nous avons renommé la méthode start de base en "stratJeu", puis nous avons crée une nouvelle méthode start qui crée un menu avec deux image (start et quit)
+qui sont des images cliquable, lorsque l'utilisateur clique sur l'image start, la méthode startJeu se lance.
+
 Bugs restants :
 aucuns
