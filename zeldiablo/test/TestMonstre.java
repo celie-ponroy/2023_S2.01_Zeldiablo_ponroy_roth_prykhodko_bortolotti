@@ -1,3 +1,4 @@
+import gameLaby.entites.*;
 import gameLaby.laby.*;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;

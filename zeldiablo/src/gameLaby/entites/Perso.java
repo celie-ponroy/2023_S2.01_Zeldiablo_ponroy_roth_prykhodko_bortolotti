@@ -1,5 +1,5 @@
-package gameLaby.laby;
-
+package gameLaby.entites;
+import gameLaby.laby.*;
 
 /**
  * gere un personnage situe en x,y

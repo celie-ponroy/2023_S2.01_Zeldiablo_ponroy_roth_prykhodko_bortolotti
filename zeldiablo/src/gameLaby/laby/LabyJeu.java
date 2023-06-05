@@ -2,7 +2,7 @@ package gameLaby.laby;
 
 import moteurJeu.Clavier;
 import moteurJeu.Jeu;
-
+import gameLaby.entites.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,9 +59,7 @@ public class LabyJeu implements Jeu {
                     System.out.println("Il reste " + c.getPv() + " pv au monstre");
                 }else if(c.getPv() == 0){
                     System.out.println("Le monstre est mort!");
-                } else if(c.getPv() < 0){
-                    System.out.println("Il reste 0 pv au monstre");
-                }
+                } else if(c.getPv() < 0){}
             }
         }
     }

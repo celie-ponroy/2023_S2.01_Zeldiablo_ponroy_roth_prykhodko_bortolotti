@@ -1,6 +1,5 @@
-import gameLaby.laby.Fantome;
+import gameLaby.entites.*;
 import gameLaby.laby.Labyrinthe;
-import gameLaby.laby.Monstre;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,6 +1,8 @@
-package gameLaby.laby;
+package gameLaby.entites;
 
-public class Troll extends Combattant{
+import gameLaby.laby.*;
+
+public class Troll extends Combattant {
     /**
      * Constructeur Entite
      *
