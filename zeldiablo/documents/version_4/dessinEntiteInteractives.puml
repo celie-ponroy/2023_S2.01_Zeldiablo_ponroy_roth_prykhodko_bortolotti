@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+participant "Labyd : Labydessin" as labyd
+participant "laby : Labyrinthe" as laby
+participant "entitéInterractive : Arrayliste<EntitéInterractive>" as EI
+participant "gc :GraphicContext " as gc
+participant "canvas :Canvas " as canvas
+
+activate labyd
+labyd ->labyd :dessinerEntitéInterractive
+loop
+activate labyd
+create img
+labyd ->img:new Image(labyrinthe.entiteInteractives.get(i).getImage());
+labyd -> gc : drawImage(img, labyrinthe.entiteInteractives.get(i).getX() * 50, labyrinthe.entiteInteractives.get(i).getY() * tailleCase, tailleCase, tailleCase);
+end loop
+labyd -->labyd
+deactivate labyd
+deactivate labyd
+
+@enduml
