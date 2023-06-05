@@ -129,9 +129,11 @@ public class Labyrinthe {
                 char c = ligne.charAt(colonne);
                 switch (c) {
                     case MUR:
+                        // ajoute mur
                         this.murs[colonne][numeroLigne] = true;
                         break;
                     case VIDE:
+                        // ajoute case vide
                         this.murs[colonne][numeroLigne] = false;
                         break;
                     case PJ:
@@ -216,6 +218,7 @@ public class Labyrinthe {
     public boolean etreCombattant(int x, int y){
         boolean res = false;
         for(int i = 0; i < comb.size(); i++) {
+            // on verifie si un combattant se trouve aux coordonnees x y
             res = comb.get(i).etrePresent(x, y);
             if (res)
                 break;
@@ -224,6 +227,7 @@ public class Labyrinthe {
     }
 
     public boolean deplacementValide(Combattant c, int[] suivante){
+        // si il y a un mur
         if (suivante[0]<0 || suivante[0] > murs.length-1 || suivante[1] < 0 || suivante[1] > murs[0].length-1)
             return false;
 
@@ -281,6 +285,7 @@ public class Labyrinthe {
         Combattant res = null;
         for(int i = 0; i < comb.size(); i++) {
             if(comb.get(i).etrePresent(x, y)){
+                // on recupere le combattant se trouvant aux coordonnees x y
                 res = comb.get(i);
                 break;
             }
@@ -301,17 +306,23 @@ public class Labyrinthe {
     }
 
     public ArrayList<Combattant> combattantAutourPerso(Combattant c) {
+        // liste des Combattants autour du perso
         ArrayList<Combattant> m = new ArrayList<>();
 
+        // recupere les coordonnees du combattant en parametre
         int coordX = c.getX();
         int coordY = c.getY();
 
+        // tableau stockant les directions vers lesquelles on peut attaquer
         String[] str = { Labyrinthe.GAUCHE, Labyrinthe.DROITE, Labyrinthe.HAUT, Labyrinthe.BAS };
 
         for (String s : str ) {
+            // coordonnees de la case suivante selon l'action
             int[] suiv = this.getSuivant(coordX, coordY, s);
+            // renvoie l'eventuel combattant aux coordonnees suiv
             Combattant c1 = this.getCombattant(suiv[0], suiv[1]);
             if (c1!=null)
+                // si il y a effectivement un combattant, on l'ajoute a la liste m
                 m.add(c1);
         }
 
@@ -321,12 +332,15 @@ public class Labyrinthe {
     public boolean persoAutour(Combattant c) {
         boolean res = false;
 
+        // recupere les coordonnees du combattant en parametre
         int coordX = c.getX();
         int coordY = c.getY();
 
+        // recupere les coordonnees du perso
         int coordPersoX = this.pj.getX();
         int coordPersoY = this.pj.getY();
 
+        // on teste si le perso est autour du combattant en parametre
         if ((coordX == coordPersoX) && (coordY + 1 == coordPersoY)) {
             res = true;
         }
@@ -359,7 +373,9 @@ public class Labyrinthe {
 
     public String deplacementAleatoire(){
         String res = "";
+        // donne un chiffre aleatoire 1, 2, 3 ou 4
         int valeur = (int) Math.floor ((Math.random() * 4) + 1) ;
+        // donne une direction selon le chiffre obtenu
         switch (valeur){
             case 1:
                 res = Labyrinthe.DROITE;
@@ -378,15 +394,20 @@ public class Labyrinthe {
     }
 
     public void comportementMonstre(){
+
+        // on parcourt la liste des combattants du labyrinthe
         for(Combattant c : comb){
+            // si le monstre est mort, on enleve sa collision
             if (c.etreMort()){
                 c.setCollision(false);
                 continue;
             }
 
+            // fait attaquer le monstre si le perso est autour
             if(this.persoAutour(c)){
                 c.attaquer(pj);
             }
+            // si le perso n'est pas autour, le monstre se deplace
             else{
                 String action = deplacementAleatoire();
                 this.deplacerCombattant(c, action);
