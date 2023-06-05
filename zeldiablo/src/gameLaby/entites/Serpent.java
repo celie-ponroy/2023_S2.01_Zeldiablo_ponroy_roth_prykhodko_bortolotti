@@ -4,17 +4,21 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import java.util.ArrayList;
 
+
+/**
+ * Classe représentant un serpent dans le jeu.
+ */
 public class Serpent extends Combattant{
 
     private ArrayList<SerPart> snake;
     private int taille;
 
     /**
-     * Constructeur Entite
+     * Constructeur du Serpent.
      *
-     * @param x   abscisse
-     * @param y   ordonnée
-     * @param size la taille du serpent
+     * @param x   Position x du serpent sur la grille.
+     * @param y   Position y du serpent sur la grille.
+     * @param size Taille du serpent.
      */
     public Serpent(int x, int y, int size) {
         super(Labyrinthe.VIE_SERPENT, x, y, true);
@@ -25,7 +29,11 @@ public class Serpent extends Combattant{
         taille = size;
     }
 
-
+    /**
+     * Méthode permettant le déplacement du serpent.
+     *
+     * @param suiv Position suivante du serpent.
+     */
     @Override
     public void deplacer(int[] suiv) {
         SerPart sp = new SerPart(suiv[0], suiv[1]);
@@ -38,17 +46,35 @@ public class Serpent extends Combattant{
         this.setY(suiv[1]);
     }
 
+
+    /**
+     * Méthode permettant l'attaque par le serpent.
+     *
+     * @param c Combattant cible de l'attaque.
+     */
     @Override
     public void attaquer(Combattant c) {
         c.etreAttaque(Labyrinthe.ATTAQUE_MONSTRE);
     }
 
+    /**
+     * Méthode gérant l'attaque subie par le serpent.
+     *
+     * @param force Force de l'attaque subie.
+     */
     @Override
     public void etreAttaque(int force) {
         int pvRestant = this.getPv() - force;
         this.setPv(pvRestant);
     }
 
+    /**
+     * Indique si le serpent est présent à une position spécifique.
+     *
+     * @param dx La coordonnée x à vérifier.
+     * @param dy La coordonnée y à vérifier.
+     * @return true si le serpent est à la position (dx, dy), false sinon.
+     */
     @Override
     public boolean etrePresent(int dx, int dy) {
         boolean res = false;
@@ -61,6 +87,13 @@ public class Serpent extends Combattant{
 
         return res;
     }
+
+    /**
+     * Méthode permettant de dessiner le serpent.
+     *
+     * @param gc Contexte graphique dans lequel le serpent doit être dessiné.
+     * @param imgCombatant Image du serpent.
+     */
     @Override
     public void drawComb(GraphicsContext gc, Image imgCombatant){
         if(snake.size() == 0)
@@ -74,6 +107,11 @@ public class Serpent extends Combattant{
         }
     }
 
+    /**
+     * Renvoie le chemin de l'image représentant la tête du serpent.
+     *
+     * @return Une chaîne de caractères représentant le chemin de l'image de la tête du serpent.
+     */
     @Override
     public String getImage() {
         return "/Tetes_serp.png";

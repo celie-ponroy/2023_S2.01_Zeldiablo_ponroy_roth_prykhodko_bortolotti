@@ -79,7 +79,6 @@ public class LabyJeu implements Jeu {
         for ( Labyrinthe tmpL : labyrinthes ) {
             for ( Combattant c : tmpL.comb ) {
                 if (!c.etreMort()){
-//                    System.out.println(c.getClass());
                     return false;
                 }
             }
