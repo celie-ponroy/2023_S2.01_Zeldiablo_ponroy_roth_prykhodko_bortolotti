@@ -38,6 +38,7 @@ public class Perso extends Combattant{
     public void attaquer(Combattant c){
         c.etreAttaque(Labyrinthe.ATTAQUE_PERSO);
     }
+
     public void etreAttaque(int force){
         int pvRestant = this.getPv() - force;
         this.setPv(pvRestant);

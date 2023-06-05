@@ -4,13 +4,10 @@ public class Fantome extends Combattant{
 
 
     /**
-     * Constructeur Entite
+     * Constructeur Fantome
      *
-     * @param vie
-     * @param frc
      * @param x   abscisse
      * @param y   ordonnée
-     * @param col
      */
     public Fantome(int x, int y) {
         super(Labyrinthe.VIE_FANTOME, x, y, false);

@@ -31,12 +31,10 @@
 
 4. Troll (vient de l'itération 3)
 - Descriptif :
-    - Les trolls sont un nouveau type de monstre. Un troll se régénère au fur et à mesure.
+    - Les trolls sont un nouveau type de monstre.
 - Critères de validation
     - Un troll se déplace de la même manière qu'un monstre de base (les murs sont des
       obstacles).
-    - Si un Troll ne prend aucun dégât pendant un tour de jeu, il regagne un point de
-      vie.
     - Les attaques des trolls fonctionnent de la même manière que les attaques des
       monstres de base.
     - Un troll a par défaut 6 points de vie.

@@ -12,15 +12,22 @@ public class Escalier extends EntiteInteractives{
      * @param y
      * @param estmontant
      */
+
     public Escalier(int x, int y, boolean estmontant){
         super(x,y,false);
         this.montant = estmontant;
     }
 
+
     /**
      * Get image
      * @return le lien vers l'image qui représnte l'escalier
      */
+
+    public void changerEtage(){
+        //appel de changerLabyCourant de LabyJeu
+    }
+
     @Override
     public String getImage() {
         String res;

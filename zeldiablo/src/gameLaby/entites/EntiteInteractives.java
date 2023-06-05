@@ -16,6 +16,7 @@ public class EntiteInteractives extends Entite{
     public EntiteInteractives(int x, int y, boolean col) {
         super(x, y, col);
     }
+
     @Override
     public String getImage() {
         return null;
