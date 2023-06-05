@@ -14,11 +14,12 @@ public abstract class Entite {
 
     /**
      * Constructeur de Entite.
-     * @param x Coordonnée x de l'entité sur la grille.
-     * @param y Coordonnée y de l'entité sur la grille.
+     *
+     * @param x   Coordonnée x de l'entité sur la grille.
+     * @param y   Coordonnée y de l'entité sur la grille.
      * @param col Indique si l'entité est en collision avec des autres objets.
      */
-    public Entite(int x, int y, boolean col){
+    public Entite(int x, int y, boolean col) {
         this.x = x;
         this.y = y;
         collision = col;
@@ -43,7 +44,7 @@ public abstract class Entite {
         this.y = y;
     }
 
-    public void setCollision(boolean col){
+    public void setCollision(boolean col) {
         this.collision = col;
     }
 
@@ -61,7 +62,7 @@ public abstract class Entite {
      *
      * @return Un tableau contenant les coordonnées x et y de l'entité.
      */
-    public int[] getPosition(){
+    public int[] getPosition() {
         int[] positionEntite = new int[2];
         positionEntite[0] = this.getX();
         positionEntite[1] = this.getY();
@@ -73,7 +74,7 @@ public abstract class Entite {
      *
      * @return true si l'entité est en collision, false sinon.
      */
-    public  boolean getCollision(){
+    public boolean getCollision() {
         return collision;
     }
 

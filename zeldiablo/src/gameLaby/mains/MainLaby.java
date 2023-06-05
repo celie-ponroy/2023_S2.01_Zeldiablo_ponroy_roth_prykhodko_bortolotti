@@ -1,7 +1,9 @@
 package gameLaby.mains;
 
 import moteurJeu.MoteurJeu;
+
 import java.io.IOException;
+
 import gameLaby.laby.*;
 
 
@@ -16,7 +18,7 @@ public class MainLaby {
         LabyDessin dessinJeu = new LabyDessin();
 
         // parametrage du moteur de jeu
-        MoteurJeu.setTaille(width,height);
+        MoteurJeu.setTaille(width, height);
         MoteurJeu.setFPS(pFPS);
 
         // lancement du jeu

@@ -8,8 +8,9 @@ public interface Jeu {
 
     /**
      * methode mise a jour du jeu
+     *
      * @param secondes temps ecoule depuis la derniere mise a jour
-     * @param clavier objet contenant l'état du clavier'
+     * @param clavier  objet contenant l'état du clavier'
      */
     void update(double secondes, Clavier clavier);
 
@@ -20,6 +21,7 @@ public interface Jeu {
 
     /**
      * verifie si le jeu est fini
+     *
      * @return booleen true si le jeu est fini
      */
     boolean etreFini();

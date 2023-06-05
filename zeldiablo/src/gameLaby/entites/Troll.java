@@ -9,13 +9,12 @@ public class Troll extends Combattant {
     /**
      * Constructeur Troll
      *
-     * @param x   abscisse
-     * @param y   ordonnée
+     * @param x abscisse
+     * @param y ordonnée
      */
     public Troll(int x, int y) {
-        super(Labyrinthe.VIE_TROLL,  x, y, true);
+        super(Labyrinthe.VIE_TROLL, x, y, true);
     }
-
 
 
     @Override

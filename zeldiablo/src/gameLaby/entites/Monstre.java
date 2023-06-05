@@ -1,9 +1,10 @@
 package gameLaby.entites;
 
 import gameLaby.laby.*;
-public class Monstre extends Combattant{
 
-    public Monstre(int vie, int x, int y, boolean col){
+public class Monstre extends Combattant {
+
+    public Monstre(int vie, int x, int y, boolean col) {
         super(vie, x, y, col);
     }
 
@@ -13,11 +14,11 @@ public class Monstre extends Combattant{
         setY(suiv[1]);
     }
 
-    public void attaquer(Combattant c){
+    public void attaquer(Combattant c) {
         c.etreAttaque(Labyrinthe.ATTAQUE_MONSTRE);
     }
 
-    public void etreAttaque(int force){
+    public void etreAttaque(int force) {
         int pvRestant = this.getPv() - force;
         this.setPv(pvRestant);
     }

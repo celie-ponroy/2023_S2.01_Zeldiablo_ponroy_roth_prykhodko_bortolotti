@@ -2,10 +2,9 @@ import gameLaby.laby.*;
 import moteurJeu.Clavier;
 import org.junit.jupiter.api.Test;
 import gameLaby.entites.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
-
-
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 public class TestEscalier {
     /**
      * Vérifie qu'un escalier est traversable par le joueur
+     *
      * @throws IOException
      */
     @Test
@@ -22,8 +22,8 @@ public class TestEscalier {
         l.deplacerCombattant(l.pj, Labyrinthe.HAUT);
         int x = l.pj.getX();
         int y = l.pj.getY();
-        Escalier e=null;
-        for (int i = 0; i<l.entiteInteractives.size(); i++){
+        Escalier e = null;
+        for (int i = 0; i < l.entiteInteractives.size(); i++) {
             e = (Escalier) l.entiteInteractives.get(i);
         }
         assertEquals(x, e.getX());
@@ -32,6 +32,7 @@ public class TestEscalier {
 
     /**
      * Véifie que un fois sur la case de l'escalier, l'utilisatteur doit appuyer sur "a" pour l'utiliser
+     *
      * @throws IOException
      */
     @Test
@@ -43,11 +44,12 @@ public class TestEscalier {
         c.interagir();
         lj.update(2, c);
         Labyrinthe l2 = lj.getLabyrinthe();
-        assertNotEquals(l,l2);
+        assertNotEquals(l, l2);
     }
 
     /**
      * Vérifie que quand le perso change d'étage, les monstre de l'étage précedent reste inchangé
+     *
      * @throws IOException
      */
     @Test
@@ -60,11 +62,12 @@ public class TestEscalier {
         ArrayList<Combattant> l1 = l.getComb();
         lj.update(2, c);
         ArrayList<Combattant> l2 = l.getComb();
-        assertEquals(l1,l2);
+        assertEquals(l1, l2);
     }
 
     /**
      * Vérifie qu'il y a bien d'autres monstre a un étage supérieur
+     *
      * @throws IOException
      */
     @Test
@@ -77,12 +80,13 @@ public class TestEscalier {
         lj.update(2, c);
         Labyrinthe l2 = lj.getLabyrinthe();
         ArrayList<Combattant> l1 = new ArrayList<Combattant>();
-        assertNotEquals(l1,l2.getComb());
+        assertNotEquals(l1, l2.getComb());
     }
 
     /**
      * Vérifie que quand le héros emprunte un escalier il se trouve bien au
      * même coordonnée où il était dans l'autre labyrinthe
+     *
      * @throws IOException
      */
     @Test
@@ -98,12 +102,13 @@ public class TestEscalier {
         l = lj.getLabyrinthe();
         int x1 = l.getPj().getX();
         int y1 = l.getPj().getY();
-        assertEquals(x,x1);
-        assertEquals(y,y1);
+        assertEquals(x, x1);
+        assertEquals(y, y1);
     }
 
     /**
      * Vérifie qu'il y a bien deux types d'escalier, montant et descendant
+     *
      * @throws IOException
      */
     @Test
@@ -117,6 +122,7 @@ public class TestEscalier {
     /**
      * Vérifie qu'un escalier montant a bien
      * un escalier descendant au dessus de lui aux même coordonnées
+     *
      * @throws IOException
      */
     @Test
