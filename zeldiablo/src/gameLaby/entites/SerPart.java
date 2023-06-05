@@ -4,8 +4,6 @@ public class SerPart extends Entite {
     public SerPart(int xPos, int yPos) {
         super(xPos, yPos, true);
     }
-
-
     public boolean etrePresent(int dx, int dy) {
         boolean res = false;
 
@@ -16,8 +14,6 @@ public class SerPart extends Entite {
 
         return res;
     }
-
-
     public String getImage() {
         return "/corps_serp.png";
     }

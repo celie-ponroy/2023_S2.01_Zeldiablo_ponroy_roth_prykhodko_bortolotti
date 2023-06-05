@@ -1,0 +1,37 @@
+@startuml
+participant "Main" as M
+participant "Jeu" as J
+participant "Combattant" as C
+
+M -> J: comportementMonstre()
+activate J
+loop for each Combattant c in comb
+  J -> C: etreMort()
+  activate C
+  C --> J : boolean
+  deactivate C
+  alt if c.etreMort() true
+    J -> C: setCollision(false)
+    activate C
+    C --> J : void
+    deactivate C
+    J -> C: persoAutour(c)
+    activate C
+    C --> J : boolean
+    deactivate C
+  else si persoAutour true
+
+    J -> C: attaquer(pj)
+    activate C
+    C --> J : void
+    deactivate C
+  else
+    J -> J: deplacementAleatoire() : void
+
+    J -> J: deplacerCombattant(c, action)
+  end
+end
+
+J --> M : void
+deactivate J
+@enduml
