@@ -25,19 +25,13 @@ m -> l : getSuivant(x, y, action)
 activate l
 m <-- l : [x,y]
 deactivate l
-m -> l : getMur(x, y)
+m -> l : deplacementValide(x, y)
 activate l
 m <-- l : boolean
 
-
-
-alt si getMur renvoie false
-    m -> l : getEntite(x, y)
-    m <-- l : boolean
-    alt si getEntite renvoie false
-        m -> l : deplacerEntite(perso,action)
-        m <-- l : void
-    end
+alt si deplacementValide renvoie true
+    m -> l : deplacerEntite(perso,action)
+    m <-- l : void
 end
 
 deactivate l

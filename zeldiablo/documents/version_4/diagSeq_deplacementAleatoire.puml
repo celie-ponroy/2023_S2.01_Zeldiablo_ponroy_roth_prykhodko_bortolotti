@@ -1,0 +1,23 @@
+@startuml
+participant "Main" as M
+participant "Labyrinte" as L
+
+M -> L: deplacementAleatoire()
+activate L
+L -> L: Math.random() : (valeur)
+
+L -> L: switch(valeur)
+alt case 1
+  L -> L: DROITE
+else case 2
+  L -> L: GAUCHE
+else case 3
+  L -> L: HAUT
+else case 4
+  L -> L: BAS
+end
+
+L --> M: return res
+deactivate L
+
+@enduml

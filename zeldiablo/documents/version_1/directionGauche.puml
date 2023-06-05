@@ -19,10 +19,10 @@ deactivate p
 m -> l : getSuivant(x, y, "GAUCHE")
 activate l
 m <-- l : [x,y]
-m -> l : getMur(x, y)
+m -> l : deplacamentValide(x, y)
 m <-- l : boolean
 
-alt si getMur renvoie false
+alt si deplacamentValide renvoie true
 m -> l : deplacerPerso("GAUCHE")
 m <-- l : void
 end
