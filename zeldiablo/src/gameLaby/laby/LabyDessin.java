@@ -75,7 +75,7 @@ public class LabyDessin implements DessinJeu {
                     continue;
 
                 Image imgCombatant = new Image(labyrinthe.comb.get(i).getImage());
-                labyrinthe.comb.get(i).drawComb(gc, imgCombatant, labyrinthe);
+                labyrinthe.comb.get(i).drawComb(gc, imgCombatant);
 
         }
         if (jeu.etreFini()){

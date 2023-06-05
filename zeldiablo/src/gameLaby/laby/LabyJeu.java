@@ -28,9 +28,8 @@ public class LabyJeu implements Jeu {
             i++;
         }
         this.labyrinthe=labyrinthes.get(nbcourant);
-
-
     }
+
     public void update(double secondes, Clavier clavier){
         if (clavier.droite) {
             labyrinthe.deplacerCombattant(labyrinthe.pj, Labyrinthe.DROITE);
@@ -71,7 +70,7 @@ public class LabyJeu implements Jeu {
         }
         Labyrinthe l = labyrinthes.get(labyrinthes.size()-1);
 
-//        boss mort
+//      tous les monstres sont morts
         for ( Labyrinthe tmpL : labyrinthes ) {
             for ( Combattant c : tmpL.comb ) {
                 if (!c.etreMort()){
