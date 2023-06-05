@@ -6,7 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
-
+import gameLaby.entites.*;
 
 
 public class LabyDessin implements DessinJeu {

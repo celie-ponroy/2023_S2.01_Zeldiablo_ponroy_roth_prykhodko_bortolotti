@@ -1,4 +1,4 @@
-package gameLaby.laby;
+package gameLaby.entites;
 
 public class EntiteInteractives extends Entite{
 

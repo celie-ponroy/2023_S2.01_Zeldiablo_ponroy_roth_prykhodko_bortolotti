@@ -1,6 +1,8 @@
-package gameLaby.laby;
+package mains;
 
 import java.io.IOException;
+import gameLaby.laby.*;
+
 
 /**
  * charge et affiche un labyrinthe

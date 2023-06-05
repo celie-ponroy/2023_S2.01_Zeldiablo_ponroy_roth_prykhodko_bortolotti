@@ -2,7 +2,7 @@ package gameLaby.laby;
 
 import moteurJeu.Clavier;
 import moteurJeu.Jeu;
-
+import gameLaby.entites.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;

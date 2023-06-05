@@ -1,9 +1,7 @@
-package gameLaby.laby;
-
+package gameLaby.entites;
+import gameLaby.laby.*;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Serpent extends Combattant{
