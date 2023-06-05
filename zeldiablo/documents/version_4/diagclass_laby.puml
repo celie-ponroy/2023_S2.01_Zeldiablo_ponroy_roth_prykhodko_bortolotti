@@ -28,6 +28,7 @@ class Labyrinthe{
 + <static final> DROITE: String
 
 + murs : boolean[][]
+
 + getSuivant(int x, int y, String action) : int[]
 + Labyrinthe(String nom)
 + deplacerCombattant(Combattant c, String act) : void
